@@ -1,0 +1,8 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#173320",
+    "titleBar.activeBackground": "#21482D",
+    "titleBar.activeForeground": "#F8FCF9"
+  },
+  "DockerRun.DisableDockerrc": true
+}

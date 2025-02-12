@@ -1,0 +1,249 @@
+html,
+body {
+	margin: 0;
+
+	padding: 0;
+	display: flex;
+	font-family: "Young Serif", serif;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	color: rgb(132, 53, 25);
+	background-color: hsla(44.27, 74.1%, 72.75%, 1);
+}
+
+.home {
+	font-family: "Young Serif", serif;
+	color: rgb(132, 53, 25);
+	font-weight: 400;
+	font-style: normal;
+
+	display: flex;
+	justify-content: center;
+	margin: 30, 50%;
+	background-color: hsla(44.27, 74.1%, 72.75%, 1);
+}
+
+.young-serif-regular {
+	font-family: "Young Serif", serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: hsla(44.27, 74.1%, 72.75%, 1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0, 50%;
+	color: rgb(132, 53, 25);
+}
+
+.h1 {
+	font-size: 100px;
+	font-weight: 900;
+	color: #fff;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.h1:hover {
+	color: #165f7c;
+}
+
+.h1:hover::after {
+	opacity: 1;
+}
+
+.h1::after {
+	content: attr(data-text);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	font: 500 normal 12px / 22px YoungSerif, Helvetica Neue, Helvetica, Arial,
+		sans-serif;
+	left: 50%;
+	letter-spacing: normal;
+	opacity: 0;
+	padding: 16px 33px 17px;
+	pointer-events: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.h1 {
+	color: hsl(211, 72%, 15%);
+}
+
+.homebutton {
+	color: rgb(26, 99, 126);
+	background-color: #ffdfba;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.homebutton:hover {
+	background-color: #ffb3ba;
+	transform: scale(1.1);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	background-color: #f0f0f0;
+}
+
+.navbar {
+	opacity: 0.3;
+	height: 100vh;
+	width: 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #6e80cb;
+	overflow-x: hidden;
+	transition: width 0.5s;
+}
+
+.navbar:hover {
+	width: 140px;
+	opacity: 0.3;
+	transition: width 0.5s, opacity 0.5s;
+}
+
+.navbar a {
+	display: block;
+	color: white;
+	padding: 8px;
+	text-decoration: none;
+	transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+	background-color: #6e80cb;
+	opacity: 0.5;
+}
+
+#content {
+	margin-left: 60px;
+	padding: 16px;
+	transition: margin-left 0.5s;
+}
+
+.navbar:hover + #content {
+	margin-left: 200px;
+}
+
+.tarot {
+	background-color: #ffb3ba; /* Light pastel red */
+}
+
+.page2 {
+	background-color: #ffdfba; /* Light pastel orange */
+}
+
+.page3 {
+	background-color: #ffffba; /* Light pastel yellow */
+}
+
+.page4 {
+	background-color: #baffc9; /* Light pastel green */
+}
+
+.page5 {
+	background-color: #bae1ff; /* Light pastel blue */
+}
+
+.page6 {
+	background-color: #e6e6fa; /* Light pastel lavender */
+}
+
+.page7 {
+	background-color: #ffdab9; /* Light pastel peach */
+}
+
+.page8 {
+	background-color: #ffe4e1; /* Light pastel pink */
+}
+
+.page9 {
+	background-color: #fffacd; /* Light pastel lemon chiffon */
+}
+
+.page10 {
+	background-color: #f0fff0; /* Light pastel honeydew */
+}
+
+.page11 {
+	background-color: #f5f5dc; /* Light pastel beige */
+}
+
+.page12 {
+	background-color: #fff0f5; /* Light pastel lavender blush */
+}
+
+.page13 {
+	background-color: #f0f8ff; /* Light pastel alice blue */
+}
+
+.page14 {
+	background-color: #faebd7; /* Light pastel antique white */
+}
+
+.page15 {
+	background-color: #f5fffa; /* Light pastel mint cream */
+}
+
+.page16 {
+	background-color: #ffefd5; /* Light pastel papaya whip */
+}
+
+.page17 {
+	background-color: #fff5ee; /* Light pastel seashell */
+}
+
+.page18 {
+	background-color: #fdf5e6; /* Light pastel old lace */
+}
+
+.page19 {
+	background-color: #fffaf0; /* Light pastel floral white */
+}
+
+.page20 {
+	background-color: #f0ffff; /* Light pastel azure */
+}
+
+.page21 {
+	background-color: #f8f8ff; /* Light pastel ghost white */
+}
+
+.page22 {
+	background-color: #f5f5f5; /* Light pastel white smoke */
+}
+
+.page23 {
+	background-color: #fff8dc; /* Light pastel cornsilk */
+}
+
+.young-serif-regular {
+	font-family: "Young Serif", serif;
+	font-weight: 400;
+	font-style: normal;
+}
