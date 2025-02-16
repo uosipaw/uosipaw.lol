@@ -1,249 +1,279 @@
 html,
 body {
-	margin: 0;
-
-	padding: 0;
-	display: flex;
-	font-family: "Young Serif", serif;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	width: 100vw;
-	color: rgb(132, 53, 25);
-	background-color: hsla(44.27, 74.1%, 72.75%, 1);
-}
-
-.home {
-	font-family: "Young Serif", serif;
-	color: rgb(132, 53, 25);
-	font-weight: 400;
-	font-style: normal;
-
-	display: flex;
-	justify-content: center;
-	margin: 30, 50%;
-	background-color: hsla(44.27, 74.1%, 72.75%, 1);
-}
-
-.young-serif-regular {
 	font-family: "Young Serif", serif;
 	font-weight: 400;
 	font-style: normal;
-	background-color: hsla(44.27, 74.1%, 72.75%, 1);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	width: 100vw;
-	font-family: sans-serif;
-	margin: 0;
-	padding: 0, 50%;
+	background-color: #ffe18f;
 	color: rgb(132, 53, 25);
-}
-
-.h1 {
-	font-size: 100px;
-	font-weight: 900;
-	color: #fff;
-	text-align: center;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.h1:hover {
-	color: #165f7c;
-}
-
-.h1:hover::after {
-	opacity: 1;
-}
-
-.h1::after {
-	content: attr(data-text);
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	font: 500 normal 12px / 22px YoungSerif, Helvetica Neue, Helvetica, Arial,
-		sans-serif;
-	left: 50%;
-	letter-spacing: normal;
-	opacity: 0;
-	padding: 16px 33px 17px;
-	pointer-events: none;
-	position: absolute;
-	height: 100%;
 	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	}
+	
+	.pages {
+		display: none;
+}
+
+body {
+	margin: 50px;
+	padding: 30px;
+	width: calc(100vw - 100px);
+	height: 80%;
+}
+
+
+h1,
+h2,
+p {
+	transition: opacity 1s;
+}
+
+h1.fade-out,
+h2.fade-out,
+p.fade-out {
+	animation: fadeOut 2s;
+}
+
+.homeheader,
+.h1,
+.homebutton {
+	font-family: "Young Serif", serif;
 }
 
 .h1 {
-	color: hsl(211, 72%, 15%);
+	color: rgb(132, 53, 25);
+	font-weight: 400;
+	font-style: normal;
+	margin: 30px 50px;
+	cursor: default;
 }
 
 .homebutton {
-	color: rgb(26, 99, 126);
-	background-color: #ffdfba;
+	color: rgb(255, 199, 87);
+	background-color: #7e1a06;
 	border: none;
-	padding: 10px 20px;
+	padding: 5px 10px;
 	font-size: 16px;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 10px;
 	transition: background-color 0.3s, transform 0.3s;
+	opacity: 0.5;
 }
 
 .homebutton:hover {
-	background-color: #ffb3ba;
-	transform: scale(1.1);
+	background-color: #dd2a06;
+	transform: scale(1.5);
+}
+
+.navbar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #1f6a6f;
+	color: rgb(90, 49, 8);
+	padding: 0;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 20px;
+		/* Increase initial width */
+	height: 100vh;
+	transition: width 0.5s, opacity 0.5s;
+	opacity: 0.85;
+		/* Increase initial opacity */
+		z-index: 1000;
+		/* Ensure it is on top */
+}
+
+.navbar:hover {
+	width: 170px;
+	opacity: 0.85;
+	color: #46855b;
+	font-size: 16px;
+	font-weight: 400;
+		font-style: normal;
+		text-decoration: none;
+		transition: width 0.5s, color 0.5s;
+}
+
+.navbar a {
+	color: #f9ca2e;
+	padding: 5px;
+	display: block;
+	margin: 3px 0;
+	font-size: 20px;
+	font-weight: 400;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+.navbar a:hover {
+	color: #d85d1b;
+	transition: color 0.3s;
+}
+
+.navbar a:active {
+	color: #6d3309;
+}
+
+.navbar a:visited,
+.navbar a:link,
+.navbar a:focus,
+.navbar a:target {
+	color: #ffc422;
+}
+
+.navbar::-webkit-scrollbar {
+	width: 12px;
+	height: 100vh;
+	/* Fit scrollbar to the height of the page */
+}
+
+.navbar::-webkit-scrollbar-track {
+	background: #2e9290;
+}
+
+.navbar::-webkit-scrollbar-thumb {
+	background-color: #d34609;
+	border-radius: 5px;
+}
+
+.navbar::-webkit-scrollbar-thumb:hover {
+	background-color: #854646;
+	opacity: 1;
 }
 
 .container {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: left;
+	align-items: flex-start;
 	height: 100vh;
 	width: 100vw;
-	background-color: #f0f0f0;
-}
-
-.navbar {
-	opacity: 0.3;
-	height: 100vh;
-	width: 10px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: #6e80cb;
-	overflow-x: hidden;
-	transition: width 0.5s;
-}
-
-.navbar:hover {
-	width: 140px;
-	opacity: 0.3;
-	transition: width 0.5s, opacity 0.5s;
-}
-
-.navbar a {
-	display: block;
-	color: white;
-	padding: 8px;
-	text-decoration: none;
-	transition: background-color 0.3s;
-}
-
-.navbar a:hover {
-	background-color: #6e80cb;
-	opacity: 0.5;
+	background-color: #f4af6a;
 }
 
 #content {
-	margin-left: 60px;
-	padding: 16px;
+	margin-left: 5px;
+	padding: 10px;
 	transition: margin-left 0.5s;
+	color: #854646;
 }
 
-.navbar:hover + #content {
+.navbar:hover+#content {
 	margin-left: 200px;
 }
 
-.tarot {
-	background-color: #ffb3ba; /* Light pastel red */
+.tarot,
+.page2,
+.page3,
+.page4,
+.page5,
+.page6,
+.page7,
+.page8,
+.page9,
+.page10,
+.page11,
+.page12,
+.page13,
+.page14,
+.page15,
+.page16,
+.page17,
+.page18,
+.page19,
+.page20,
+.page21,
+.page22,
+.page23 {
+	background-color: #ffe18f;
 }
 
 .page2 {
-	background-color: #ffdfba; /* Light pastel orange */
-}
-
-.page3 {
-	background-color: #ffffba; /* Light pastel yellow */
+	background-color: #ffdfba;
 }
 
 .page4 {
-	background-color: #baffc9; /* Light pastel green */
+	background-color: #baffc9;
 }
 
 .page5 {
-	background-color: #bae1ff; /* Light pastel blue */
+	background-color: #bae1ff;
 }
 
 .page6 {
-	background-color: #e6e6fa; /* Light pastel lavender */
+	background-color: #e6e6fa;
 }
 
 .page7 {
-	background-color: #ffdab9; /* Light pastel peach */
+	background-color: #ffdab9;
 }
 
 .page8 {
-	background-color: #ffe4e1; /* Light pastel pink */
-}
-
-.page9 {
-	background-color: #fffacd; /* Light pastel lemon chiffon */
+	background-color: #ffe4e1;
 }
 
 .page10 {
-	background-color: #f0fff0; /* Light pastel honeydew */
+	background-color: #f0fff0;
 }
 
 .page11 {
-	background-color: #f5f5dc; /* Light pastel beige */
+	background-color: #f5f5dc;
 }
 
 .page12 {
-	background-color: #fff0f5; /* Light pastel lavender blush */
+	background-color: #fff0f5;
 }
 
 .page13 {
-	background-color: #f0f8ff; /* Light pastel alice blue */
+	background-color: #f0f8ff;
 }
 
 .page14 {
-	background-color: #faebd7; /* Light pastel antique white */
+	background-color: #faebd7;
 }
 
 .page15 {
-	background-color: #f5fffa; /* Light pastel mint cream */
+	background-color: #f5fffa;
 }
 
 .page16 {
-	background-color: #ffefd5; /* Light pastel papaya whip */
+	background-color: #ffefd5;
 }
 
 .page17 {
-	background-color: #fff5ee; /* Light pastel seashell */
+	background-color: #fff5ee;
 }
 
 .page18 {
-	background-color: #fdf5e6; /* Light pastel old lace */
+	background-color: #fdf5e6;
 }
 
 .page19 {
-	background-color: #fffaf0; /* Light pastel floral white */
+	background-color: #fffaf0;
 }
 
 .page20 {
-	background-color: #f0ffff; /* Light pastel azure */
+	background-color: #f0ffff;
 }
 
 .page21 {
-	background-color: #f8f8ff; /* Light pastel ghost white */
+	background-color: #f8f8ff;
 }
 
 .page22 {
-	background-color: #f5f5f5; /* Light pastel white smoke */
+	background-color: #f5f5f5;
 }
 
-.page23 {
-	background-color: #fff8dc; /* Light pastel cornsilk */
+#random-page-button {
+	display: none;
+	position: absolute;
+	opacity: 0.5;
 }
 
-.young-serif-regular {
-	font-family: "Young Serif", serif;
-	font-weight: 400;
-	font-style: normal;
+.h2header,
+.pheader {
+	display: none;
 }
