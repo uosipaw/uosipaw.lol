@@ -17,7 +17,7 @@ body {
 
 body {
 	margin: 50px;
-	padding: 30px;
+	padding: 0px;
 	width: calc(100vw - 100px);
 	height: 80%;
 }
@@ -69,7 +69,7 @@ p.fade-out {
 .navbar {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	background-color: #1f6a6f;
 	color: rgb(90, 49, 8);
 	padding: 0;
@@ -100,7 +100,7 @@ p.fade-out {
 
 .navbar a {
 	color: #f9ca2e;
-	padding: 5px;
+	padding: 0px;
 	display: block;
 	margin: 3px 0;
 	font-size: 20px;
@@ -156,7 +156,7 @@ p.fade-out {
 
 #content {
 	margin-left: 5px;
-	padding: 10px;
+	padding: 0px;
 	transition: margin-left 0.5s;
 	color: #854646;
 }
