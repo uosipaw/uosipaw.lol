@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// Get elements
-	const headers = document.querySelectorAll(".random-page-button > *");
+	const headers = document.querySelectorAll(".homebutton > *");
 	const randomPageButton = document.getElementById("random-page-button");
 	const navbarLinks = document.querySelectorAll(".navbar a");
 	const contentDiv = document.getElementById("content");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// Function to handle click events and transition to the next element
-	function handleClick(element, nextElement, randomPageButton) {
+	function handleHeaderClick(element, nextElement, randomPageButton) {
 		element.addEventListener("click", () => {
 			element.style.opacity = 0;
 			setTimeout(() => {
@@ -43,25 +43,21 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Initialize header elements with click handlers and random positions
 	headers.forEach((header, index) => {
 		const nextHeader = headers[index + 1];
-		handleClick(header, nextHeader, randomPageButton);
+		handleHeaderClick(header, nextHeader, randomPageButton);
 		setRandomPosition(header);
 		if (index !== 0) {
 			header.style.display = "none";
 		}
 	});
 
-	if (randomPageButton) {
-		setRandomPosition(randomPageButton);
-		randomPageButton.style.display = "none";
-	}
+	setRandomPosition(randomPageButton);
+	randomPageButton.style.display = "none";
 
 	// Handle random page button click
-	if (randomPageButton) {
-		randomPageButton.addEventListener("click", () => {
-			const randomLink = navbarLinks[Math.floor(Math.random() * navbarLinks.length)];
-			window.location.href = randomLink.href;
-		});
-	}
+	randomPageButton.addEventListener("click", () => {
+		const randomLink = navbarLinks[Math.floor(Math.random() * navbarLinks.length)];
+		window.location.href = randomLink.href;
+	});
 
 	// Handle navbar link clicks
 	navbarLinks.forEach(link => {
