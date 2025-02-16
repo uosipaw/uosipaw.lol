@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-c.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-sinksource.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-stubs-internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-stubs-internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\uosip\.vscode\uosipaw.lol\build\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-c.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy-sinksource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\snappy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\uosip\.vscode\uosipaw.lol\build\snappy-stubs-public.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\uosip\.vscode\extensions\randomfractalsinc.vscode-data-preview-2.3.0\node_modules\snappy\deps\snappy\snappy-1.1.7\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2FC0E2FB-7BDC-3813-89AB-3537C1D838C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1348BC02-3EAB-38C0-BB2B-E390A9B0CD5E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

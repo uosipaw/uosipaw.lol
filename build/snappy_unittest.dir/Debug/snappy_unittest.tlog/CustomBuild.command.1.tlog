@@ -1,0 +1,10 @@
+^C:\USERS\UOSIP\.VSCODE\EXTENSIONS\RANDOMFRACTALSINC.VSCODE-DATA-PREVIEW-2.3.0\NODE_MODULES\SNAPPY\DEPS\SNAPPY\SNAPPY-1.1.7\CMAKELISTS.TXT
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/uosip/.vscode/extensions/randomfractalsinc.vscode-data-preview-2.3.0/node_modules/snappy/deps/snappy/snappy-1.1.7 -BC:/Users/uosip/.vscode/uosipaw.lol/build --check-stamp-file C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

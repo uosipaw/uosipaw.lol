@@ -1,0 +1,420 @@
+Determining if the include file byteswap.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_1c44b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1c44b.dir\Debug\\" /Fd"cmTC_1c44b.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'byteswap.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_1c44b.vcxproj]
+
+
+
+Determining if the include file sys/endian.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_2f281.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2f281.dir\Debug\\" /Fd"cmTC_2f281.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/endian.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_2f281.vcxproj]
+
+
+
+Determining if the include file sys/mman.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_61b57.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_61b57.dir\Debug\\" /Fd"cmTC_61b57.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/mman.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_61b57.vcxproj]
+
+
+
+Determining if the include file sys/resource.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_086f6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_086f6.dir\Debug\\" /Fd"cmTC_086f6.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_086f6.vcxproj]
+
+
+
+Determining if the include file sys/time.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_336f1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_336f1.dir\Debug\\" /Fd"cmTC_336f1.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/time.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_336f1.vcxproj]
+
+
+
+Determining if the include file sys/uio.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_1dc2c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1dc2c.dir\Debug\\" /Fd"cmTC_1dc2c.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/uio.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_1dc2c.vcxproj]
+
+
+
+Determining if the include file unistd.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_7b2ae.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7b2ae.dir\Debug\\" /Fd"cmTC_7b2ae.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_7b2ae.vcxproj]
+
+
+
+Determining if the function zlibVersion exists in the z failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_bb3ec.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=zlibVersion /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bb3ec.dir\Debug\\" /Fd"cmTC_bb3ec.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'z.lib' [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_bb3ec.vcxproj]
+
+
+
+Determining if the function lzo1x_1_15_compress exists in the lzo2 failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_b85a8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=lzo1x_1_15_compress /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b85a8.dir\Debug\\" /Fd"cmTC_b85a8.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'lzo2.lib' [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_b85a8.vcxproj]
+
+
+
+Performing C++ SOURCE FILE Test HAVE_BUILTIN_EXPECT failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_c06b6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_BUILTIN_EXPECT /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c06b6.dir\Debug\\" /Fd"cmTC_c06b6.dir\Debug\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx(1,25): error C3861: '__builtin_expect': identifier not found [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_c06b6.vcxproj]
+
+
+Source file was:
+int main(void) { return __builtin_expect(0, 1); }
+Performing C++ SOURCE FILE Test HAVE_BUILTIN_CTZ failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_e3f5d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_BUILTIN_CTZ /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e3f5d.dir\Debug\\" /Fd"cmTC_e3f5d.dir\Debug\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx(1,25): error C3861: '__builtin_ctzll': identifier not found [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_e3f5d.vcxproj]
+
+
+Source file was:
+int main(void) { return __builtin_ctzll(0); }
+Determining if the mmap exist failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_23ec3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckSymbolExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_23ec3.dir\Debug\\" /Fd"cmTC_23ec3.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c(2,10): fatal error C1083: Cannot open include file: 'sys/mman.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_23ec3.vcxproj]
+
+
+File C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mmap
+  return ((int*)(&mmap))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sysconf exist failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_9fef6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckSymbolExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9fef6.dir\Debug\\" /Fd"cmTC_9fef6.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c(2,10): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_9fef6.vcxproj]
+
+
+File C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysconf
+  return ((int*)(&sysconf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file byteswap.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_0f1a5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f1a5.dir\Debug\\" /Fd"cmTC_0f1a5.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'byteswap.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_0f1a5.vcxproj]
+
+
+
+Determining if the include file sys/endian.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_704fa.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_704fa.dir\Debug\\" /Fd"cmTC_704fa.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/endian.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_704fa.vcxproj]
+
+
+
+Determining if the include file sys/mman.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_38384.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_38384.dir\Debug\\" /Fd"cmTC_38384.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/mman.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_38384.vcxproj]
+
+
+
+Determining if the include file sys/resource.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_63959.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_63959.dir\Debug\\" /Fd"cmTC_63959.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/resource.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_63959.vcxproj]
+
+
+
+Determining if the include file sys/time.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_1aaff.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1aaff.dir\Debug\\" /Fd"cmTC_1aaff.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/time.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_1aaff.vcxproj]
+
+
+
+Determining if the include file sys/uio.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_8217a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8217a.dir\Debug\\" /Fd"cmTC_8217a.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/uio.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_8217a.vcxproj]
+
+
+
+Determining if the include file unistd.h exists failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_909cb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_909cb.dir\Debug\\" /Fd"cmTC_909cb.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_909cb.vcxproj]
+
+
+
+Determining if the function zlibVersion exists in the z failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_ac7f8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=zlibVersion /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ac7f8.dir\Debug\\" /Fd"cmTC_ac7f8.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'z.lib' [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_ac7f8.vcxproj]
+
+
+
+Determining if the function lzo1x_1_15_compress exists in the lzo2 failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_f254c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=lzo1x_1_15_compress /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f254c.dir\Debug\\" /Fd"cmTC_f254c.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'lzo2.lib' [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_f254c.vcxproj]
+
+
+
+Performing C++ SOURCE FILE Test HAVE_BUILTIN_EXPECT failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_1712b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_BUILTIN_EXPECT /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1712b.dir\Debug\\" /Fd"cmTC_1712b.dir\Debug\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx(1,25): error C3861: '__builtin_expect': identifier not found [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_1712b.vcxproj]
+
+
+Source file was:
+int main(void) { return __builtin_expect(0, 1); }
+Performing C++ SOURCE FILE Test HAVE_BUILTIN_CTZ failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_d3608.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_BUILTIN_CTZ /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_d3608.dir\Debug\\" /Fd"cmTC_d3608.dir\Debug\vc142.pdb" /external:W3 /Gd /TP /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\src.cxx(1,25): error C3861: '__builtin_ctzll': identifier not found [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_d3608.vcxproj]
+
+
+Source file was:
+int main(void) { return __builtin_ctzll(0); }
+Determining if the mmap exist failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_7ff10.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckSymbolExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7ff10.dir\Debug\\" /Fd"cmTC_7ff10.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c(2,10): fatal error C1083: Cannot open include file: 'sys/mman.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_7ff10.vcxproj]
+
+
+File C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mmap
+  return ((int*)(&mmap))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sysconf exist failed with the following output:
+Change Dir: C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe cmTC_b4b09.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30158 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckSymbolExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b4b09.dir\Debug\\" /Fd"cmTC_b4b09.dir\Debug\vc142.pdb" /external:W3 /Gd /TC /errorReport:queue C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c(2,10): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Users\uosip\.vscode\uosipaw.lol\build\CMakeFiles\CMakeTmp\cmTC_b4b09.vcxproj]
+
+
+File C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysconf
+  return ((int*)(&sysconf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
 
-	// Function to get random position for an element
-	function getRandomPosition(element) {
-		const rect = element.getBoundingClientRect();
-		const x = Math.random() * (window.innerWidth - rect.width);
-		const y = Math.random() * (window.innerHeight - rect.height);
-		return { x, y };
-	}
+    // Function to get random position for an element
+    function getRandomPosition(element) {
+        const rect = element.getBoundingClientRect();
+        const x = Math.random() * (window.innerWidth - rect.width);
+        const y = Math.random() * (window.innerHeight - rect.height);
+        return { x, y };
+    }
 
     // Function to set random position for an element
     function setRandomPosition(element) {
@@ -84,4 +84,37 @@ document.addEventListener("DOMContentLoaded", () => {
             contentDiv.innerHTML = `<p>Content of ${page}</p>`;
         }, 1000);
     }
+
+    // Function to create home button elements
+    function createHomeButton() {
+        const homeButtonDiv = document.querySelector('.homebutton');
+
+        const elements = [
+            { tag: 'h1', id: 'h1header1', text: 'hey' },
+            { tag: 'h2', id: 'h2header2', text: 'you ready to go?' },
+            { tag: 'h2', id: 'h2header3', text: "we're just looking at whatever" },
+            { tag: 'h2', id: 'h2header4', text: "it's important to learn something new everyday" },
+            { tag: 'h2', id: 'h2header5', text: 'instead of just staring at your messages' },
+            { tag: 'p', id: 'pheader6', text: 'or lack there of' },
+            { tag: 'p', id: 'pheader7', text: "she's not going to respond btw" },
+            { tag: 'p', id: 'pheader8', text: 'if she was going to she would have by now...' },
+            { tag: 'h2', id: 'h2header9', text: 'anyway, let me just grab my vape and we\'ll bounce' },
+            { tag: 'h1', id: 'h1header10', text: '.........' },
+            { tag: 'h1', id: 'h1header11', text: 'have u seen my vape' },
+            { tag: 'h2', id: 'h2header12', text: 'i think youre sitting on it' },
+            { tag: 'p', id: 'pheader13', text: 'can you just stand up for a second' },
+            { tag: 'button', id: 'random-page-button', text: "nvm i found it, let's go", className: 'random-page-button', ariaLabel: 'Random Page Button' }
+        ];
+
+        elements.forEach(el => {
+            const element = document.createElement(el.tag);
+            element.id = el.id;
+            element.textContent = el.text;
+            if (el.className) element.className = el.className;
+            if (el.ariaLabel) element.setAttribute('aria-label', el.ariaLabel);
+            homeButtonDiv.appendChild(element);
+        });
+    }
+
+    createHomeButton();
 });

@@ -1,0 +1,10 @@
+^C:\USERS\UOSIP\.VSCODE\UOSIPAW.LOL\BUILD\CMAKEFILES\ED4EE0C578655F80596D841D211F32ED\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/uosip/.vscode/extensions/randomfractalsinc.vscode-data-preview-2.3.0/node_modules/snappy/deps/snappy/snappy-1.1.7 -BC:/Users/uosip/.vscode/uosipaw.lol/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/uosip/.vscode/uosipaw.lol/build/Snappy.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

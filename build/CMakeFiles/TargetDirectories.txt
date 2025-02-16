@@ -1,0 +1,6 @@
+C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/snappy.dir
+C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/snappy_unittest.dir
+C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/INSTALL.dir
+C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/uosip/.vscode/uosipaw.lol/build/CMakeFiles/ZERO_CHECK.dir

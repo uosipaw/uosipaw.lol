@@ -9,10 +9,10 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	}
-	
-	.pages {
-		display: none;
+}
+
+.pages {
+	display: none;
 }
 
 body {
@@ -21,7 +21,6 @@ body {
 	width: calc(100vw - 100px);
 	height: 80%;
 }
-
 
 h1,
 h2,
@@ -78,13 +77,10 @@ p.fade-out {
 	top: 0;
 	left: 0;
 	width: 20px;
-		/* Increase initial width */
 	height: 100vh;
 	transition: width 0.5s, opacity 0.5s;
 	opacity: 0.85;
-		/* Increase initial opacity */
-		z-index: 1000;
-		/* Ensure it is on top */
+	z-index: 1000;
 }
 
 .navbar:hover {
@@ -93,9 +89,9 @@ p.fade-out {
 	color: #46855b;
 	font-size: 16px;
 	font-weight: 400;
-		font-style: normal;
-		text-decoration: none;
-		transition: width 0.5s, color 0.5s;
+	font-style: normal;
+	text-decoration: none;
+	transition: width 0.5s, color 0.5s;
 }
 
 .navbar a {
@@ -128,7 +124,6 @@ p.fade-out {
 .navbar::-webkit-scrollbar {
 	width: 12px;
 	height: 100vh;
-	/* Fit scrollbar to the height of the page */
 }
 
 .navbar::-webkit-scrollbar-track {
@@ -165,108 +160,6 @@ p.fade-out {
 	margin-left: 200px;
 }
 
-.tarot,
-.page2,
-.page3,
-.page4,
-.page5,
-.page6,
-.page7,
-.page8,
-.page9,
-.page10,
-.page11,
-.page12,
-.page13,
-.page14,
-.page15,
-.page16,
-.page17,
-.page18,
-.page19,
-.page20,
-.page21,
-.page22,
-.page23 {
-	background-color: #ffe18f;
-}
-
-.page2 {
-	background-color: #ffdfba;
-}
-
-.page4 {
-	background-color: #baffc9;
-}
-
-.page5 {
-	background-color: #bae1ff;
-}
-
-.page6 {
-	background-color: #e6e6fa;
-}
-
-.page7 {
-	background-color: #ffdab9;
-}
-
-.page8 {
-	background-color: #ffe4e1;
-}
-
-.page10 {
-	background-color: #f0fff0;
-}
-
-.page11 {
-	background-color: #f5f5dc;
-}
-
-.page12 {
-	background-color: #fff0f5;
-}
-
-.page13 {
-	background-color: #f0f8ff;
-}
-
-.page14 {
-	background-color: #faebd7;
-}
-
-.page15 {
-	background-color: #f5fffa;
-}
-
-.page16 {
-	background-color: #ffefd5;
-}
-
-.page17 {
-	background-color: #fff5ee;
-}
-
-.page18 {
-	background-color: #fdf5e6;
-}
-
-.page19 {
-	background-color: #fffaf0;
-}
-
-.page20 {
-	background-color: #f0ffff;
-}
-
-.page21 {
-	background-color: #f8f8ff;
-}
-
-.page22 {
-	background-color: #f5f5f5;
-}
-
 #random-page-button {
 	display: none;
 	position: absolute;
@@ -276,4 +169,92 @@ p.fade-out {
 .h2header,
 .pheader {
 	display: none;
+}
+
+.tarot-page {
+	background-color: #a979d4;
+}
+
+.nearme-page {
+	background-color: #c79a67;
+}
+
+.food-page {
+	background-color: #baffc9;
+}
+
+.howto-page {
+	background-color: #bae1ff;
+}
+
+.bartletts-page {
+	background-color: #8282ac;
+}
+
+.nonprofit-page {
+	background-color: #b5ca84;
+}
+
+.art-page {
+	background-color: #f4897d;
+}
+
+.bugs-page {
+	background-color: #507b50;
+}
+
+.mammals-page {
+	background-color: #aeae45;
+}
+
+.reptiles-page {
+	background-color: #744253;
+}
+
+.fish-page {
+	background-color: #416381;
+}
+
+.birds-page {
+	background-color: #a17d4f;
+}
+
+.dinosaurs-page {
+	background-color: #377958;
+}
+
+.trivia-page {
+	background-color: #886c40;
+}
+
+.poem-page {
+	background-color: #6b4262;
+}
+
+.wotd-page {
+	background-color: #8b754b;
+}
+
+.vintage-page {
+	background-color: #5d5649;
+}
+
+.people-page {
+	background-color: #f0ffff;
+}
+
+.mtg-page {
+	background-color: #242464;
+}
+
+.meme-page {
+	background-color: #ff8383;
+}
+
+.folklore-page {
+	background-color: #442121;
+}
+
+.about-page {
+	background-color: #324640;
 }
