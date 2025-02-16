@@ -1,120 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>uosipaw</title>
-		<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="cssuosipaw.css" />
-		<script src="uosipaw.js"></script>
-		<style>
-			.navbar ul {
-				list-style-type: none;
-				padding: 0;
-				margin: 0;
-			}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uosipaw</title>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="cssuosipaw.css" />
+    <script src="uosipaw.js"></script>
+    <style>
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1f6a6f;
+            color: rgb(90, 49, 8);
+            padding: 0;
+            overflow-y: auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 100vh;
+            transition: width 0.5s, opacity 0.5s;
+            opacity: 0.85;
+            z-index: 1000;
+        }
 
-			.navbar li {
-				display: inline;
-				margin-right: 10px;
-			}
-		</style>
-	</head>
-	<body>
-		<script>
-			function createHomeButton() {
-				const homeButtonDiv = document.createElement('div');
-				homeButtonDiv.className = 'homebutton';
+        .navbar:hover {
+            width: 170px;
+            opacity: 0.85;
+            color: #46855b;
+            font-size: 16px;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            transition: width 0.5s, color 0.5s;
+        }
 
-				const elements = [
-					{ tag: 'h1', id: 'h1header1', text: 'hey' },
-					{ tag: 'h2', id: 'h2header2', text: 'you ready to go?' },
-					{ tag: 'h2', id: 'h2header3', text: "we're just looking at whatever" },
-					{ tag: 'h2', id: 'h2header4', text: "it's important to learn something new everyday" },
-					{ tag: 'h2', id: 'h2header5', text: 'instead of just staring at your messages' },
-					{ tag: 'p', id: 'pheader6', text: 'or lack there of' },
-					{ tag: 'p', id: 'pheader7', text: "she's not going to respond btw" },
-					{ tag: 'p', id: 'pheader8', text: 'if she was going to she would have by now...' },
-					{ tag: 'h2', id: 'h2header9', text: 'anyway, let me just grab my vape and we\'ll bounce' },
-					{ tag: 'h1', id: 'h1header10', text: '.........' },
-					{ tag: 'h1', id: 'h1header11', text: 'have u seen my vape' },
-					{ tag: 'h2', id: 'h2header12', text: 'i think youre sitting on it' },
-					{ tag: 'p', id: 'pheader13', text: 'can you just stand up for a second' },
-					{ tag: 'button', id: 'random-page-button', text: "nvm i found it, let's go", className: 'random-page-button', ariaLabel: 'Random Page Button' }
-				];
+        .navbar a {
+            color: #f9ca2e;
+            padding: 5px;
+            display: block;
+            margin: 3px 0;
+            font-size: 20px;
+            font-weight: 400;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-				elements.forEach(el => {
-					const element = document.createElement(el.tag);
-					element.id = el.id;
-					element.textContent = el.text;
-					if (el.className) element.className = el.className;
-					if (el.ariaLabel) element.setAttribute('aria-label', el.ariaLabel);
-					homeButtonDiv.appendChild(element);
-				});
-				document.body.insertBefore(homeButtonDiv, document.body.firstChild);
-			};
+        .navbar a:hover {
+            color: #d85d1b;
+            transition: color 0.3s;
+        }
 
-			document.addEventListener('DOMContentLoaded', createHomeButton);
-		</script>
-<nav class="hidden-navigation" aria-label="Secondary Navigation">
-				<div class="pages">
-				<ul>
-					<li><a href="tarot.html" aria-label="Tarot Page">Tarot</a></li>
-					<li><a href="page2.html" aria-label="Near Me Page">Near Me</a></li>
-					<li><a href="page3.html" aria-label="Food Page">Food</a></li>
-					<li><a href="page4.html" aria-label="How To Page">How To</a></li>
-					<li><a href="page5.html" aria-label="Bartletts Page">Bartletts</a></li>
-					<li><a href="page6.html" aria-label="Art History Page">Art History</a></li>
-					<li><a href="page7.html" aria-label="Bugs Page">Bugs</a></li>
-					<li><a href="page8.html" aria-label="Mammals Page">Mammals</a></li>
-					<li><a href="page9.html" aria-label="Reptiles Page">Reptiles</a></li>
-					<li><a href="page10.html" aria-label="Fish Page">Fish</a></li>
-					<li><a href="page11.html" aria-label="Birds Page">Birds</a></li>
-					<li><a href="page12.html" aria-label="Dinosaurs Page">Dinosaurs</a></li>
-					<li><a href="page13.html" aria-label="Trivia Page">Trivia</a></li>
-					<li><a href="page14.html" aria-label="Poem Page">Poem</a></li>
-					<li><a href="page15.html" aria-label="WOTD Page">WOTD</a></li>
-					<li><a href="page16.html" aria-label="Vintage Page">Vintage</a></li>
-					<li><a href="page17.html" aria-label="People Page">People</a></li>
-					<li><a href="page18.html" aria-label="MTG Page">MTG</a></li>
-					<li><a href="page19.html" aria-label="Meme Page">Meme</a></li>
-					<li><a href="page20.html" aria-label="Folklore Page">Folklore</a></li>
-					<li><a href="page21.html" aria-label="Zine Page">Zine</a></li>
-					<li><a href="page22.html" aria-label="Nonprofit Page">Nonprofit</a></li>
-				</ul>
-				</div>
-			</nav>
-<nav class="navbar" aria-label="Main Navigation">
-		<ul>
-			<li><a href="tarot.html" aria-label="Tarot Page">Tarot</a></li>
-			<li><a href="page2.html" aria-label="Near Me Page">Near Me</a></li>
-			<li><a href="page3.html" aria-label="Food Page">Food</a></li>
-			<li><a href="page4.html" aria-label="How To Page">How To</a></li>
-			<li><a href="page5.html" aria-label="Bartletts Page">Bartletts</a></li>
-			<li><a href="page6.html" aria-label="Art History Page">Art History</a></li>
-			<li><a href="page7.html" aria-label="Bugs Page">Bugs</a></li>
-			<li><a href="page8.html" aria-label="Mammals Page">Mammals</a></li>
-			<li><a href="page9.html" aria-label="Reptiles Page">Reptiles</a></li>
-			<li><a href="page10.html" aria-label="Fish Page">Fish</a></li>
-			<li><a href="page11.html" aria-label="Birds Page">Birds</a></li>
-			<li><a href="page12.html" aria-label="Dinosaurs Page">Dinosaurs</a></li>
-			<li><a href="page13.html" aria-label="Trivia Page">Trivia</a></li>
-			<li><a href="page14.html" aria-label="Poem Page">Poem</a></li>
-			<li><a href="page15.html" aria-label="WOTD Page">WOTD</a></li>
-			<li><a href="page16.html" aria-label="Vintage Page">Vintage</a></li>
-			<li><a href="page17.html" aria-label="People Page">People</a></li>
-			<li><a href="page18.html" aria-label="MTG Page">MTG</a></li>
-			<li><a href="page19.html" aria-label="Meme Page">Meme</a></li>
-			<li><a href="page20.html" aria-label="Folklore Page">Folklore</a></li>
-			<li><a href="page21.html" aria-label="Zine Page">Zine</a></li>
-			<li><a href="page22.html" aria-label="Nonprofit Page">Nonprofit</a></li>
-		</ul> <!-- Navbar content -->
-		</div>
-		<div id="content" aria-live="polite">
-		<div id="content" aria-live="polite">
-			<!-- Content will be replaced by JavaScript -->
-		</div>
-		</div>
-	</body>
+        .random-page-button {
+            display: none;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="tarot.html" aria-label="Tarot Page">Tarot</a>
+        <a href="page2.html" aria-label="Near Me Page">Near Me</a>
+        <a href="page3.html" aria-label="Food Page">Food</a>
+        <a href="page4.html" aria-label="How To Page">How To</a>
+        <a href="page5.html" aria-label="Bartletts Page">Bartletts</a>
+        <a href="page6.html" aria-label="Art History Page">Art History</a>
+        <a href="page7.html" aria-label="Bugs Page">Bugs</a>
+        <a href="page8.html" aria-label="Mammals Page">Mammals</a>
+        <a href="page9.html" aria-label="Reptiles Page">Reptiles</a>
+        <a href="page10.html" aria-label="Fish Page">Fish</a>
+        <a href="page11.html" aria-label="Birds Page">Birds</a>
+        <a href="page12.html" aria-label="Dinosaurs Page">Dinosaurs</a>
+        <a href="page13.html" aria-label="Trivia Page">Trivia</a>
+        <a href="page14.html" aria-label="Poem Page">Poem</a>
+        <a href="page15.html" aria-label="WOTD Page">WOTD</a>
+        <a href="page16.html" aria-label="Vintage Page">Vintage</a>
+        <a href="page17.html" aria-label="People Page">People</a>
+        <a href="page18.html" aria-label="MTG Page">MTG</a>
+        <a href="page19.html" aria-label="Meme Page">Meme</a>
+        <a href="page20.html" aria-label="Folklore Page">Folklore</a>
+        <a href="page21.html" aria-label="Zine Page">Zine</a>
+        <a href="page22.html" aria-label="Nonprofit Page">Nonprofit</a>
+    </div>
+    <div class="homebutton">
+    <div id="content" aria-live="polite">
+        <!-- Content will be replaced by JavaScript -->
+    </div>
+    <script>
+        function createHomeButton() {
+            const homeButtonDiv = document.querySelector('.homebutton');
+
+            const elements = [
+                { tag: 'h1', id: 'h1header1', text: 'hey' },
+                { tag: 'h2', id: 'h2header2', text: 'you ready to go?' },
+                { tag: 'h2', id: 'h2header3', text: "we're just looking at whatever" },
+                { tag: 'h2', id: 'h2header4', text: "it's important to learn something new everyday" },
+                { tag: 'h2', id: 'h2header5', text: 'instead of just staring at your messages' },
+                { tag: 'p', id: 'pheader6', text: 'or lack there of' },
+                { tag: 'p', id: 'pheader7', text: "she's not going to respond btw" },
+                { tag: 'p', id: 'pheader8', text: 'if she was going to she would have by now...' },
+                { tag: 'h2', id: 'h2header9', text: 'anyway, let me just grab my vape and we\'ll bounce' },
+                { tag: 'h1', id: 'h1header10', text: '.........' },
+                { tag: 'h1', id: 'h1header11', text: 'have u seen my vape' },
+                { tag: 'h2', id: 'h2header12', text: 'i think youre sitting on it' },
+                { tag: 'p', id: 'pheader13', text: 'can you just stand up for a second' },
+                { tag: 'button', id: 'random-page-button', text: "nvm i found it, let's go", className: 'random-page-button', ariaLabel: 'Random Page Button' }
+            ];
+
+            elements.forEach(el => {
+                const element = document.createElement(el.tag);
+                element.id = el.id;
+                element.textContent = el.text;
+                if (el.className) element.className = el.className;
+                if (el.ariaLabel) element.setAttribute('aria-label', el.ariaLabel);
+                homeButtonDiv.appendChild(element);
+            });
+        }
+
+        createHomeButton();
+    </script>
+		</div><div></div>
+</body>
+
 </html>
