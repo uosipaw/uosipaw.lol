@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// Get elements
-	const headers = document.querySelectorAll(".homebutton > *");
+	const homeButtonDiv = document.querySelector('.homebutton');
+	const elements = homeButtonDiv.children;
 	const randomPageButton = document.getElementById("random-page-button");
 	const navbarLinks = document.querySelectorAll(".navbar a");
 	const contentDiv = document.getElementById("content");
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// Function to handle click events and transition to the next element
-	function handleHeaderClick(element, nextElement, randomPageButton) {
+	function handleElementClick(element, nextElement, randomPageButton) {
 		element.addEventListener("click", () => {
 			element.style.opacity = 0;
 			setTimeout(() => {
@@ -40,24 +41,28 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	// Initialize header elements with click handlers and random positions
-	headers.forEach((header, index) => {
-		const nextHeader = headers[index + 1];
-		handleHeaderClick(header, nextHeader, randomPageButton);
-		setRandomPosition(header);
+	// Initialize elements with click handlers and random positions
+	Array.from(elements).forEach((element, index) => {
+		const nextElement = elements[index + 1];
+		handleElementClick(element, nextElement, randomPageButton);
+		setRandomPosition(element);
 		if (index !== 0) {
-			header.style.display = "none";
-		}
-	});
+				element.style.display = "none";
+			}
+		});
 
-	setRandomPosition(randomPageButton);
-	randomPageButton.style.display = "none";
+	if (randomPageButton) {
+			setRandomPosition(randomPageButton);
+			randomPageButton.style.display = "none";
+		}
 
 	// Handle random page button click
-	randomPageButton.addEventListener("click", () => {
-		const randomLink = navbarLinks[Math.floor(Math.random() * navbarLinks.length)];
-		window.location.href = randomLink.href;
-	});
+	if (randomPageButton) {
+			randomPageButton.addEventListener("click", () => {
+				const randomLink = navbarLinks[Math.floor(Math.random() * navbarLinks.length)];
+				window.location.href = randomLink.href;
+			});
+		}
 
 	// Handle navbar link clicks
 	navbarLinks.forEach(link => {
