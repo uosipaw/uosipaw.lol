@@ -131,11 +131,7 @@ body {
 	margin-left: 200px;
 }
 
-.random-page-button {
-	display: none;
-	position: absolute;
-	opacity: 0.5;
-}
+
 
 .h2header,
 .pheader {
@@ -274,23 +270,24 @@ body {
 }
 
 .random-page-button {
-	color: rgb(71, 60, 39);
-	background-color: #7e1a06;
+	color: rgb(245, 204, 240);
+		background-color: #336049;
 	border: none;
 	padding: 5px 10px;
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 10px;
-	transition: background-color 0.3s, transform 0.3s;
+	transition: opacity 0.5s ease-in-out;
 	opacity: 1;
 	min-height: 40px;
-	position: fixed;
+	position: absolute;
 	visibility: visible;
 	z-index: 2;
 }
 
 .random-page-button:hover {
-	background-color: #dd2a06;
+	background-color: #40384b;
+		color: #dc9b45;
 	transform: scale(1.5);
 	transition: background-color 0.5s, transform 0.5s;
 }
