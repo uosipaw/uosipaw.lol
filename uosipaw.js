@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const sequence = [
         'h1header1', 'h2header2', 'h2header3', 'h2header4', 'h2header5',
-        'pheader6', 'pheader7', 'pheader8', 'h2header9', 'h1header10',
+        'pheader6', 'pheader7', 'pheader8', 'h2header10', 'h1header9',
         'h1header11', 'h2header12', 'pheader13', 'random-page-button'
     ];
 
