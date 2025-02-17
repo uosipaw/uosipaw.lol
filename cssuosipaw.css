@@ -270,27 +270,29 @@ body {
 }
 
 .random-page-button {
-	color: rgb(245, 204, 240);
-		background-color: #336049;
+	color: rgb(255, 175, 78);
+	background-color: #44aaae;
 	border: none;
-	padding: 5px 10px;
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 10px;
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s ease-in-out, transform 0.3s;
 	opacity: 1;
-	min-height: 40px;
-	width: 100px;
 	position: absolute;
 	visibility: hidden;
 	z-index: 2;
+	width: auto;
+		/* Adjust width to fit the text */
+		padding: 5px 10px;
+		/* Add padding for better appearance */
 }
 
 .random-page-button:hover {
-	background-color: #40384b;
-		color: #dc9b45;
-	transform: scale(1.5);
-	transition: background-color 0.5s, transform 0.5s;
+	background-color: #3b666c;
+	color: #dc9b45;
+	transform: scale(1.05);
+		/* Make the hover transition less extreme */
+		transition: background-color 0.3s, transform 0.3s;
 }
 
 .loadingScreen {
@@ -303,12 +305,13 @@ body {
 	align-items: center;
 	justify-content: center;
 }
+
 .skip-button {
 	position: fixed;
 	top: 20px;
 	right: 20px;
-	color: rgb(255, 199, 87);
-	background-color: #7e1a06;
+	color: rgb(255, 185, 44);
+		background-color: #06687e;
 	border: none;
 	padding: 5px 10px;
 	font-size: 16px;
@@ -320,7 +323,7 @@ body {
 }
 
 .skip-button:hover {
-	background-color: #dd2a06;
 	transform: scale(1.1);
+	opacity: 1;
 	transition: background-color 0.5s, transform 0.5s;
 }
