@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         contentDiv.innerHTML = `<p>Loading ${page}...</p>`;
         // Simulate loading page content
         setTimeout(() => {
-            contentDiv.innerHTML = `<p>Content of ${page}</p>`;
+            contentDiv.innerHTML = '<p>Content of ' + page + '</p>';
         }, 1000);
     }
 
