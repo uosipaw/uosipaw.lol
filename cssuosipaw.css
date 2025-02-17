@@ -291,6 +291,7 @@ body {
 	transform: scale(1.5);
 	transition: background-color 0.5s, transform 0.5s;
 }
+
 .loadingScreen {
 	position: absolute;
 	z-index: 5;
