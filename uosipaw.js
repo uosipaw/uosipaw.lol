@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const homeButtonContentDiv = document.querySelector('.homebuttoncontent'); // Fixed typo
-    const elements = homeButtonContentDiv.children;
+    const homeButtonDiv = document.querySelector('.homebutton');
+    const elements = homeButtonDiv.children;
     const randomPageButton = document.getElementById("random-page-button");
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
@@ -87,23 +87,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to create home button elements
     function createHomeButton() {
-        const homeButtonDiv = document.querySelector('.homebutton');
+        const homeButtonDiv = document.querySelector('.random-page-button');
 
         const elements = [
             { tag: 'h1', id: 'h1header1', text: 'hey' },
-            { tag: 'h2', id: 'h2header2', text: 'you ready to go?' },
-            { tag: 'h2', id: 'h2header3', text: "we're just looking at whatever" },
-            { tag: 'h2', id: 'h2header4', text: "it's important to learn something new everyday" },
-            { tag: 'h2', id: 'h2header5', text: 'instead of just staring at your messages' },
-            { tag: 'p', id: 'pheader6', text: 'or lack there of' },
-            { tag: 'p', id: 'pheader7', text: "she's not going to respond btw" },
-            { tag: 'p', id: 'pheader8', text: 'if she was going to she would have by now...' },
-            { tag: 'h2', id: 'h2header9', text: 'anyway, let me just grab my vape and we\'ll bounce' },
-            { tag: 'h1', id: 'h1header10', text: '.........' },
-            { tag: 'h1', id: 'h1header11', text: 'have u seen my vape' },
-            { tag: 'h2', id: 'h2header12', text: 'i think youre sitting on it' },
-            { tag: 'p', id: 'pheader13', text: 'can you just stand up for a second' },
-            { tag: 'button', id: 'random-page-button', text: "nvm i found it, let's go", className: 'random-page-button', ariaLabel: 'Random Page Button' }
+            { tag: 'h2', id: 'h2header2', text: 'follow me' },
+            { tag: 'h2', id: 'h2header3', text: "i want to show u something" },
+            { tag: 'h2', id: 'h2header4', text: "it's a surprise" },
+            { tag: 'h2', id: 'h2header5', text: 'but trust me, it\'s definitely cool' },
+            { tag: 'p', id: 'pheader6', text: 'i\'m like an expert on what\'s cool' },
+            { tag: 'p', id: 'pheader7', text: "keep going.." },
+            {
+                tag: 'p', id: 'pheader8', text: 'alright, we're almost there..' },
+            { tag: 'h2', id: 'h2header9', text: 'where's my vape????? ' },
+            { tag: 'h1', id: 'h1header10', text: 'WAIT' },
+            { tag: 'h1', id: 'h1header11', text: 'omg i just had it two seconds ago' },
+            { tag: 'h2', id: 'h2header12', text: 'are u sitting on it?' },
+            { tag: 'p', id: 'pheader13', text: 'can you just stand up for a second...' },
+            { tag: 'button', id: 'random-page-button', text: "omg nvm i found it, let's go!", className: 'random-page-button', ariaLabel: 'Random Page Button' }
         ];
 
         elements.forEach(el => {
@@ -129,28 +130,32 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
 
     function getRandomPosition() {
-        const padding = 100;
-        const maxWidth = window.innerWidth - padding * 2;
-        const maxHeight = window.innerHeight - padding * 2;
+        const container = document.querySelector('.homebuttoncontent');
+        const containerRect = container.getBoundingClientRect();
+
+        // Get element dimensions (assuming max size of 200px)
+        const elementWidth = 200;
+        const elementHeight = 100;
+
+        // Calculate available space
+        const maxX = containerRect.width - elementWidth;
+        const maxY = containerRect.height - elementHeight;
+
         return {
-            x: Math.floor(Math.random() * maxWidth) + padding,
-            y: Math.floor(Math.random() * maxHeight) + padding
+            x: Math.floor(Math.random() * maxX),
+            y: Math.floor(Math.random() * maxY)
         };
     }
 
     function showElement(id) {
         const element = document.getElementById(id);
         if (element) {
-            // Position first
             const position = getRandomPosition();
             element.style.position = 'absolute';
             element.style.left = `${position.x}px`;
             element.style.top = `${position.y}px`;
 
-            // Force reflow
             void element.offsetWidth;
-
-            // Then show with transition
             element.style.visibility = 'visible';
             requestAnimationFrame(() => {
                 element.classList.add('visible');
@@ -199,6 +204,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show first element immediately
     showElement(sequence[0]);
+
+    // Add skip button functionality
+    const skipButton = document.getElementById('skip-button');
+    skipButton.addEventListener('click', () => {
+        // Hide all elements except the random page button
+        sequence.forEach(id => {
+            if (id !== 'random-page-button') {
+                hideElement(id);
+            }
+        });
+
+        // Show random page button
+        currentIndex = sequence.length - 1;
+        setTimeout(() => {
+            showElement('random-page-button');
+        }, 500);
+
+        // Hide skip button
+        skipButton.style.visibility = 'hidden';
+        skipButton.style.opacity = '0';
+    });
 });
 
 // Handle loading screen
