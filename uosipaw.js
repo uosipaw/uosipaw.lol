@@ -118,3 +118,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createHomeButton();
 });
+
+/* filepath: /C:/Users/uosip/.vscode/uosipaw.lol/uosipaw.js */
+function initializeSequence() {
+    const pages = [
+        'tarot.html', 'nearme.html', 'food.html', 'howto.html', 'bartletts.html', 
+        'nonprofit.html', 'art.html', 'bugs.html', 'mammals.html', 'reptiles.html', 
+        'fish.html', 'birds.html', 'dinosaurs.html', 'trivia.html', 'poem.html', 
+        'wotd.html', 'page21.html', 'people.html', 'mtg.html', 'knowyourmeme.html', 
+        'folklore.html', 'about.html'
+    ];
+
+    const sequence = [
+        'h1header1', 'h2header2', 'h2header3', 'h2header4', 'h2header5',
+        'pheader6', 'pheader7', 'pheader8', 'h2header9', 'h1header10',
+        'h1header11', 'h2header12', 'pheader13', 'random-page-button'
+    ];
+
+    let currentIndex = 0;
+
+    function randomPosition(element) {
+        const padding = 50; // Padding from edges
+        const maxX = window.innerWidth - element.offsetWidth - padding;
+        const maxY = window.innerHeight - element.offsetHeight - padding;
+        
+        element.style.left = Math.random() * maxX + padding + 'px';
+        element.style.top = Math.random() * maxY + padding + 'px';
+    }
+
+    function showElement(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.classList.remove('hidden');
+            element.classList.add('visible', 'clickable');
+            randomPosition(element);
+        }
+    }
+
+    function hideElement(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.classList.remove('visible', 'clickable');
+            element.classList.add('hidden');
+        }
+    }
+
+    // Initialize all elements as hidden
+    sequence.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.classList.add('hidden');
+            element.addEventListener('click', handleClick);
+        }
+    });
+
+    function handleClick(event) {
+        const currentId = sequence[currentIndex];
+        hideElement(currentId);
+        currentIndex++;
+
+        if (currentIndex < sequence.length) {
+            showElement(sequence[currentIndex]);
+        }
+
+        if (event.target.id === 'random-page-button') {
+            const randomPage = pages[Math.floor(Math.random() * pages.length)];
+            window.location.href = randomPage;
+        }
+    }
+
+    // Show the first element
+    showElement(sequence[0]);
+}
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', initializeSequence);

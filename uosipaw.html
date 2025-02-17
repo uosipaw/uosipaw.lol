@@ -7,7 +7,7 @@
         <title>Uosipaw</title>
         <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="cssuosipaw.css" />
-        <script src="uosipaw.js"></script>
+        <script src="uosipaw.js" defer></script>
     </head>
 
     <body>
@@ -37,44 +37,21 @@
         </div>
 
         <div class="homebutton">
-            <div id="content" aria-live="polite">
-                <!-- Content will be replaced by JavaScript -->
-            </div>
-            <script>
-                function createHomeButton() {
-                    const homeButtonDiv = document.querySelector('.homebutton');
-
-                    const elements = [
-                        { tag: 'h1', id: 'h1header1', text: 'hey' },
-                        { tag: 'h2', id: 'h2header2', text: 'you ready to go?' },
-                        { tag: 'h2', id: 'h2header3', text: "we're just looking at whatever" },
-                        { tag: 'h2', id: 'h2header4', text: "it's important to learn something new everyday" },
-                        { tag: 'h2', id: 'h2header5', text: 'instead of just staring at your messages' },
-                        { tag: 'p', id: 'pheader6', text: 'or lack there of' },
-                        { tag: 'p', id: 'pheader7', text: "she's not going to respond btw" },
-                        { tag: 'p', id: 'pheader8', text: 'if she was going to she would have by now...' },
-                        { tag: 'h2', id: 'h2header9', text: 'anyway, let me just grab my vape and we\'ll bounce' },
-                        { tag: 'h1', id: 'h1header10', text: '.........' },
-                        { tag: 'h1', id: 'h1header11', text: 'have u seen my vape' },
-                        { tag: 'h2', id: 'h2header12', text: 'i think youre sitting on it' },
-                        { tag: 'p', id: 'pheader13', text: 'can you just stand up for a second' },
-                        { tag: 'button', id: 'random-page-button', text: "nvm i found it, let's go", className: 'random-page-button', ariaLabel: 'Random Page Button' }
-                    ];
-
-                    elements.forEach(el => {
-                        const element = document.createElement(el.tag);
-                        element.id = el.id;
-                        element.textContent = el.text;
-                        if (el.className) element.className = el.className;
-                        if (el.ariaLabel) element.setAttribute('aria-label', el.ariaLabel);
-                        homeButtonDiv.appendChild(element);
-                    });
-                }
-
-                createHomeButton();
-            </script>
+            <h1 id="h1header1">hey</h1>
+            <h2 id="h2header2">you ready to go?</h2>
+            <h2 id="h2header3">we're just looking at whatever</h2>
+            <h2 id="h2header4">it's important to learn something new everyday</h2>
+            <h2 id="h2header5">instead of just staring at your messages</h2>
+            <p id="pheader6">or lack there of</p>
+            <p id="pheader7">she's not going to respond btw</p>
+            <p id="pheader8">if she was going to she would have by now...</p>
+            <h2 id="h2header9">anyway, let me just grab my vape and we'll bounce</h2>
+            <h1 id="h1header10">.........</h1>
+            <h1 id="h1header11">have u seen my vape</h1>
+            <h2 id="h2header12">i think youre sitting on it</h2>
+            <p id="pheader13">can you just stand up for a second</p>
+            <button id="random-page-button" class="random-page-button" aria-label="Random Page Button">nvm i found it, let's go</button>
         </div>
-        <div></div>
     </body>
 
 </html>
