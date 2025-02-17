@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const homeButtonDiv = document.querySelector('.homebutton');
+    const homeButtoncontentDiv = document.querySelector('.homebuttoncontent');
     const elements = homeButtonDiv.children;
     const randomPageButton = document.getElementById("random-page-button");
     const navbarLinks = document.querySelectorAll(".navbar a");
@@ -138,7 +138,7 @@ function initializeSequence() {
     let currentIndex = 0;
 
     function randomPosition(element) {
-        const padding = 50; // Padding from edges
+        const padding = 100; // Padding from edges
         const maxX = window.innerWidth - element.offsetWidth - padding;
         const maxY = window.innerHeight - element.offsetHeight - padding;
         
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.remove('visible');
         setTimeout(() => {
             el.style.display = 'none';
-        }, 500); // Match this with CSS transition time
+        }, 1000); // Match this with CSS transition time
     }
 });
 

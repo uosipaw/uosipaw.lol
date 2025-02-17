@@ -258,6 +258,7 @@ body {
 	opacity: 1;
 	position: absolute;
 	transition: opacity 1s ease-in-out;
+	
 }
 
 .clickable {
