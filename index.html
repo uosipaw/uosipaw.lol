@@ -1,315 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>uosipaw</title>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap"
-			rel="stylesheet"
-		/>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>let me show u smthing</title>
+		<link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="cssuosipaw.css" />
-		<style>
-			h2 {
-				transition: opacity 1s;
-			}
-			p {
-				transition: opacity 1s;
-			}
-			h2,
-			p {
-				opacity: 1;
-			}
-			h1.fade-out,
-			h2.fade-out,
-			p.fade-out {
-				opacity: 0.5;
-			}
-			#random-page-button {
-				display: none;
-				position: absolute;
-			}
-			h1,
-			h2,
-			p {
-				position: absolute;
-				transition: opacity 1s;
-			}
-			h2,
-			p,
-			#random-page-button {
-				opacity: 0;
-				display: none;
-			}
-			.navbar {
-				display: block;
-			}
-			.navbar a {
-				display: block;
-			}
-		</style>
-		<script>
-			function getRandomPage() {
-				const pages = [
-					{
-						content: `
-                        <h1>Tarot</h1><p>This is the tarot page.</p>                    `,
-						class: "tarot",
-					},
-					{
-						content:
-							"<h1>Near Me</h1><p>users location to show map of nearby places</p>",
-						class: "near-me",
-					},
-					{
-						content: "<h1>Food</h1><p>recipes</p>",
-						class: "food",
-					},
-					{
-						content:
-							"<h1>How To</h1><p>populate with survival skills and life hacks</p>",
-						class: "how-to",
-					},
-					{
-						content: "<h1>Bartletts</h1><p>This is the bartletts page.</p>",
-						class: "bartletts",
-					},
-					{
-						content: "<h1>Art History</h1><p>This is the art history page.</p>",
-						class: "art-history",
-					},
-					{
-						content: "<h1>Bugs</h1><p>This is the bugs page.</p>",
-						class: "bugs",
-					},
-					{
-						content: "<h1>Mammals</h1><p>This is the mammals page.</p>",
-						class: "mammals",
-					},
-					{
-						content: "<h1>Reptiles</h1><p>This is the reptiles page.</p>",
-						class: "reptiles",
-					},
-					{
-						content: "<h1>Fish</h1><p>This is the fish page.</p>",
-						class: "fish",
-					},
-					{
-						content: "<h1>Birds</h1><p>This is the birds page.</p>",
-						class: "birds",
-					},
-					{
-						content: "<h1>Dinosaurs</h1><p>This is the dinosaurs page.</p>",
-						class: "dinosaurs",
-					},
-					{
-						content: "<h1>Trivia</h1><p>This is the trivia page.</p>",
-						class: "trivia",
-					},
-					{
-						content: "<h1>Poem</h1><p>This is the poem page.</p>",
-						class: "poem",
-					},
-					{
-						content: "<h1>WOTD</h1><p>This is the word of the day page.</p>",
-						class: "wotd",
-					},
-					{
-						content: "<h1>Vintage</h1><p>This is the vintage page.</p>",
-						class: "vintage",
-					},
-					{
-						content: "<h1>People</h1><p>This is the people page.</p>",
-						class: "people",
-					},
-					{
-						content: "<h1>MTG</h1><p>This is the MTG page.</p>",
-						class: "mtg",
-					},
-					{
-						content: "<h1>Meme</h1><p>This is the meme page.</p>",
-						class: "meme",
-					},
-					{
-						content: "<h1>Folklore</h1><p>This is the folklore page.</p>",
-						class: "folklore",
-					},
-					{
-						content: "<h1>Zine</h1><p>This is the zine page.</p>",
-						class: "zine",
-					},
-					{
-						content: "<h1>Nonprofit</h1><p>This is the nonprofit page.</p>",
-						class: "nonprofit",
-					},
-				];
-				return pages[Math.floor(Math.random() * pages.length)];
-			}
+		<script src="uosipaw.js" defer></script>
+		</head>
 
-			function getRandomTarotCard() {
-				const tarotCards = [
-					"the-fool.html",
-					"the-magician.html",
-					"the-high-priestess.html",
-					"the-empress.html",
-					"the-emperor.html",
-					"the-hierophant.html",
-					"the-lovers.html",
-					"the-chariot.html",
-					"strength.html",
-					"the-hermit.html",
-					"wheel-of-fortune.html",
-					"justice.html",
-					"the-hanged-man.html",
-					"death.html",
-					"temperance.html",
-					"the-devil.html",
-					"the-tower.html",
-					"the-star.html",
-					"the-moon.html",
-					"the-sun.html",
-					"judgement.html",
-					"the-world.html",
-				];
-				const randomCard =
-					tarotCards[Math.floor(Math.random() * tarotCards.length)];
-				window.location.href = randomCard;
-			}
-
-			function getRandomPosition(element) {
-				const x = Math.floor(
-					Math.random() * (window.innerWidth - element.offsetWidth)
-				);
-				const y = Math.floor(
-					Math.random() * (window.innerHeight - element.offsetHeight)
-				);
-				return { x, y };
-			}
-
-			function setRandomPosition(element) {
-				const { x, y } = getRandomPosition(element);
-				element.style.left = `${x}px`;
-				element.style.top = `${y}px`;
-			}
-
-			document.addEventListener("DOMContentLoaded", () => {
-				initializePage();
-				addEventListeners();
-				setRandomPositions();
-			});
-
-			function initializePage() {
-				const page = getRandomPage();
-				document.getElementById("content").innerHTML = page.content;
-				document.body.className = page.class;
-
-				if (page.class === "tarot") {
-					document
-						.getElementById("random-tarot-card")
-						.addEventListener("click", getRandomTarotCard);
-				}
-			}
-
-			function addEventListeners() {
-				document
-					.getElementById("random-page-button")
-					.addEventListener("click", () => {
-						const page = getRandomPage();
-						document.getElementById("content").innerHTML = page.content;
-						document.body.className = page.class;
-
-						if (page.class === "tarot") {
-							document
-								.getElementById("random-tarot-card")
-								.addEventListener("click", getRandomTarotCard);
-						}
-					});
-
-				const h1 = document.querySelector("h1");
-				const h2 = document.querySelector("h2");
-				const p = document.querySelector("p");
-				const randomPageButton = document.getElementById("random-page-button");
-
-				function handleClick(element, nextElement, button) {
-					element.addEventListener("click", () => {
-						element.style.opacity = 0;
-						setTimeout(() => {
-							element.style.display = "none";
-							if (nextElement) {
-								nextElement.style.display = "block";
-								nextElement.style.opacity = 1;
-							} else if (button) {
-								button.style.display = "block";
-								button.style.opacity = 1;
-							}
-						}, 1000);
-					});
-				}
-
-				handleClick(h1, h2, null);
-				handleClick(h2, p, null);
-				handleClick(p, null, randomPageButton);
-
-				document
-					.querySelectorAll("h1:not(header > h1)")
-					.forEach((element, index) => {
-						element.addEventListener("click", () => {
-							window.location.href = `page${index + 1}.html`;
-						});
-					});
-			}
-
-			function setRandomPositions() {
-				const h1 = document.querySelector("h1");
-				const h2 = document.querySelector("h2");
-				const p = document.querySelector("p");
-
-				setRandomPosition(h1);
-				setRandomPosition(h2);
-				setRandomPosition(p);
-			}
-		</script>
-	</head>
 	<body>
-		<header class="home">
-			<h1>have u seen my vape</h1>
-			<h2>i think youre sitting on it</h2>
-			<p>can you just stand up for a second</p>
-			<button
-				id="random-page-button"
-				class="homebutton"
-				onclick="window.location.href='index.html'"
-			>
-				oh nvm i found it
-			</button>
-		</header>
 		<div class="navbar">
-			<a href="tarot.html">Tarot</a>
-			<a href="page2.html">Near Me</a>
-			<a href="page3.html">Food</a>
-			<a href="page4.html">How To</a>
-			<a href="page5.html">Bartletts</a>
-			<a href="page6.html">Art History</a>
-			<a href="page7.html">Bugs</a>
-			<a href="page8.html">Mammals</a>
-			<a href="page9.html">Reptiles</a>
-			<a href="page10.html">Fish</a>
-			<a href="page11.html">Birds</a>
-			<a href="page12.html">Dinosaurs</a>
-			<a href="page13.html">Trivia</a>
-			<a href="page14.html">Poem</a>
-			<a href="page15.html">WOTD</a>
-			<a href="page16.html">Vintage</a>
-			<a href="page17.html">People</a>
-			<a href="page18.html">MTG</a>
-			<a href="page19.html">Meme</a>
-			<a href="page20.html">Folklore</a>
-			<a href="page21.html">Zine</a>
-			<a href="page22.html">Nonprofit</a>
+			<a href="tarot.html" aria-label="Tarot Page">Tarot</a>
+			<a href="nearme.html" aria-label="Near Me Page">Near Me</a>
+			<a href="food.html" aria-label="Food Page">Food</a>
+			<a href="howto.html" aria-label="How To Page">How To</a>
+			<a href="bartletts.html" aria-label="Bartletts Page">Bartletts</a>
+			<a href="nonprofit.html" aria-label="Nonprofit Page">Nonprofit</a>
+			<a href="art.html" aria-label="Art History Page">Art History</a>
+			<a href="bugs.html" aria-label="Bugs Page">Bugs</a>
+			<a href="mammals.html" aria-label="Mammals Page">Mammals</a>
+			<a href="reptiles.html" aria-label="Reptiles Page">Reptiles</a>
+			<a href="fish.html" aria-label="Fish Page">Fish</a>
+			<a href="birds.html" aria-label="Birds Page">Birds</a>
+			<a href="dinosaurs.html" aria-label="Dinosaurs Page">Dinosaurs</a>
+			<a href="trivia.html" aria-label="Trivia Page">Trivia</a>
+			<a href="poem.html" aria-label="Poem Page">Poem</a>
+			<a href="wotd.html" aria-label="WOTD Page">WOTD</a>
+			<a href="page21.html" aria-label="Vintage Page">Vintage</a>
+			<a href="people.html" aria-label="People Page">People</a>
+			<a href="mtg.html" aria-label="MTG Page">MTG</a>
+			<a href="knowyourmeme.html" aria-label="Meme Page">Meme</a>
+			<a href="folklore.html" aria-label="Folklore Page">Folklore</a>
+			<a href="about.html" aria-label="About Page">About</a>
 		</div>
 
-		<div id="content">
-			<!-- Content will be replaced by JavaScript -->
+		<div class="homebuttoncontent">
+			<h1 id="h1header1">hey</h1>
+			<h2 id="h2header2">i want to show you something</h2>
+			<h2 id="h2header3">it's a surprise tho</h2>
+			<h2 id="h2header4">but trust me its cool</h2>
+			<h2 id="h2header5">i know it's cool</h2>
+			<p id="pheader6">im like an expert on whats cool</p>
+			<p id="pheader7">it's this way, come on</p>
+			<p id="pheader8">keep going we're almost there</p>
+			<h1 id="h1header10">.......</h1>
+			<h2 id="h2header9">oh no, wheres my vape??</h2>
+			<h1 id="h1header11">omg i just had it two seconds ago</h1>
+			<h2 id="h2header12">i think youre sitting on it</h2>
+			<p id="pheader13">can you just stand up for a second</p>
+			<button id="random-page-button" class="random-page-button" aria-label="Random Page Button">nvm i found it, let's
+				go!</button>
+			<div class="loader"></div>
 		</div>
 	</body>
+
 </html>
