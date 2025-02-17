@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const homeButtoncontentDiv = document.querySelector('.homebuttoncontent');
-    const elements = homeButtonDiv.children;
+    const homeButtonContentDiv = document.querySelector('.homebuttoncontent'); // Fixed typo
+    const elements = homeButtonContentDiv.children;
     const randomPageButton = document.getElementById("random-page-button");
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
@@ -119,16 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createHomeButton();
 });
 
-/* filepath: /C:/Users/uosip/.vscode/uosipaw.lol/uosipaw.js */
-function initializeSequence() {
-    const pages = [
-        'tarot.html', 'nearme.html', 'food.html', 'howto.html', 'bartletts.html', 
-        'nonprofit.html', 'art.html', 'bugs.html', 'mammals.html', 'reptiles.html', 
-        'fish.html', 'birds.html', 'dinosaurs.html', 'trivia.html', 'poem.html', 
-        'wotd.html', 'page21.html', 'people.html', 'mtg.html', 'knowyourmeme.html', 
-        'folklore.html', 'about.html'
-    ];
-
+document.addEventListener("DOMContentLoaded", () => {
     const sequence = [
         'h1header1', 'h2header2', 'h2header3', 'h2header4', 'h2header5',
         'pheader6', 'pheader7', 'pheader8', 'h2header9', 'h1header10',
@@ -137,113 +128,81 @@ function initializeSequence() {
 
     let currentIndex = 0;
 
-    function randomPosition(element) {
-        const padding = 100; // Padding from edges
-        const maxX = window.innerWidth - element.offsetWidth - padding;
-        const maxY = window.innerHeight - element.offsetHeight - padding;
-        
-        element.style.left = Math.random() * maxX + padding + 'px';
-        element.style.top = Math.random() * maxY + padding + 'px';
+    function getRandomPosition() {
+        const padding = 100;
+        const maxWidth = window.innerWidth - padding * 2;
+        const maxHeight = window.innerHeight - padding * 2;
+        return {
+            x: Math.floor(Math.random() * maxWidth) + padding,
+            y: Math.floor(Math.random() * maxHeight) + padding
+        };
     }
 
     function showElement(id) {
         const element = document.getElementById(id);
         if (element) {
-            element.classList.remove('hidden');
-            element.classList.add('visible', 'clickable');
-            randomPosition(element);
+            // Position first
+            const position = getRandomPosition();
+            element.style.position = 'absolute';
+            element.style.left = `${position.x}px`;
+            element.style.top = `${position.y}px`;
+
+            // Force reflow
+            void element.offsetWidth;
+
+            // Then show with transition
+            element.style.visibility = 'visible';
+            requestAnimationFrame(() => {
+                element.classList.add('visible');
+            });
         }
     }
 
     function hideElement(id) {
         const element = document.getElementById(id);
         if (element) {
-            element.classList.remove('visible', 'clickable');
-            element.classList.add('hidden');
+            element.classList.remove('visible');
+            setTimeout(() => {
+                element.style.visibility = 'hidden';
+            }, 500);
         }
     }
 
-    // Initialize all elements as hidden
-    sequence.forEach(id => {
+    // Initialize elements
+    sequence.forEach((id, index) => {
         const element = document.getElementById(id);
         if (element) {
-            element.classList.add('hidden');
-            element.addEventListener('click', handleClick);
-        }
-    });
-
-    function handleClick(event) {
-        const currentId = sequence[currentIndex];
-        hideElement(currentId);
-        currentIndex++;
-
-        if (currentIndex < sequence.length) {
-            showElement(sequence[currentIndex]);
-        }
-
-        if (event.target.id === 'random-page-button') {
-            const randomPage = pages[Math.floor(Math.random() * pages.length)];
-            window.location.href = randomPage;
-        }
-    }
-
-    // Show the first element
-    showElement(sequence[0]);
-}
-
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', initializeSequence);
-
-document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll('.homebuttoncontent > *:not(.loader)');
-    let currentIndex = 0;
-
-    // Hide all elements except navbar initially
-    elements.forEach(el => {
-        if (el.id !== 'random-page-button') {
-            el.classList.add('clickable');
-        }
-    });
-
-    // Show only the first element
-    showElement(elements[0]);
-
-    elements.forEach(el => {
-        el.addEventListener('click', () => {
-            if (el.id !== 'random-page-button') {
-                hideElement(elements[currentIndex]);
-                currentIndex++;
-                if (currentIndex < elements.length) {
-                    setTimeout(() => {
-                        showElement(elements[currentIndex]);
-                    }, 500); // Match this with CSS transition time
-                }
+            if (index !== 0) {
+                element.style.visibility = 'hidden';
+                element.classList.remove('visible');
             }
-        });
+
+            element.addEventListener('click', () => {
+                if (id === 'random-page-button') {
+                    const pages = ['tarot', 'nearme', 'food', 'howto', 'bartletts',
+                        'nonprofit', 'art', 'bugs', 'mammals', 'reptiles',
+                        'fish', 'birds', 'dinosaurs', 'trivia', 'poem',
+                        'wotd', 'page21', 'people', 'mtg', 'knowyourmeme',
+                        'folklore', 'about'];
+                    const randomPage = pages[Math.floor(Math.random() * pages.length)];
+                    window.location.href = `${randomPage}.html`;
+                } else if (currentIndex < sequence.length - 1) {
+                    hideElement(sequence[currentIndex]);
+                    currentIndex++;
+                    setTimeout(() => {
+                        showElement(sequence[currentIndex]);
+                    }, 500); // Match this with CSS transition duration
+                }
+            });
+        }
     });
 
-    function showElement(el) {
-        el.style.display = 'block';
-        // Random position
-        const maxX = window.innerWidth - 200;
-        const maxY = window.innerHeight - 100;
-        el.style.left = Math.random() * maxX + 'px';
-        el.style.top = Math.random() * maxY + 'px';
-        // Trigger reflow
-        el.offsetHeight;
-        el.classList.add('visible');
-    }
-
-    function hideElement(el) {
-        el.classList.remove('visible');
-        setTimeout(() => {
-            el.style.display = 'none';
-        }, 1000); // Match this with CSS transition time
-    }
+    // Show first element immediately
+    showElement(sequence[0]);
 });
 
+// Handle loading screen
 const loadingScreen = document.querySelector(".loadingScreen");
-
 window.addEventListener('load', function () {
     loadingScreen.style.display = 'none';
-})
+});

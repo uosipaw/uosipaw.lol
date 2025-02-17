@@ -26,6 +26,7 @@ body {
 .h1,
 .random-page-button {
 	font-family: "Young Serif", serif;
+	transition: opacity 1s ease-in-out;
 }
 
 .h1 {
@@ -45,7 +46,7 @@ body {
 	cursor: pointer;
 	border-radius: 10px;
 	transition: background-color 0.3s, transform 0.3s;
-	opacity: 0.5;
+	opacity: 1;
 	min-height: 40px;
 		position: relative;
 }
@@ -121,12 +122,12 @@ body {
 }
 
 .navbar::-webkit-scrollbar-thumb {
-	background-color: #d34609;
+	background-color: #d7987d;
 	border-radius: 5px;
 }
 
 .navbar::-webkit-scrollbar-thumb:hover {
-	background-color: #854646;
+	background-color: #8d5f5f;
 	opacity: 1;
 }
 
@@ -136,7 +137,7 @@ body {
 	align-items: flex-start;
 	height: 100vh;
 	width: 100vw;
-	background-color: #f4af6a;
+	background-color: #e99847;
 }
 
 #content {
@@ -158,7 +159,9 @@ body {
 
 .h2header,
 .pheader {
-	display: none;
+	display: block;
+		visibility: hidden;
+		opacity: 0;
 }
 
 .tarot-page {
@@ -249,39 +252,39 @@ body {
 	background-color: #324640;
 }
 .hidden {
-	display: none;
 	opacity: 0;
+	visibility: hidden;
 }
 
 .visible {
-	display: block;
 	opacity: 1;
-	position: absolute;
-	transition: opacity 1s ease-in-out;
-	
+	visibility: visible;
 }
 
 .clickable {
 	cursor: pointer;
 	user-select: none;
 }
-.homebuttoncontent>* {
-	opacity: 0;
-	display: none;
-	position: absolute;
-	transition: opacity 1s ease-in-out;
-}
-
-.homebuttoncontent>*.visible {
-	opacity: 1;
-	display: block;
-}
-
 .homebuttoncontent {
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
 	overflow: hidden;
+	padding: 20px;
+	transition: opacity 1s ease-in-out;
+}
+				.homebuttoncontent>* {
+					opacity: 0;
+			visibility: hidden;
+				position: absolute;
+			transition: opacity 0.5s ease-in-out;
+				pointer-events: auto;
+				z-index: 1;
+			}
+			
+			.homebuttoncontent>*.visible {
+				opacity: 1;
+			visibility: visible;
 }
 
 .loadingScreen {
