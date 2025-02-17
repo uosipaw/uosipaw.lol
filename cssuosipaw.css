@@ -58,6 +58,8 @@ p.fade-out {
 	border-radius: 10px;
 	transition: background-color 0.3s, transform 0.3s;
 	opacity: 0.5;
+	min-height: 100vh;
+		position: relative;
 }
 
 .homebutton:hover {
@@ -257,4 +259,20 @@ p.fade-out {
 
 .about-page {
 	background-color: #324640;
+}
+.hidden {
+	display: none;
+	opacity: 0;
+}
+
+.visible {
+	display: block;
+	opacity: 1;
+	position: absolute;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.clickable {
+	cursor: pointer;
+	user-select: none;
 }
