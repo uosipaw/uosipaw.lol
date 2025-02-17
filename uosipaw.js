@@ -193,3 +193,51 @@ function initializeSequence() {
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', initializeSequence);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.homebuttoncontent > *:not(.loader)');
+    let currentIndex = 0;
+
+    // Hide all elements except navbar initially
+    elements.forEach(el => {
+        if (el.id !== 'random-page-button') {
+            el.classList.add('clickable');
+        }
+    });
+
+    // Show only the first element
+    showElement(elements[0]);
+
+    elements.forEach(el => {
+        el.addEventListener('click', () => {
+            if (el.id !== 'random-page-button') {
+                hideElement(elements[currentIndex]);
+                currentIndex++;
+                if (currentIndex < elements.length) {
+                    setTimeout(() => {
+                        showElement(elements[currentIndex]);
+                    }, 500); // Match this with CSS transition time
+                }
+            }
+        });
+    });
+
+    function showElement(el) {
+        el.style.display = 'block';
+        // Random position
+        const maxX = window.innerWidth - 200;
+        const maxY = window.innerHeight - 100;
+        el.style.left = Math.random() * maxX + 'px';
+        el.style.top = Math.random() * maxY + 'px';
+        // Trigger reflow
+        el.offsetHeight;
+        el.classList.add('visible');
+    }
+
+    function hideElement(el) {
+        el.classList.remove('visible');
+        setTimeout(() => {
+            el.style.display = 'none';
+        }, 500); // Match this with CSS transition time
+    }
+});

@@ -22,22 +22,13 @@ body {
 	height: 80%;
 }
 
-h1,
-h2,
-p {
-	transition: opacity 1s;
-}
-
-h1.fade-out,
-h2.fade-out,
-p.fade-out {
-	animation: fadeOut 2s;
-}
-
-.homeheader,
+.homebuttoncontent,
 .h1,
-.homebutton {
+.random-page-button {
 	font-family: "Young Serif", serif;
+	transition: opacity 1s;
+	animation: fadeOut 2s;
+	animation: fadeIn 1s;
 }
 
 .h1 {
@@ -48,7 +39,7 @@ p.fade-out {
 	cursor: default;
 }
 
-.homebutton {
+.random-page-button {
 	color: rgb(255, 199, 87);
 	background-color: #7e1a06;
 	border: none;
@@ -58,11 +49,11 @@ p.fade-out {
 	border-radius: 10px;
 	transition: background-color 0.3s, transform 0.3s;
 	opacity: 0.5;
-	min-height: 100vh;
+	min-height: 40px;
 		position: relative;
 }
 
-.homebutton:hover {
+.random-page-button:hover {
 	background-color: #dd2a06;
 	transform: scale(1.5);
 }
@@ -162,7 +153,7 @@ p.fade-out {
 	margin-left: 200px;
 }
 
-#random-page-button {
+.random-page-button {
 	display: none;
 	position: absolute;
 	opacity: 0.5;
@@ -275,4 +266,22 @@ p.fade-out {
 .clickable {
 	cursor: pointer;
 	user-select: none;
+}
+.homebuttoncontent>* {
+	opacity: 0;
+	display: none;
+	position: absolute;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.homebuttoncontent>*.visible {
+	opacity: 1;
+	display: block;
+}
+
+.homebuttoncontent {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
 }
