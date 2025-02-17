@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
     // Initialize elements with click handlers and random positions
     Array.from(elements).forEach((element, index) => {
         const nextElement = elements[index + 1];
@@ -97,9 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
             { tag: 'h2', id: 'h2header5', text: 'but trust me, it\'s definitely cool' },
             { tag: 'p', id: 'pheader6', text: 'i\'m like an expert on what\'s cool' },
             { tag: 'p', id: 'pheader7', text: "keep going.." },
-            {
-                tag: 'p', id: 'pheader8', text: 'alright, we're almost there..' },
-            { tag: 'h2', id: 'h2header9', text: 'where's my vape????? ' },
+            { tag: 'p', id: 'pheader8', text: 'alright, we\'re almost there..' },
+            { tag: 'h2', id: 'h2header9', text: "where's my vape?????" },
             { tag: 'h1', id: 'h1header10', text: 'WAIT' },
             { tag: 'h1', id: 'h1header11', text: 'omg i just had it two seconds ago' },
             { tag: 'h2', id: 'h2header12', text: 'are u sitting on it?' },
@@ -207,28 +207,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add skip button functionality
     const skipButton = document.getElementById('skip-button');
-    skipButton.addEventListener('click', () => {
-        // Hide all elements except the random page button
-        sequence.forEach(id => {
-            if (id !== 'random-page-button') {
-                hideElement(id);
-            }
+    if (skipButton) {
+        skipButton.addEventListener('click', () => {
+
+
+            sequence.forEach((id, index) => {
+                const element = document.getElementById(id);
+                if (element && id !== 'random-page-button') {
+                    hideElement(id);
+                }
+            });
+
+            // Show random page button
+            currentIndex = sequence.length - 1;
+            setTimeout(() => {
+                showElement('random-page-button');
+            }, 500);
+
+            // Hide skip button
+            skipButton.classList.add('hidden');
         });
+    }
 
-        // Show random page button
-        currentIndex = sequence.length - 1;
-        setTimeout(() => {
-            showElement('random-page-button');
-        }, 500);
-
-        // Hide skip button
-        skipButton.style.visibility = 'hidden';
-        skipButton.style.opacity = '0';
+    const loadingScreen = document.querySelector(".loadingScreen");
+    window.addEventListener('load', function () {
+        loadingScreen.style.display = 'none';
     });
-});
-
-// Handle loading screen
-const loadingScreen = document.querySelector(".loadingScreen");
-window.addEventListener('load', function () {
-    loadingScreen.style.display = 'none';
 });
