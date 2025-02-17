@@ -241,3 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500); // Match this with CSS transition time
     }
 });
+
+const loadingScreen = document.querySelector(".loadingScreen");
+
+window.addEventListener('load', function () {
+    loadingScreen.style.display = 'none';
+})
