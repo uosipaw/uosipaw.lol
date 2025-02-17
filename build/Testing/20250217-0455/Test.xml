@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250217-0455-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.20.21032501-MSVC_2"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="PROVIRUSHACKER"
+	OSRelease=" Personal"
+	OSVersion=" (Build 26100)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="15"
+	ModelID="0"
+	ProcessorCacheSize="64"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="26015"
+	TotalPhysicalMemory="15775"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3193"
+	>
+	<Testing>
+		<StartDateTime>Feb 16 23:55 Eastern Standard Time</StartDateTime>
+		<StartTestTime>1739768156</StartTestTime>
+		<TestList/>
+		<EndDateTime>Feb 16 23:55 Eastern Standard Time</EndDateTime>
+		<EndTestTime>1739768156</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
