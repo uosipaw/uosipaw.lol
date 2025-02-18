@@ -1,5 +1,6 @@
 html,
 body {
+	background-image: url("../uosipaw.lol/index.svg");
 	font-family: "Young Serif", serif;
 	font-weight: 400;
 	font-style: normal;
@@ -12,7 +13,7 @@ body {
 
 html {
 	overflow: hidden;
-	background-image: url("../uosipaw.lol/index.svg");
+	
 }
 
 .background-image {
@@ -171,8 +172,22 @@ html {
 }
 
 .tarot-page {
-	background-color: #a979d4;
-}
+	.tarot-background-image {
+			background-image: url("./tarot-background.svg");
+			background-size: cover;
+			background-position: center;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			opacity: 0.7;
+			animation: backgroundMove 30s ease-in-out infinite;
+	
+		}
+	}
+
 
 .nearme-page {
 	background-color: #c79a67;

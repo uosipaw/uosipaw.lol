@@ -8,17 +8,21 @@
         <link rel="stylesheet" type="text/css" href="cssuosipaw.css" />
         <script src="uosipaw.js" defer></script>
         <style>
-            /* For Option 1 */
             .background-image {
-                background-image: url('/index.svg');
+                background-image: url('./index.svg'); /* Use relative path */
                 background-size: cover;
                 background-position: center;
+                height: 100vh; /* Ensure full height */
+                /* Add other styles like opacity and z-index for consistency */
+                z-index: -1;
+                opacity: 0.7;
+                width: 100%; /* Ensure full width */
+                height: 100vh; /* Ensure full height */
             }
         </style>
     </head>
 
     <body>
-        <!-- Option 1: Using CSS background-image -->
         <div class="background-image"></div>
 
         <div class="navbar">
