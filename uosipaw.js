@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to handle click events and transition to the next element
     function handleElementClick(element, nextElement, randomPageButton) {
         let isClicked = false;
-        element.addEventListener("click", () => {
+        const handleClick = () => {
             if (isClicked) return;
             isClicked = true;
 
@@ -44,9 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     setRandomPosition(randomPageButton);
                 }
             }, 1000);
+        };
+
+        element.addEventListener("click", handleClick);
+        element.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                handleClick();
+            }
         });
     }
-
 
     // Initialize elements with click handlers and random positions
     Array.from(elements).forEach((element, index) => {
@@ -65,9 +71,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle random page button click
     if (randomPageButton) {
-        randomPageButton.addEventListener("click", () => {
+        const handleRandomPageClick = () => {
             const randomLink = navbarLinks[Math.floor(Math.random() * navbarLinks.length)];
             window.location.href = randomLink.href;
+        };
+
+        randomPageButton.addEventListener("click", handleRandomPageClick);
+        randomPageButton.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                handleRandomPageClick();
+            }
         });
     }
 
@@ -185,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 element.classList.remove('visible');
             }
 
-            element.addEventListener('click', () => {
+            const handleClick = () => {
                 if (id === 'random-page-button') {
                     const pages = ['tarot', 'nearme', 'food', 'howto', 'bartletts',
                         'nonprofit', 'art', 'bugs', 'mammals', 'reptiles',
@@ -201,6 +214,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         showElement(sequence[currentIndex]);
                     }, 500); // Match this with CSS transition duration
                 }
+            };
+
+            element.addEventListener('click', handleClick);
+            element.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    handleClick();
+                }
             });
         }
     });
@@ -212,8 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const skipButton = document.getElementById('skip-button');
     if (skipButton) {
         skipButton.addEventListener('click', () => {
-
-
             sequence.forEach((id, index) => {
                 const element = document.getElementById(id);
                 if (element && id !== 'random-page-button') {
@@ -231,9 +249,4 @@ document.addEventListener("DOMContentLoaded", () => {
             skipButton.classList.add('hidden');
         });
     }
-
-    const loadingScreen = document.querySelector(".loadingScreen");
-    window.addEventListener('load', function () {
-        loadingScreen.style.display = 'none';
-    });
 });

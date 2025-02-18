@@ -7,9 +7,20 @@
         <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="cssuosipaw.css" />
         <script src="uosipaw.js" defer></script>
+        <style>
+            /* For Option 1 */
+            .background-image {
+                background-image: url('/index.svg');
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
     </head>
 
     <body>
+        <!-- Option 1: Using CSS background-image -->
+        <div class="background-image"></div>
+
         <div class="navbar">
             <a href="tarot.html" aria-label="Tarot Page">Tarot</a>
             <a href="nearme.html" aria-label="Near Me Page">Near Me</a>
@@ -58,13 +69,6 @@
         </div>
 
         <button id="skip-button" class="skip-button" aria-label="Skip to End">skip</button>
-
-        <div class="loadingScreen">
-            <div class="loadingScreenContent">
-                <h1 id="loadingScreenHeader">sheeeeesh that was a close one</h1>
-                <div class="loadingScreenAnimation"></div>
-            </div>
-        </div>
 
     </body>
 </html>
