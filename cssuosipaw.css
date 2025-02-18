@@ -16,6 +16,17 @@ body {
 	padding: 0;
 }
 
+.h1 {
+	color: rgb(132, 53, 25);
+	font-weight: 400;
+	font-style: normal;
+	margin: 30px 50px;
+	cursor: default;
+	opacity: 1;
+	/* Ensure the element is visible */
+	visibility: visible;
+	/* Ensure the element is visible */
+}
 .HOME-background-image {
 	background-color: #ffc422;
 	width: 100%;
@@ -67,6 +78,7 @@ body {
 		visibility: visible;
 		/* Ensure the element is visible */
 }
+
 
 .navbar {
 	display: flex;

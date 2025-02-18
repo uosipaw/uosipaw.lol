@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
 
-    console.log("DOMContentLoaded event fired");
-    console.log("h1header1:", document.getElementById("h1header1"));
 
     // Function to get random position for an element
     function getRandomPosition(element) {
@@ -86,5 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             contentDiv.innerHTML = '<p>Content of ' + page + '</p>';
         }, 1000);
+    }
+
+    // Make h1header1 appear on screen load
+    const h1header1 = document.getElementById("h1header1");
+    if (h1header1) {
+        h1header1.style.opacity = "1";
+        h1header1.style.visibility = "visible";
     }
 });
