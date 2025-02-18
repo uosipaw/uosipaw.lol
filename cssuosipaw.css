@@ -25,11 +25,15 @@ html {
 	background-size: cover;
 	background-position: center;
 	animation-timing-function: ease-in-out;
-	animation-duration: 30000s;
+	animation-duration: 300s;
 	animation-iteration-count: infinite;
 		animation-name: fadeIn;
 	animation-direction: alternate;
+	will-change: background-position;
+		transform: translateZ(0);
+		backface-visibility: hidden;
 	}
+
 @keyframes fadeIn {
 	from {
 			opacity: .8;
