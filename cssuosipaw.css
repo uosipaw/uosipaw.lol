@@ -4,7 +4,7 @@ html {
 
 }
 
-body {
+.body {
 	background-image: url("../uosipaw.lol/index.svg");
 	font-family: "Young Serif", serif;
 	font-weight: 400;
@@ -16,23 +16,12 @@ body {
 	padding: 0;
 }
 
-.h1 {
-	color: rgb(132, 53, 25);
-	font-weight: 400;
-	font-style: normal;
-	margin: 30px 50px;
-	cursor: default;
-	opacity: 1;
-	/* Ensure the element is visible */
-	visibility: visible;
-	/* Ensure the element is visible */
-}
 .HOME-background-image {
 	background-color: #ffc422;
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	z-index: 0;
+	z-index: -1;
 	background-image: url("/index.svg");
 	background-size: cover;
 	background-position: center;
@@ -60,25 +49,22 @@ body {
 	display: none;
 }
 
-.homebuttoncontent,
-.h1,
-.random-page-button {
-	font-family: "Young Serif", serif;
-	transition: opacity 0.5s ease-in-out;
-}
-
-.homebuttoncontent>.h1 {
+.h1 {
 	color: rgb(132, 53, 25);
 	font-weight: 400;
 	font-style: normal;
 	margin: 30px 50px;
 	cursor: default;
 	opacity: 1;
-		/* Ensure the element is visible */
-		visibility: visible;
-		/* Ensure the element is visible */
+	visibility: visible;
 }
 
+.homebuttoncontent,
+.h1,
+.random-page-button {
+	font-family: "Young Serif", serif;
+	transition: opacity 0.5s ease-in-out;
+}
 
 .navbar {
 	display: flex;
@@ -185,15 +171,101 @@ body {
 		opacity: 0;
 }
 
+.hidden {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.visible {
+	opacity: 0.5s;
+	visibility: visible;
+}
+
+.clickable {
+	cursor: pointer;
+	user-select: none;
+}
+
+.homebuttoncontent {
+	position: fixed;
+		top: 100px;
+		right: 100px;
+		bottom: 100px;
+		left: 100px;
+		overflow: visible;
+	transition: opacity 1s ease-in-out;
+}
+
+.homebuttoncontent>* {
+					opacity: 1;
+			visibility: hidden;
+				position: absolute;
+			transition: opacity 0.5s ease-in-out;
+				pointer-events: auto;
+				z-index: 1;
+			}
+			
+.homebuttoncontent>*.visible {
+				opacity: 1;
+			visibility: visible;
+			transform: scale(1.1);
+}
+
+.random-page-button {
+	color: rgb(255, 210, 98);
+		background-color: #1e898d;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 10px;
+	transition: opacity 0.5s ease-in-out, transform 0.3s;
+	opacity: 1;
+	position: absolute;
+	visibility: hidden;
+	z-index: 2;
+	width: 200px;
+		/* Adjust width to fit the text */
+		padding: 5px 10px;
+}
+
+.random-page-button:hover {
+	background-color: #844029;
+		color: #e0e5af;
+	transform: scale(1.05);
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.skip-button {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	color: rgb(255, 185, 44);
+		background-color: #334e53;
+	border: none;
+	padding: 5px 10px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 10px;
+	opacity: .2;
+	z-index: 2;
+	visibility: visible;
+}
+
+.skip-button:hover {
+	transform: scale(1.1);
+	opacity: 1;
+	transition: background-color 0.5s, transform 0.5s;
+}
+
 .tarot-page {
-    background-image: url('/C:/Users/uosip/.vscode/uosipaw.lol/twilightBG_files/bg.svg');
+	background-image: url('/C:/Users/uosip/.vscode/uosipaw.lol/twilightBG_files/bg.svg');
 		background-size: cover;
-			background-position: center;
+		background-position: center;
 		position: relative;
-			width: 100%;
+		width: 100%;
 			height: 100%;
 		z-index: -1;
-			opacity: 0.7;
+		opacity: 0.7;
 }
 
 .nearme-page {
@@ -280,90 +352,6 @@ body {
 	background-color: #324640;
 }
 
-.hidden {
-	opacity: 0;
-	visibility: hidden;
-}
-
-.visible {
-	opacity: 0.5s;
-	visibility: visible;
-}
-
-.clickable {
-	cursor: pointer;
-	user-select: none;
-}
-
-.homebuttoncontent {
-	position: fixed;
-		top: 100px;
-		right: 100px;
-		bottom: 100px;
-		left: 100px;
-		overflow: visible;
-	transition: opacity 1s ease-in-out;
-}
-
-.homebuttoncontent>* {
-					opacity: 0;
-			visibility: hidden;
-				position: absolute;
-			transition: opacity 0.5s ease-in-out;
-				pointer-events: auto;
-				z-index: 1;
-			}
-			
-.homebuttoncontent>*.visible {
-				opacity: 1;
-			visibility: visible;
-}
-
-.random-page-button {
-	color: rgb(255, 210, 98);
-		background-color: #1e898d;
-	border: none;
-	font-size: 16px;
-	cursor: pointer;
-	border-radius: 10px;
-	transition: opacity 0.5s ease-in-out, transform 0.3s;
-	opacity: 1;
-	position: absolute;
-	visibility: hidden;
-	z-index: 2;
-	width: 200px;
-		/* Adjust width to fit the text */
-		padding: 5px 10px;
-}
-
-.random-page-button:hover {
-	background-color: #844029;
-		color: #e0e5af;
-	transform: scale(1.05);
-	transition: background-color 0.3s, transform 0.3s;
-}
-
-.skip-button {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	color: rgb(255, 185, 44);
-		background-color: #334e53;
-	border: none;
-	padding: 5px 10px;
-	font-size: 16px;
-	cursor: pointer;
-	border-radius: 10px;
-	opacity: .2;
-	z-index: 2;
-	visibility: visible;
-}
-
-.skip-button:hover {
-	transform: scale(1.1);
-	opacity: 1;
-	transition: background-color 0.5s, transform 0.5s;
-}
 .footer {
 	position: fixed;
 	bottom: 0;
@@ -373,5 +361,7 @@ body {
 	color: #f9ca2e;
 	padding: 10px;
 	text-align: center;
-	display: none;
+	display: flex;
+		justify-content: center;
+		align-items: center;
 }
