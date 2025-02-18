@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="tarot.css" />
 		<style>
 			.background-image {
-				background-image: url('/tarot-background.svg');
+				background-image: url('./tarot-background.svg'); /* Use relative path */
 				background-size: cover;
 				background-position: center;
 				position: fixed;
@@ -22,6 +22,7 @@
 	</head>
 <body>
 	<div class="background-image"></div>
+	<div class="content-wrapper">
 		<h1>Tarot</h1>
 		<p>This is the tarot page.</p>
 		<div class="tarot-cards">
@@ -48,5 +49,6 @@
 			<a href="judgement.html">Judgement</a>
 			<a href="the-world.html">The World</a>
 		</div>
-	</body>
+	</div>
+</body>
 </html>

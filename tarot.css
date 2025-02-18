@@ -17,10 +17,14 @@ body {
   color: #333;
   margin: 0;
   padding: 20px;
+  position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .background-image {
-  background-image: url('/tarot-background.svg');
+  background-image: url('./tarot-background.svg');
   background-size: cover;
   background-position: center;
   position: fixed;
