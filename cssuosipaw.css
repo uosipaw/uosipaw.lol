@@ -95,11 +95,10 @@ Styles for the footer:
 */
 html {
 	overflow: hidden;
-	
 
 }
 
-.body {
+body {
 	background-image: url("../uosipaw.lol/index.svg");
 	font-family: "Young Serif", serif;
 	font-weight: 400;
