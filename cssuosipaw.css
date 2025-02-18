@@ -24,19 +24,19 @@ html {
 	background-image: url("/index.svg");
 	background-size: cover;
 	background-position: center;
-	opacity: 1;
 	animation-timing-function: ease-in-out;
 	animation-duration: 30000s;
-		animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
 		animation-name: fadeIn;
+	animation-direction: alternate;
 	}
 @keyframes fadeIn {
 	from {
-			opacity: .5;
+			opacity: .8;
 		}
 	
 		to {
-			opacity: 0.7;
+			opacity: 1;
 		}
 	}
 	
@@ -78,7 +78,12 @@ html {
 
 .navbar:hover {
 	width: 170px;
-	opacity: 0.75;
+	opacity: 0.9;
+		transition: width 0.5s, opacity 0.5s;
+	}
+	
+	.navbar:hover .h1 {
+		width: 170px;
 	color: #46855b;
 	font-size: 16px;
 	font-weight: 400;
@@ -114,7 +119,7 @@ html {
 }
 
 .navbar::-webkit-scrollbar {
-	width: 12px;
+	width: 15px;
 	height: 100%;
 }
 
