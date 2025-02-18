@@ -270,8 +270,8 @@ body {
 }
 
 .random-page-button {
-	color: rgb(255, 175, 78);
-	background-color: #44aaae;
+	color: rgb(255, 210, 98);
+		background-color: #1e898d;
 	border: none;
 	font-size: 16px;
 	cursor: pointer;
@@ -281,18 +281,16 @@ body {
 	position: absolute;
 	visibility: hidden;
 	z-index: 2;
-	width: auto;
+	width: 200px;
 		/* Adjust width to fit the text */
 		padding: 5px 10px;
-		/* Add padding for better appearance */
 }
 
 .random-page-button:hover {
-	background-color: #3b666c;
-	color: #dc9b45;
+	background-color: #844029;
+		color: #e0e5af;
 	transform: scale(1.05);
-		/* Make the hover transition less extreme */
-		transition: background-color 0.3s, transform 0.3s;
+	transition: background-color 0.3s, transform 0.3s;
 }
 
 .loadingScreen {
@@ -311,13 +309,13 @@ body {
 	top: 20px;
 	right: 20px;
 	color: rgb(255, 185, 44);
-		background-color: #06687e;
+		background-color: #334e53;
 	border: none;
 	padding: 5px 10px;
 	font-size: 16px;
 	cursor: pointer;
 	border-radius: 10px;
-	opacity: .5;
+	opacity: .2;
 	z-index: 2;
 	visibility: visible;
 }
@@ -326,4 +324,15 @@ body {
 	transform: scale(1.1);
 	opacity: 1;
 	transition: background-color 0.5s, transform 0.5s;
+}
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #0da8b4;
+	color: #f9ca2e;
+	padding: 10px;
+	text-align: center;
+	display: none;
 }
