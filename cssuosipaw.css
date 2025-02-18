@@ -1,3 +1,9 @@
+html {
+	overflow: hidden;
+	
+
+}
+
 body {
 	background-image: url("../uosipaw.lol/index.svg");
 	font-family: "Young Serif", serif;
@@ -8,11 +14,6 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-}
-
-html {
-	overflow: hidden;
-	
 }
 
 .HOME-background-image {
