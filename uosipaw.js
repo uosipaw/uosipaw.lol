@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const homeButtonDiv = document.querySelector('.homebutton');
+    const homeButtonDiv = document.querySelector('.homebuttoncontent');
     const elements = homeButtonDiv.children;
     const randomPageButton = document.getElementById("random-page-button");
     const navbarLinks = document.querySelectorAll(".navbar a");
