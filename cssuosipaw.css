@@ -1,4 +1,3 @@
-html,
 body {
 	background-image: url("../uosipaw.lol/index.svg");
 	font-family: "Young Serif", serif;
@@ -161,8 +160,6 @@ html {
 .navbar:hover+#content {
 	margin-left: 200px;
 }
-
-
 
 .h2header,
 .pheader {
