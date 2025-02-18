@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
 
+    console.log("DOMContentLoaded event fired");
+    console.log("h1header1:", document.getElementById("h1header1"));
+
     // Function to get random position for an element
     function getRandomPosition(element) {
         const rect = element.getBoundingClientRect();
