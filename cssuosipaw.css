@@ -1,3 +1,98 @@
+/* 
+
+Styles for the HTML and body elements:
+- html: Hides overflow.
+- .body: Sets background image, font, color, dimensions, and removes margin and padding.
+
+Styles for the home background image:
+- .HOME-background-image: Sets background color, image, size, position, and animation properties.
+
+Keyframes for fadeIn animation:
+- @keyframes fadeIn: Defines opacity transition from 0.8 to 1.
+
+Styles for pages:
+- .pages: Hides the element.
+
+Styles for headings:
+- .h1: Sets color, font properties, margin, cursor, opacity, and visibility.
+
+Styles for common elements:
+- .homebuttoncontent, .h1, .random-page-button: Sets font and transition properties.
+
+Styles for the navigation bar:
+- .navbar: Defines layout, background color, padding, overflow, position, dimensions, transition, opacity, and z-index.
+- .navbar:hover: Expands width and increases opacity.
+- .navbar:hover .h1: Adjusts width, color, font size, and transition properties.
+
+Styles for navigation links:
+- .navbar a: Sets color, padding, display, margin, font properties, text decoration, and transition.
+- .navbar a:hover: Changes color on hover.
+- .navbar a:active: Changes color when active.
+- .navbar a:visited, .navbar a:link, .navbar a:focus, .navbar a:target: Sets color for different states.
+
+Styles for the scrollbar:
+- .navbar::-webkit-scrollbar: Sets width and height.
+- .navbar::-webkit-scrollbar-track: Sets background color.
+- .navbar::-webkit-scrollbar-thumb: Sets background color and border radius.
+- .navbar::-webkit-scrollbar-thumb:hover: Changes background color and opacity on hover.
+
+Styles for the container:
+- .container: Defines layout, dimensions, and background color.
+
+Styles for the content:
+- #content: Sets margin, padding, transition, and color.
+- .navbar:hover+#content: Adjusts margin when navbar is hovered.
+
+Styles for headers:
+- .h2header, .pheader: Hides the element.
+
+Styles for visibility:
+- .hidden: Hides the element.
+- .visible: Makes the element visible with transition.
+
+Styles for clickable elements:
+- .clickable: Sets cursor and user-select properties.
+
+Styles for home button content:
+- .homebuttoncontent: Sets position, overflow, and transition.
+- .homebuttoncontent>*: Sets opacity, visibility, position, transition, pointer events, and z-index.
+- .homebuttoncontent>*.visible: Adjusts opacity, visibility, and transform.
+
+Styles for random page button:
+- .random-page-button: Sets color, background, border, font size, cursor, border radius, transition, opacity, position, visibility, z-index, width, and padding.
+- .random-page-button:hover: Changes background color, text color, transform, and transition on hover.
+
+Styles for skip button:
+- .skip-button: Sets position, color, background, border, padding, font size, cursor, border radius, opacity, z-index, and visibility.
+- .skip-button:hover: Adjusts transform, opacity, and transition on hover.
+
+Styles for different pages:
+- .tarot-page: Sets background image, size, position, dimensions, z-index, and opacity.
+- .nearme-page: Sets background color.
+- .food-page: Sets background color.
+- .howto-page: Sets background color.
+- .bartletts-page: Sets background color.
+- .nonprofit-page: Sets background color.
+- .art-page: Sets background color.
+- .bugs-page: Sets background color.
+- .mammals-page: Sets background color.
+- .reptiles-page: Sets background color.
+- .fish-page: Sets background color.
+- .birds-page: Sets background color.
+- .dinosaurs-page: Sets background color.
+- .trivia-page: Sets background color.
+- .poem-page: Sets background color.
+- .wotd-page: Sets background color.
+- .vintage-page: Sets background color.
+- .people-page: Sets background color.
+- .mtg-page: Sets background color.
+- .meme-page: Sets background color.
+- .folklore-page: Sets background color.
+- .about-page: Sets background color.
+
+Styles for the footer:
+- .footer: Sets position, dimensions, background color, text color, padding, text alignment, and layout.
+*/
 html {
 	overflow: hidden;
 	
