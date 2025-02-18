@@ -5,8 +5,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Tarot</title>
 		<link rel="stylesheet" type="text/css" href="tarot.css" />
+		<style>
+			.background-image {
+				background-image: url('/tarot-background.svg');
+				background-size: cover;
+				background-position: center;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				z-index: -1;
+				opacity: 0.7;
+			}
+		</style>
 	</head>
-	<body class="tarot">
+<body>
+	<div class="background-image"></div>
 		<h1>Tarot</h1>
 		<p>This is the tarot page.</p>
 		<div class="tarot-cards">

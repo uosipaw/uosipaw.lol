@@ -1,55 +1,50 @@
+html {
+  background-image: url("C:\Users\uosip\.vscode\uosipaw.lol\twilightBG_files\bg.svg");
+  background-size: cover;
+  background-position: center;
+  animation-timing-function: ease-in-out;
+  animation-duration: 300s;
+  animation-iteration-count: infinite;
+  animation-name: fadeIn;
+  animation-direction: alternate;
+  will-change: background-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
 /* General styles for the tarot page */
 body {
   font-family: "Young Serif", serif;
-  background-color: #ffb3ba;
-  /* Light pastel red */
   color: #333;
   margin: 0;
   padding: 20px;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
+.background-image {
+  background-image: url('/tarot-background.svg');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.7;
+  animation: backgroundMove 30s ease-in-out infinite;
 }
 
-h1 {
-  font-size: 2.5em;
-  color: #6d3309;
-}
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
 
-h2 {
-  font-size: 2em;
-  color: #824807;
-}
+  50% {
+    background-position: 100% 50%;
+  }
 
-p {
-  font-size: 1.2em;
-  color: #333;
-}
-
-.tarot-card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.tarot-card img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-.tarot-card h3 {
-  font-size: 1.5em;
-  color: #6d3309;
-}
-
-.tarot-card p {
-  font-size: 1em;
-  color: #333;
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 footer {
