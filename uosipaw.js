@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
 
-
     // Function to get random position for an element
     function getRandomPosition(element) {
         const rect = element.getBoundingClientRect();
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const y = Math.random() * (window.innerHeight - rect.height);
         return { x, y };
     }
-
     // Function to set random position for an element
     function setRandomPosition(element) {
         const { x, y } = getRandomPosition(element);
@@ -21,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         element.style.left = `${x}px`;
         element.style.top = `${y}px`;
     }
-
     // Function to handle click events and transition to the next element
     function handleElementClick(element, nextElement, randomPageButton) {
         let isClicked = false;
@@ -44,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1000);
         });
     }
-
     // Initialize elements with click handlers and random positions
     Array.from(elements).forEach((element, index) => {
         const nextElement = elements[index + 1];
