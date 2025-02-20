@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbarLinks = document.querySelectorAll(".navbar a");
     const contentDiv = document.getElementById("content");
 
+    // Custom order of elements
+    const customOrder = [
+        'h1header1', 'h2header2', 'h2header3', 'h2header4', 'h2header5',
+        'pheader6', 'pheader7', 'pheader8', 'h1header10', 'h2header9',
+        'h1header11', 'h2header12', 'pheader13', 'random-page-button'
+    ];
+
     // Function to get random position for an element
     function getRandomPosition(element) {
         const rect = element.getBoundingClientRect();
@@ -12,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const y = Math.random() * (window.innerHeight - rect.height);
         return { x, y };
     }
+
     // Function to set random position for an element
     function setRandomPosition(element) {
         const { x, y } = getRandomPosition(element);
@@ -19,10 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         element.style.left = `${x}px`;
         element.style.top = `${y}px`;
     }
+
     // Function to handle click events and transition to the next element
     function handleElementClick(element, nextElement, randomPageButton) {
         let isClicked = false;
-        element.addEventListener("click", () => {
+        const handleClick = () => {
             if (isClicked) return;
             isClicked = true;
 
@@ -39,15 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     setRandomPosition(randomPageButton);
                 }
             }, 1000);
+        };
+
+        element.addEventListener("click", handleClick);
+        element.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                handleClick();
+            }
         });
     }
+
     // Initialize elements with click handlers and random positions
-    Array.from(elements).forEach((element, index) => {
-        const nextElement = elements[index + 1];
-        handleElementClick(element, nextElement, randomPageButton);
-        setRandomPosition(element);
-        if (index !== 0) {
-            element.style.display = "none";
+    customOrder.forEach((id, index) => {
+        const element = document.getElementById(id);
+        const nextElement = document.getElementById(customOrder[index + 1]);
+        if (element) {
+            handleElementClick(element, nextElement, randomPageButton);
+            setRandomPosition(element);
+            if (index !== 0) {
+                element.style.display = "none";
+            }
         }
     });
 
@@ -58,9 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle random page button click
     if (randomPageButton) {
-        randomPageButton.addEventListener("click", () => {
+        const handleRandomPageClick = () => {
             const randomLink = navbarLinks[Math.floor(Math.random() * navbarLinks.length)];
             window.location.href = randomLink.href;
+        };
+
+        randomPageButton.addEventListener("click", handleRandomPageClick);
+        randomPageButton.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                handleRandomPageClick();
+            }
         });
     }
 
