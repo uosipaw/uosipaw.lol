@@ -101,12 +101,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Function to load the content of the clicked page
-    function loadPage(page) {
-        contentDiv.innerHTML = `<p>Loading ${page}...</p>`;
-        // Simulate loading page content
-        setTimeout(() => {
-            contentDiv.innerHTML = '<p>Content of ' + page + '</p>';
-        }, 1000);
+    async function loadPage(page) {
+        const contentDiv = document.querySelector('.content-wrapper');
+
+        try {
+            // Show loading state
+            contentDiv.innerHTML = `
+                <div class="loading">
+                    Loading ${page.split('.')[0]}
+                </div>`;
+
+            // Simulate minimum loading time for better UX
+            const [response] = await Promise.all([
+                fetch(page),
+                new Promise(resolve => setTimeout(resolve, 500))
+            ]);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const content = await response.text();
+
+            // Fade out loading state and fade in content
+            contentDiv.style.opacity = '0';
+            await new Promise(resolve => setTimeout(resolve, 200));
+            contentDiv.innerHTML = content;
+            contentDiv.style.opacity = '1';
+
+        } catch (error) {
+            console.error('Error loading page:', error);
+            contentDiv.innerHTML = `
+                <div class="error-message">
+                    <h2>Oops! Something went wrong</h2>
+                    <p>Could not load ${page}</p>
+                    <p>Error: ${error.message}</p>
+                    <button onclick="window.location.reload()">Retry</button>
+                </div>`;
+        }
     }
 
     // Make h1header1 appear on screen load

@@ -448,3 +448,75 @@ body {
 		justify-content: center;
 		align-items: center;
 }
+.loading {
+	text-align: center;
+	padding: 2rem;
+	animation: pulse 1.5s ease-in-out infinite;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loading::after {
+	content: "...";
+	animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.6;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0.6;
+	}
+}
+
+@keyframes dots {
+
+	0%,
+	20% {
+		content: ".";
+	}
+
+	40% {
+		content: "..";
+	}
+
+	60%,
+	100% {
+		content: "...";
+	}
+}
+
+.error-message {
+	text-align: center;
+	padding: 2rem;
+	color: #721c24;
+	background-color: #f8d7da;
+	border: 1px solid #f5c6cb;
+	border-radius: 4px;
+	margin: 1rem;
+}
+
+.error-message button {
+	padding: 0.5rem 1rem;
+	margin-top: 1rem;
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.error-message button:hover {
+	background-color: #c82333;
+}
+
+.content-wrapper {
+	transition: opacity 0.2s ease-in-out;
+}
