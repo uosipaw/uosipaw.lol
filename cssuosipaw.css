@@ -99,7 +99,11 @@ html {
 }
 
 body {
-	background-image: url("../uosipaw.lol/index.svg");
+	background-image: url("/uosipaw.lol/index.svg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
 	font-family: "Young Serif", serif;
 	font-weight: 400;
 	font-style: normal;
@@ -116,29 +120,25 @@ body {
 	height: 100%;
 	position: fixed;
 	z-index: -1;
-	background-image: url("/index.svg");
+	background-image: url("/uosipaw.lol/index.svg");
 	background-size: cover;
 	background-position: center;
-	animation-timing-function: ease-in-out;
-	animation-duration: 300s;
-	animation-iteration-count: infinite;
-		animation-name: fadeIn;
-	animation-direction: alternate;
+	background-repeat: no-repeat;
+		animation: fadeIn 300s ease-in-out infinite alternate;
 	will-change: background-position;
-		transform: translateZ(0);
+	transform: translateZ(0);
 		backface-visibility: hidden;
 	}
 
-				@keyframes fadeIn {
-					from {
-						opacity: .8;
-					}
-		
-					to {
-						opacity: 1;
-					}
-				}
-	
+@keyframes fadeIn {
+	from {
+		opacity: .8;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
 .pages {
 	display: none;
 }
@@ -170,7 +170,7 @@ body {
 	top: 0;
 	left: 0;
 	width: 0px;
-		height: 100%;
+	height: 100%;
 	transition: width 0.5s, opacity 0.5s;
 	opacity: 0.4;
 	z-index: 1000;
@@ -179,7 +179,7 @@ body {
 .navbar:hover {
 	width: 170px;
 	opacity: 0.9;
-		transition: width 0.5s, opacity 0.5s;
+	transition: width 0.5s, opacity 0.5s;
 	}
 	
 	.navbar:hover .h1 {
@@ -240,7 +240,7 @@ body {
 #content {
 	margin-left: 5px;
 	padding: 5px;
-		transition: margin-left 0.5s, padding 0.5s;
+	transition: margin-left 0.5s, padding 0.5s;
 	color: #854646;
 }
 
@@ -251,7 +251,7 @@ body {
 .h2header,
 .pheader {
 	display: block;
-		visibility: hidden;
+	visibility: hidden;
 		opacity: 0;
 }
 
@@ -272,7 +272,7 @@ body {
 
 .homebuttoncontent {
 	position: absolute;
-		top: 100px;
+	top: 100px;
 		right: 100px;
 		bottom: 100px;
 		left: 100px;
@@ -281,22 +281,21 @@ body {
 }
 
 .homebuttoncontent>* {
-					opacity: 1;
-				position: absolute;
-			transition: opacity 0.5s ease-in-out;
-				pointer-events: auto;
-				z-index: 1;
-			}
-			
+	opacity: 1;
+		position: absolute;
+		transition: opacity 0.5s ease-in-out;
+		pointer-events: auto;
+		z-index: 1;
+	}
 .homebuttoncontent>*.visible {
-				opacity: 1;
-			visibility: visible;
-			transform: scale(1.1);
+	opacity: 1;
+		visibility: visible;
+		transform: scale(1.1);
 }
 
 .random-page-button {
 	color: rgb(255, 210, 98);
-		background-color: #1e898d;
+	background-color: #1e898d;
 	border: none;
 	font-size: 16px;
 	cursor: pointer;
@@ -307,13 +306,13 @@ body {
 	visibility: hidden;
 	z-index: 2;
 	width: 200px;
-		/* Adjust width to fit the text */
+	/* Adjust width to fit the text */
 		padding: 5px 10px;
 }
 
 .random-page-button:hover {
 	background-color: #844029;
-		color: #e0e5af;
+	color: #e0e5af;
 	transform: scale(1.05);
 	transition: background-color 0.3s, transform 0.3s;
 }
@@ -323,7 +322,7 @@ body {
 	top: 20px;
 	right: 20px;
 	color: rgb(255, 185, 44);
-		background-color: #334e53;
+	background-color: #334e53;
 	border: none;
 	padding: 5px 10px;
 	font-size: 16px;
@@ -341,12 +340,13 @@ body {
 }
 
 .tarot-page {
-	background-image: url('/C:/Users/uosip/.vscode/uosipaw.lol/twilightBG_files/bg.svg');
+	background-image: url('/uosipaw.lol/twilightBG_files/bg.svg');
 		background-size: cover;
 		background-position: center;
-		position: relative;
+	background-repeat: no-repeat;
+	position: relative;
 		width: 100%;
-			height: 100%;
+		height: 100%;
 		z-index: -1;
 		opacity: 0.7;
 }
@@ -445,7 +445,7 @@ body {
 	padding: 10px;
 	text-align: center;
 	display: flex;
-		justify-content: center;
+	justify-content: center;
 		align-items: center;
 }
 .loading {
