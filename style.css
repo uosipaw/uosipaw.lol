@@ -34,7 +34,7 @@ p {
 
 .nav-bar {
   font-family: "laquer", serif;
-  font-size: 35px;
+  font-size: 38px;
   font-style: bold;
   position: fixed;
   left: -250px;
@@ -46,12 +46,16 @@ p {
   background-size: cover;
   background-position: center;
   transition: left 0.5s ease;
-  overflow-y: auto; /* Changed from 'hidden' to 'auto' */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto;
+  /* Changed from 'hidden' to 'auto' */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
   opacity: 0.17;
 
   /* Optional: Customize scrollbar appearance */
-  scrollbar-width: 20px; /* For Firefox */ /* For Firefox */
+  scrollbar-width: 20px;
+  /* For Firefox */
+  /* For Firefox */
 }
 
 /* Optional: Customize scrollbar appearance for WebKit browsers (Chrome, Safari, Edge) */
@@ -67,16 +71,14 @@ p {
 
 .nav-bar::-webkit-scrollbar-thumb {
   background-image: #edc6c6;
-  background-image: -webkit-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.602) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(255, 255, 255, 0.639) 50%,
-    rgba(255, 255, 255, 0.503) 75%,
-    transparent 75%,
-    transparent
-  );
+  background-image: -webkit-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.602) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.639) 50%,
+      rgba(255, 255, 255, 0.503) 75%,
+      transparent 75%,
+      transparent);
   border-radius: 18px;
 }
 
@@ -88,7 +90,8 @@ p {
   left: 0;
   opacity: 1;
   background-image: url("./images/scrollback.png");
-  background-color: #b3fff09b; /* Adjust the RGBA value as needed */
+  background-color: #b3fff09b;
+  /* Adjust the RGBA value as needed */
   background-size: cover;
   background-position: center;
   transition: left 0.5s ease;
@@ -139,26 +142,32 @@ p {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
 .home-page {
-  background-color: #27667e; /* Fallback color */
-  background-image: url("./images/cloudsbg.png");
+  background-color: #27667e;
+  /* Fallback color */
+  background-image: url("./images/background.png");
   background-size: cover;
   background-position: center;
   background-blend-mode: lighten;
   background-repeat: no-repeat;
   min-height: 100vh;
   opacity: 0.8;
-  animation: floatingClouds 30s ease infinite; /* Adjust time to control speed */
-  background-attachment: fixed; /* Keeps animation smooth */
-  background-size: 120% 120%; /* Slightly larger than container to prevent edges showing */
+  animation: floatingClouds 30s ease infinite;
+  /* Adjust time to control speed */
+  background-attachment: fixed;
+  /* Keeps animation smooth */
+  background-size: 120% 120%;
+  /* Slightly larger than container to prevent edges showing */
 }
 
 .zoo-page {
