@@ -5,6 +5,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "laquer";
+  src: url("./fonts/Lacquer-Regular.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -26,7 +33,7 @@ p {
 }
 
 .nav-bar {
-  font-family: "waiting-for-the-sunrise", serif;
+  font-family: "laquer", serif;
   font-size: 35px;
   font-style: bold;
   position: fixed;
