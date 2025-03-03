@@ -162,12 +162,7 @@ p {
   background-repeat: no-repeat;
   min-height: 100vh;
   opacity: 0.8;
-  animation: floatingClouds 30s ease infinite;
-  /* Adjust time to control speed */
-  background-attachment: fixed;
-  /* Keeps animation smooth */
-  background-size: 120% 120%;
-  /* Slightly larger than container to prevent edges showing */
+
 }
 
 .zoo-page {
@@ -201,6 +196,12 @@ p {
 
 .folklore-page {
   background-color: #ede7f6;
+  animation: floatingClouds 30s ease infinite;
+  /* Adjust time to control speed */
+  background-attachment: fixed;
+  /* Keeps animation smooth */
+  background-size: 120% 120%;
+  /* Slightly larger than container to prevent edges showing */
 }
 
 .food-page {
