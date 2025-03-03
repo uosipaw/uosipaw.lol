@@ -140,14 +140,15 @@ p {
 
 .home-page {
   background-color: #27667e;
-  /* Fallback color */
-  background-image: url("./images/homea.png");
+  background-image: url("./images/homea.jpg");
+  /* or .jpeg, .webp */
   background-size: cover;
   background-position: center;
-  background-blend-mode: lighten;
   background-repeat: no-repeat;
   min-height: 100vh;
-  opacity: 0.8;
+  opacity: 1;
+  z-index: 1;
+  /* Add this to ensure image isn't being covered */
 }
 
 .zoo-page {
