@@ -138,20 +138,6 @@ p {
   background-color: #ffde4a;
 }
 
-@keyframes floatingClouds {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .home-page {
   background-color: #27667e;
   /* Fallback color */
@@ -191,6 +177,20 @@ p {
 
 .tips-page {
   background-color: #e0f2f1;
+}
+
+@keyframes floatingClouds {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .folklore-page {
