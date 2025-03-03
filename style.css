@@ -141,7 +141,7 @@ p {
 .home-page {
   background-color: #27667e;
   /* Fallback color */
-  background-image: url("./images/background.png");
+  background-image: url("./images/homea.png");
   background-size: cover;
   background-position: center;
   background-blend-mode: lighten;
