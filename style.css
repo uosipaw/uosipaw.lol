@@ -64,31 +64,19 @@ p {
   font-family: "fredrickathegreat", serif;
   font-weight: regular;
   position: fixed;
-  left: -250px;
+  left: 0;
   top: 0;
   height: 100vh;
-  width: 270px;
-  background-image: url();
+  width: 60px;
   background-color: #fce4ec;
-  background-size: cover;
-  background-position: center;
-  transition: left 0.5s ease;
+  transition: width 0.3s ease;
   overflow: hidden;
-  /* Remove scrollbar */
-  opacity: 0.17;
   z-index: 1000;
 }
 
 .nav-bar:hover {
-  left: 0;
-  opacity: 1;
-  background-image: url();
-  background-color: #fbfbfb9b;
-  /* Adjust the RGBA value as needed */
-  background-size: cover;
-  background-position: center;
-  transition: left 0.5s ease;
-  background-blend-mode: lighten;
+  width: 300px;
+  background-color: #fbfbfb;
 }
 
 .nav-bar:hover,
@@ -114,31 +102,40 @@ p {
   list-style: none;
   padding: 0;
   margin: 20px 0;
-  height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 5px;
+  gap: 10px;
 }
 
 .nav-links li {
   padding: 0;
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .nav-links a {
-  display: block;
-  font-weight: bold;
-  font-stretch: expanded 1.5em;
-  color: rgb(124, 23, 107);
-  text-shadow: bisque 9px 9px 9px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
   text-decoration: none;
-  padding: 8px 10px;
-  padding-bottom: 15px;
-  transition: background-color 0.2s;
-  font-size: 0.9em;
-  line-height: 1.2;
+  color: rgb(124, 23, 107);
   white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.nav-links i {
+  font-size: 1.5em;
+  min-width: 30px;
+  text-align: center;
+}
+
+.nav-links span {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-bar:hover .nav-links span {
+  opacity: 1;
 }
 
 .nav-links a:hover {
@@ -383,5 +380,17 @@ a {
     width: 270px;
     left: -250px;
     font-size: 38px;
+  }
+}
+
+@media (hover: none) {
+
+  /* Touch device support */
+  .nav-bar:active {
+    width: 300px;
+  }
+
+  .nav-bar:active .nav-links span {
+    opacity: 1;
   }
 }
