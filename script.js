@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const menuToggle = document.querySelector(".menu-toggle");
+  const menuToggle = document.querySelector(".menu-toggle[type='checkbox']");
   const navLinks = document.querySelectorAll(".nav-li");
 
   menuToggle.addEventListener("change", () => {
