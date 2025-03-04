@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const heading = document.createElement("h1");
-  heading.textContent = "Welcome to uosipaw.lol";
-  document.body.appendChild(heading);
-
-  const paragraph = document.createElement("p");
-  paragraph.textContent = "This is a sample paragraph.";
-  document.body.appendChild(paragraph);
-
   const navBar = document.querySelector(".nav-bar");
   let touchStartX = 0;
   let touchEndX = 0;

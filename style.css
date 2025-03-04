@@ -56,7 +56,7 @@ p {
 .nav-bar {
   font-family: "laquer", serif;
   font-size: 38px;
-  font-style: bold;
+  font-weight: bold;
   position: fixed;
   left: -250px;
   top: 0;
@@ -147,7 +147,6 @@ p {
   font-weight: bold;
   font-stretch: expanded 1.5em;
   color: rgb(124, 23, 107);
-  text-shadow: #f8ffb9 9px 9px 9px;
   text-shadow: bisque 9px 9px 9px;
   text-decoration: none;
   padding: 10px 10px;
@@ -161,10 +160,10 @@ p {
 
 .home-page {
   background-color: #27667e;
-  background-image: url("./images/home.png");
+  background-image: url("./images/popin.svg"), url("./images/home.png");
   /* or .jpeg, .webp */
-  background-size: cover;
-  background-position: center;
+  background-size: 100px, cover;
+  background-position: center, center;
   background-repeat: no-repeat;
   min-height: 100vh;
   opacity: 1;
@@ -241,17 +240,14 @@ p {
 /* Mobile-first media queries */
 
 /* Base styles for mobile (under 768px) */
+/* Remove or comment out this conflicting base style */
+/* Delete or comment out this duplicate declaration
 .nav-bar {
   width: 100%;
   left: -100%;
   font-size: 24px;
-  /* Smaller font for mobile */
 }
-
-.nav-links a {
-  padding: 15px 10px;
-  /* Larger touch targets */
-}
+*/
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
@@ -306,5 +302,82 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile-first media queries */
+@media screen and (max-width: 768px) {
+
+  .home-page {
+    background-size: 60px, cover;
+    /* Smaller SVG size for mobile */
+    background-position: right 10px bottom 10px, center;
+  }
+
+  .home-page,
+  .folklore-page,
+  .zoo-page,
+  .help-page,
+  .tarot-page,
+  .want-to-help-page,
+  .words-page,
+  .art-page,
+  .tips-page,
+  .food-page,
+  .trivia-page,
+  .fun-page {
+    background-size: cover !important;
+    /* Override any other background-size */
+    min-height: 100dvh;
+    /* Dynamic viewport height */
+    width: 100%;
+    background-attachment: scroll;
+    /* Better performance on mobile */
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+
+  /* Optimize background images loading */
+  [class*="-page"] {
+    content-visibility: auto;
+    /* Improve paint performance */
+    contain: paint style layout;
+    /* Optimize rendering */
+  }
+
+  /* Fix iOS height issues */
+  @supports (-webkit-touch-callout: none) {
+    [class*="-page"] {
+      min-height: -webkit-fill-available;
+    }
+  }
+}
+
+/* Update your media queries */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    width: 100%;
+    left: -100%;
+    /* Will slide in from left */
+    font-size: 24px;
+    opacity: 0.9;
+    /* Make it more visible on mobile */
+  }
+
+  .nav-bar:hover,
+  .nav-bar:focus,
+  .nav-bar:active {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .nav-bar {
+    width: 270px;
+    left: -250px;
+    font-size: 38px;
   }
 }
