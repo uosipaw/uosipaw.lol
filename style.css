@@ -64,8 +64,9 @@ p {
   font-family: "fredrickathegreat", serif;
   font-weight: regular;
   position: fixed;
-  left: 0;
-  top: 0;
+  bottom: 75px;
+  right: 75px;
+  z-index: 1000;
   height: 100vh;
   width: 60px;
   background-color: #fce4ec;
@@ -121,6 +122,20 @@ p {
   color: rgb(124, 23, 107);
   white-space: nowrap;
   transition: all 0.2s ease;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: #fce4ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-main a {
+  width: 75px;
+  height: 75px;
 }
 
 .nav-links i {
@@ -140,6 +155,7 @@ p {
 
 .nav-links a:hover {
   background-color: #ffde4a;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-links img {
@@ -147,6 +163,11 @@ p {
   height: 24px;
   margin-right: 10px;
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(295deg) brightness(84%) contrast(97%);
+  transition: transform .35s ease;
+}
+
+.menu-toggle:checked~.nav-links .nav-main img {
+  transform: rotate(-45deg);
 }
 
 .nav-links a:hover img {
@@ -405,4 +426,77 @@ a {
   .nav-bar:active .nav-links span {
     opacity: 1;
   }
+}
+
+.bg-change {
+  position: absolute;
+  bottom: -75px;
+  right: -90px;
+  width: 1px;
+  height: 1px;
+  border-radius: 100% 0 0 0;
+  background: #fbfbfb;
+  transition: all .25s ease;
+}
+
+.menu-toggle:checked~.bg-change {
+  width: 3000px;
+  height: 3000px;
+  transition: all .5s ease;
+}
+
+.nav-li {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+  transition: bottom .5s ease;
+  z-index: 1;
+}
+
+.menu-toggle:checked~.nav-links .nav-li:nth-child(1) {
+  bottom: 150%;
+  transition: bottom .5s ease;
+}
+
+.menu-toggle:checked~.nav-links .nav-li:nth-child(2) {
+  bottom: 265%;
+  transition: bottom .6s ease;
+}
+
+/* Add animation keyframes */
+@keyframes border-top-animation {
+  0% {
+    bottom: 0px;
+  }
+
+  50% {
+    bottom: -14px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes border-bottom-animation {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -13px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+/* Hide checkbox but keep it accessible */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }

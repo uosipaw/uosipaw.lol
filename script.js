@@ -26,4 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelectorAll(".nav-li");
+
+  menuToggle.addEventListener("change", () => {
+    if (menuToggle.checked) {
+      navLinks.forEach((link, index) => {
+        setTimeout(() => {
+          link.style.opacity = "1";
+        }, 100 * index);
+      });
+    } else {
+      navLinks.forEach((link) => {
+        link.style.opacity = "0";
+      });
+    }
+  });
 });
