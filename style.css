@@ -60,20 +60,209 @@ h1,
 p {
   text-align: center;
   padding: 20px;
+  font-size: 2em;
 }
 
-/* Remove all navigation bar styling */
-.nav-bar,
-.nav-links,
-.nav-links li,
-.nav-links a,
-.nav-links img,
-.nav-links span,
-.menu-toggle,
-.bg-change,
-.nav-main,
+p {
+  color: #666;
+  text-align: center;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.nav-bar {
+  font-family: "fredrickathegreat", serif;
+  font-weight: regular;
+  position: fixed;
+  left: -250px;
+  top: 0;
+  height: 100vh;
+  width: 270px;
+  background-image: url();
+  background-color: #fce4ec;
+  background-size: cover;
+  background-position: center;
+  transition: left 0.5s ease;
+  overflow: hidden;
+  /* Remove scrollbar */
+  opacity: 0.17;
+  z-index: 1000;
+}
+
+.nav-bar:hover {
+  left: 0;
+  opacity: 1;
+  background-image: url();
+  background-color: #fbfbfb9b;
+  /* Adjust the RGBA value as needed */
+  background-size: cover;
+  background-position: center;
+  transition: left 0.5s ease;
+  background-blend-mode: lighten;
+}
+
+.nav-bar:hover,
+.nav-bar:focus,
+.nav-bar:active {
+  left: 0;
+  opacity: 1;
+}
+
+.nav-toggle {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  color: rgb(253, 248, 248);
+  padding: 5px;
+  width: 5px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-links li {
+  position: relative;
+  width: 100%;
+}
+
+.nav-links a {
+  width: var(--nav-width);
+  height: 60px;
+  border-radius: 100%;
+  background: var(--nav-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--nav-text);
+  transition: all 0.3s ease;
+}
+
+/* Navigation Icons and Images */
+.nav-links img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(295deg) brightness(84%) contrast(97%);
+  transition: transform .35s ease;
+}
+
+.nav-links span {
+  opacity: 0;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+/* Hover States */
+.nav-bar:hover .nav-links span {
+  opacity: 1;
+}
+
+.nav-links a:hover {
+  background-color: var(--nav-hover);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.nav-links img:hover {
+  transform: rotate(10deg);
+}
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.menu-toggle:checked~.nav-links .nav-main img {
+  transform: rotate(-45deg);
+}
+
+.bg-change {
+  position: absolute;
+  bottom: -75px;
+  right: -90px;
+  width: 1px;
+  height: 1px;
+  border-radius: 100% 0 0 0;
+  background: #fbfbfb;
+  transition: all .25s ease;
+}
+
+.menu-toggle:checked~.bg-change {
+  width: 3000px;
+  height: 3000px;
+  transition: all .5s ease;
+}
+
+.menu-toggle:checked~.nav-links .nav-links:nth-child(1) {
+  bottom: 150%;
+  transition: bottom .5s ease;
+}
+
+.menu-toggle:checked~.nav-links .nav-links:nth-child(2) {
+  bottom: 265%;
+  transition: bottom .6s ease;
+}
+
+@keyframes border-top-animation {
+  0% {
+    bottom: 0px;
+  }
+
+  50% {
+    bottom: -14px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes border-bottom-animation {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -13px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+.nav-main a {
+  width: 75px;
+  height: 75px;
+}
+
 .nav-links i {
-  display: none;
+  font-size: 1.5em;
+  min-width: 30px;
+  text-align: center;
+}
+
+.nav-bar:hover .nav-links span {
+  opacity: 1;
+}
+
+.menu-toggle:checked~.nav-links .nav-main img {
+  transform: rotate(-45deg);
+  >>>>>>>e600ab13ec078321357f0539a963d8efbbb897e8
 }
 
 .home-page {

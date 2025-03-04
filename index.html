@@ -2,49 +2,92 @@
 <html lang="en">
 
 <head>
-  <title>uosipaw</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta charset="utf-8" />
-  <meta name="description" content="uosipaw.lol" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="script.js" defer></script>
+  <meta name="description" content="uosipaw.lol - A collection of fun and interesting content">
+  <title>uosipaw</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="navbar.css">
+
+  <!-- Custom Fonts -->
   <style>
     .custom-font {
-      font-family: "waiting-for-the-sunrise", cursive, sans-serif;
-      font-family: "laquer", cursive, sans-serif;
-      font-family: "bagelfatone", cursive, sans-serif;
-      font-family: "chelaone", cursive, sans-serif;
-      font-family: "chewy", cursive, sans-serif;
-      font-family: "combo", cursive, sans-serif;
-      font-family: "dynapuff", cursive, sans-serif;
-      font-family: "gamjaflower", cursive, sans-serif;
-      font-family: "kranky", cursive, sans-serif;
-      font-family: "fredrickathegreat", cursive, sans-serif;
-
+      font-family: "waiting-for-the-sunrise", "laquer", "bagelfatone", "chelaone", "chewy", "combo", "dynapuff", "gamjaflower", "kranky", "fredrickathegreat", cursive, sans-serif;
     }
   </style>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body class="home-page">
-
-  <nav class="nav-bar">
-    <ul class="nav-links">
-      <li><a href="animals.html">animals</a></li>
-      <li><a href="dinosaurs.html"><i class="fas fa-dragon"></i> dinosaurs</a></li>
-      <li><a href="tarot.html">tarot</a></li>
-      <li><a href="words.html">words</a></li>
-      <li><a href="art.html">art</a></li>
-      <li><a href="tips.html">tips + tricks</a></li>
-      <li><a href="folklore.html">folklore</a></li>
-      <li><a href="food.html">food</a></li>
-      <li><a href="trivia.html">trivia</a></li>
-      <li><a href="fun.html">surprise</a></li>
-      <li><a href="help.html">i need help</a></li>
-      <li><a href="want-to-help.html">i can help</a></li>
-      <li><a href="about.html">uosipaw</a></li>
-    </ul>
-  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="nav-container">
+          <nav class="nav-bar" aria-label="Main navigation">
+            <input type="checkbox" id="ms-menu" class="menu-toggle" name="menu-toggle"
+              aria-label="Toggle navigation menu">
+            <div class="bg-change"></div>
+            <ul class="nav-links">
+              <li class="nav-main">
+                <a href="javascript:void(0)">
+                  <label class="menu-toggle-label" for="ms-menu">
+                    <img src="icons/020-smile-hand-drawn-emoticon.png" alt="Toggle menu">
+                  </label>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="animals.html" aria-label="Animals section">
+                  <img src="icons/039-zoo-1.png" alt="Paw icon">
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="dinosaurs.html" aria-label="Dinosaurs section">
+                  <img src="icons/024-animal-2.png" alt="Dinosaur icon">
+                </a>
+              </li>
+              <li>
+                <a href="tarot.html"><img src="icons/001-magic.png"><span>tarot</span></a>
+              </li>
+              <li>
+                <a href="words.html"><img src="icons/096-dictionary.png"><span>words</span></a>
+              </li>
+              <li>
+                <a href="art.html"><img src="icons/020-smile-hand-drawn-emoticon.png"><span>art</span></a>
+              </li>
+              <li>
+                <a href="tips.html"><img src="icons/018-treasure-map.png"><span>tips</span></a>
+              </li>
+              <li>
+                <a href="folklore.html"><img src="icons/055-medusa.png"><span>folklore</span></a>
+              </li>
+              <li>
+                <a href="food.html"><img src="icons/026-chicken-hand-drawn-outline.png"><span>food</span></a>
+              </li>
+              <li>
+                <a href="trivia.html"><img src="icons/035-wildlife.png"><span>trivia</span></a>
+              </li>
+              <li>
+                <a href="fun.html"><img src="icons/009-star.png"><span>fun</span></a>
+              </li>
+              <li>
+                <a href="help.html"><img src="icons/107-helping-hand.png"><span>help</span></a>
+              </li>
+              <li>
+                <a href="about.html"><img src="icons/028-animal-4.png"><span>about</span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
