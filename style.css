@@ -67,11 +67,10 @@ p {
   background-size: cover;
   background-position: center;
   transition: left 0.5s ease;
-  overflow-y: auto;
-  /* Changed from 'hidden' to 'auto' */
   overflow-x: hidden;
   /* Prevent horizontal scrolling */
   opacity: 0.17;
+  z-index: 1000;
 
   /* Optional: Customize scrollbar appearance */
   scrollbar-width: 20px;
@@ -119,6 +118,13 @@ p {
   background-blend-mode: lighten;
 }
 
+.nav-bar:hover,
+.nav-bar:focus,
+.nav-bar:active {
+  left: 0;
+  opacity: 1;
+}
+
 .nav-toggle {
   position: absolute;
   right: 0;
@@ -136,6 +142,11 @@ p {
   padding: 0;
   margin: 60px 0 0 0;
   text-align: center;
+  height: 100%;
+  /* Fit links to height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .nav-links li {
