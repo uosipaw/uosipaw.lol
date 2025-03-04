@@ -12,6 +12,27 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "dynapuff";
+  src: url("./fonts/DynaPuff-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gamjaflower";
+  src: url("./fonts/GamjaFlower-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "kranky";
+  src: url("./fonts/Kranky-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -196,7 +217,8 @@ p {
 
 .folklore-page {
   background-color: #ede7f6;
-  animation: floatingClouds 30s ease infinite;
+  background-image: url("./images/cloudsbg.png");
+  animation: floatingClouds 60s ease infinite;
   /* Adjust time to control speed */
   background-attachment: fixed;
   /* Keeps animation smooth */
@@ -214,4 +236,75 @@ p {
 
 .fun-page {
   background-color: #efebe9;
+}
+
+/* Mobile-first media queries */
+
+/* Base styles for mobile (under 768px) */
+.nav-bar {
+  width: 100%;
+  left: -100%;
+  font-size: 24px;
+  /* Smaller font for mobile */
+}
+
+.nav-links a {
+  padding: 15px 10px;
+  /* Larger touch targets */
+}
+
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+  .nav-bar {
+    width: 270px;
+    left: -250px;
+    font-size: 38px;
+  }
+}
+
+/* Touch-friendly hover states */
+@media (hover: none) {
+  .nav-bar:hover {
+    left: -100%;
+    /* Don't auto-show on touch devices */
+  }
+
+  .nav-links a:active {
+    background-color: #ffde4a;
+    /* Use active instead of hover for touch */
+  }
+}
+
+/* Prevent text size adjustment */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Improve touch targets */
+button,
+input,
+select,
+a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Optimize images for different screen sizes */
+@media screen and (max-width: 768px) {
+  .home-page {
+    background-size: contain;
+    min-height: 100dvh;
+    /* Use dynamic viewport height */
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
