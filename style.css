@@ -46,25 +46,94 @@ body {
   background-color: #f0f0f0;
 }
 
-h1 {
-  color: #333;
+h1,
+p {
   text-align: center;
   padding: 20px;
-  font-size: 2em;
 }
 
-p {
-  color: #666;
-  text-align: center;
-  padding: 10px;
-  font-size: 1em;
-}
-
+/* Base Navigation Styles */
 .nav-bar {
   position: fixed;
-  bottom: 75px;
-  right: 75px;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 60px;
+  background-color: #fce4ec;
+  transition: all 0.3s ease;
+  overflow: hidden;
   z-index: 1000;
+  opacity: 0.9;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.nav-links li {
+  position: relative;
+  width: 100%;
+}
+
+.nav-links a {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: #fce4ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgb(124, 23, 107);
+  transition: all 0.3s ease;
+}
+
+/* Navigation Icons and Images */
+.nav-links img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(295deg) brightness(84%) contrast(97%);
+  transition: transform .35s ease;
+}
+
+.nav-links span {
+  opacity: 0;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+/* Hover States */
+.nav-bar:hover {
+  width: 300px;
+}
+
+.nav-bar:hover .nav-links span {
+  opacity: 1;
+}
+
+.nav-links a:hover {
+  background-color: #ffde4a;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.menu-toggle:checked~.nav-links .nav-main img {
+  transform: rotate(-45deg);
 }
 
 .bg-change {
@@ -84,20 +153,12 @@ p {
   transition: all .5s ease;
 }
 
-.nav-li {
-  position: absolute;
-  bottom: 0;
-  right: 8px;
-  transition: bottom .5s ease;
-  z-index: 1;
-}
-
-.menu-toggle:checked~.nav-links .nav-li:nth-child(1) {
+.menu-toggle:checked~.nav-links .nav-links:nth-child(1) {
   bottom: 150%;
   transition: bottom .5s ease;
 }
 
-.menu-toggle:checked~.nav-links .nav-li:nth-child(2) {
+.menu-toggle:checked~.nav-links .nav-links:nth-child(2) {
   bottom: 265%;
   transition: bottom .6s ease;
 }
@@ -130,32 +191,6 @@ p {
   }
 }
 
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.nav-links li {
-  padding: 0;
-  width: 100%;
-}
-
-.nav-links a {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background: #fce4ec;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
 .nav-main a {
   width: 75px;
   height: 75px;
@@ -167,56 +202,23 @@ p {
   text-align: center;
 }
 
-.nav-links span {
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
 .nav-bar:hover .nav-links span {
   opacity: 1;
-}
-
-.nav-links a:hover {
-  background-color: #ffde4a;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav-links img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(295deg) brightness(84%) contrast(97%);
-  transition: transform .35s ease;
 }
 
 .menu-toggle:checked~.nav-links .nav-main img {
   transform: rotate(-45deg);
 }
 
-.menu-toggle {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.nav-links a:hover {
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  background: #ffde4a;
-}
-
 .home-page {
   background-color: #27667e;
   background-image: url("./images/popin.svg"), url("./images/home.png");
-  /* or .jpeg, .webp */
   background-size: 100px, cover;
-  background-position: center, center;
+  background-position: right 20px bottom 20px, center;
   background-repeat: no-repeat;
   min-height: 100vh;
   opacity: 1;
   z-index: 1;
-  /* Add this to ensure image isn't being covered */
 }
 
 .zoo-page {
@@ -266,11 +268,8 @@ p {
   background-color: #ede7f6;
   background-image: url("./images/cloudsbg.png");
   animation: floatingClouds 60s ease infinite;
-  /* Adjust time to control speed */
   background-attachment: fixed;
-  /* Keeps animation smooth */
   background-size: 120% 120%;
-  /* Slightly larger than container to prevent edges showing */
 }
 
 .food-page {
@@ -285,7 +284,6 @@ p {
   background-color: #efebe9;
 }
 
-/* Add this with your other page styles */
 .dinosaurs-page {
   background-color: #3E2723;
   color: #FFFFFF;
@@ -317,12 +315,10 @@ p {
 @media (hover: none) {
   .nav-bar:hover {
     left: -100%;
-    /* Don't auto-show on touch devices */
   }
 
   .nav-links a:active {
     background-color: #ffde4a;
-    /* Use active instead of hover for touch */
   }
 }
 
@@ -346,7 +342,6 @@ a {
   .home-page {
     background-size: contain;
     min-height: 100dvh;
-    /* Use dynamic viewport height */
   }
 }
 
@@ -365,7 +360,6 @@ a {
 
   .home-page {
     background-size: 60px, cover;
-    /* Smaller SVG size for mobile */
     background-position: right 10px bottom 10px, center;
   }
 
@@ -382,27 +376,20 @@ a {
   .trivia-page,
   .fun-page {
     background-size: cover !important;
-    /* Override any other background-size */
     min-height: 100dvh;
-    /* Dynamic viewport height */
     width: 100%;
     background-attachment: scroll;
-    /* Better performance on mobile */
     background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
   }
 
-  /* Optimize background images loading */
   [class*="-page"] {
     content-visibility: auto;
-    /* Improve paint performance */
     contain: paint style layout;
-    /* Optimize rendering */
   }
 
-  /* Fix iOS height issues */
   @supports (-webkit-touch-callout: none) {
     [class*="-page"] {
       min-height: -webkit-fill-available;
@@ -423,19 +410,18 @@ a {
 /* Update your media queries */
 @media screen and (max-width: 768px) {
   .nav-bar {
-    width: 100%;
-    left: -100%;
-    /* Will slide in from left */
-    font-size: 24px;
-    opacity: 0.9;
-    /* Make it more visible on mobile */
+    width: 50px;
   }
 
   .nav-bar:hover,
   .nav-bar:focus,
   .nav-bar:active {
-    left: 0;
-    opacity: 1;
+    width: 260px;
+  }
+
+  .nav-links a {
+    padding: 8px;
+    font-size: 0.9em;
   }
 }
 
@@ -449,7 +435,6 @@ a {
 
 @media (hover: none) {
 
-  /* Touch device support */
   .nav-bar:active {
     width: 300px;
   }
