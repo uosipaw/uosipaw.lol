@@ -33,18 +33,23 @@
           <nav class="nav-bar" aria-label="Main navigation">
             <input type="checkbox" id="ms-menu" class="menu-toggle" name="menu-toggle"
               aria-label="Toggle navigation menu">
-            <div class="bg-change" aria-hidden="true"></div>
+            <div class="bg-change"></div>
             <ul class="nav-links">
-              <li>
-                <a href="animals.html" aria-label="Animals section">
-                  <img src="icons/039-zoo-1.png" alt="Paw icon">
-                  <span>animals</span>
+              <li class="nav-main">
+                <a href="javascript:void(0)">
+                  <label class="menu-toggle-label" for="ms-menu">
+                    <img src="icons/020-smile-hand-drawn-emoticon.png" alt="Toggle menu">
+                  </label>
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
+                <a href="animals.html" aria-label="Animals section">
+                  <img src="icons/039-zoo-1.png" alt="Paw icon">
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="dinosaurs.html" aria-label="Dinosaurs section">
                   <img src="icons/024-animal-2.png" alt="Dinosaur icon">
-                  <span>dinosaurs</span>
                 </a>
               </li>
               <li>
@@ -76,13 +81,6 @@
               </li>
               <li>
                 <a href="about.html"><img src="icons/028-animal-4.png"><span>about</span></a>
-              </li>
-              <li class="nav-main">
-                <a href="javascript:void(0)" aria-label="Toggle menu">
-                  <label class="menu-toggle-label" for="ms-menu">
-                    <img src="icons/plus.svg" alt="Toggle menu icon">
-                  </label>
-                </a>
               </li>
             </ul>
           </nav>
