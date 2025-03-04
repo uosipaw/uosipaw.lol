@@ -120,7 +120,7 @@ p {
   text-decoration: none;
   color: rgb(124, 23, 107);
   white-space: nowrap;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .nav-links i {
@@ -140,6 +140,18 @@ p {
 
 .nav-links a:hover {
   background-color: #ffde4a;
+}
+
+.nav-links img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(295deg) brightness(84%) contrast(97%);
+}
+
+.nav-links a:hover img {
+  filter: brightness(0) saturate(100%);
+  transition: filter 0.2s ease;
 }
 
 .home-page {
