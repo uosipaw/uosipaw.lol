@@ -61,42 +61,73 @@ p {
 }
 
 .nav-bar {
-  font-family: "fredrickathegreat", serif;
-  font-weight: regular;
   position: fixed;
   bottom: 75px;
   right: 75px;
   z-index: 1000;
-  height: 100vh;
-  width: 60px;
-  background-color: #fce4ec;
-  transition: width 0.3s ease;
-  overflow: hidden;
-  z-index: 1000;
 }
 
-.nav-bar:hover {
-  width: 300px;
-  background-color: #fbfbfb;
-}
-
-.nav-bar:hover,
-.nav-bar:focus,
-.nav-bar:active {
-  left: 0;
-  opacity: 1;
-}
-
-.nav-toggle {
+.bg-change {
   position: absolute;
-  right: 0;
-  top: 10px;
-  color: rgb(253, 248, 248);
-  padding: 5px;
-  width: 5px;
-  text-align: center;
-  cursor: pointer;
-  opacity: 1;
+  bottom: -75px;
+  left: -90px;
+  width: 1px;
+  height: 1px;
+  border-radius: 100% 0 0 0;
+  background: #fbfbfb;
+  transition: all .25s ease;
+}
+
+.menu-toggle:checked~.bg-change {
+  width: 3000px;
+  height: 3000px;
+  transition: all .5s ease;
+}
+
+.nav-li {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+  transition: bottom .5s ease;
+  z-index: 1;
+}
+
+.menu-toggle:checked~.nav-links .nav-li:nth-child(1) {
+  bottom: 150%;
+  transition: bottom .5s ease;
+}
+
+.menu-toggle:checked~.nav-links .nav-li:nth-child(2) {
+  bottom: 265%;
+  transition: bottom .6s ease;
+}
+
+@keyframes border-top-animation {
+  0% {
+    bottom: 0px;
+  }
+
+  50% {
+    bottom: -14px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes border-bottom-animation {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -13px;
+  }
+
+  100% {
+    top: 0px;
+  }
 }
 
 .nav-links {
@@ -114,14 +145,6 @@ p {
 }
 
 .nav-links a {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 12px 15px;
-  text-decoration: none;
-  color: rgb(124, 23, 107);
-  white-space: nowrap;
-  transition: all 0.2s ease;
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -170,9 +193,17 @@ p {
   transform: rotate(-45deg);
 }
 
-.nav-links a:hover img {
-  filter: brightness(0) saturate(100%);
-  transition: filter 0.2s ease;
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.nav-links a:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  background: #ffde4a;
 }
 
 .home-page {
@@ -426,77 +457,4 @@ a {
   .nav-bar:active .nav-links span {
     opacity: 1;
   }
-}
-
-.bg-change {
-  position: absolute;
-  bottom: -75px;
-  right: -90px;
-  width: 1px;
-  height: 1px;
-  border-radius: 100% 0 0 0;
-  background: #fbfbfb;
-  transition: all .25s ease;
-}
-
-.menu-toggle:checked~.bg-change {
-  width: 3000px;
-  height: 3000px;
-  transition: all .5s ease;
-}
-
-.nav-li {
-  position: absolute;
-  bottom: 0;
-  right: 8px;
-  transition: bottom .5s ease;
-  z-index: 1;
-}
-
-.menu-toggle:checked~.nav-links .nav-li:nth-child(1) {
-  bottom: 150%;
-  transition: bottom .5s ease;
-}
-
-.menu-toggle:checked~.nav-links .nav-li:nth-child(2) {
-  bottom: 265%;
-  transition: bottom .6s ease;
-}
-
-/* Add animation keyframes */
-@keyframes border-top-animation {
-  0% {
-    bottom: 0px;
-  }
-
-  50% {
-    bottom: -14px;
-  }
-
-  100% {
-    bottom: 0px;
-  }
-}
-
-@keyframes border-bottom-animation {
-  0% {
-    top: 0px;
-  }
-
-  50% {
-    top: -13px;
-  }
-
-  100% {
-    top: 0px;
-  }
-}
-
-/* Hide checkbox but keep it accessible */
-.menu-toggle {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
 }
