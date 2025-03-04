@@ -262,7 +262,6 @@ p {
 
 .menu-toggle:checked~.nav-links .nav-main img {
   transform: rotate(-45deg);
-  >>>>>>>e600ab13ec078321357f0539a963d8efbbb897e8
 }
 
 .home-page {
