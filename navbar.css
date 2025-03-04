@@ -1,0 +1,74 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background: #29313e;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    outline: none !important;
+}
+
+/* Remove all navigation bar styling */
+body,
+ul,
+a,
+.ms-nav-container,
+#ms-menu,
+.bg-change,
+.ms-nav,
+.ms-nav>.ms-main,
+.ms-nav>.ms-li,
+.ms-nav .ms-menu-toggle:checked~.ms-li a,
+.ms-nav .ms-menu-toggle:checked~.ms-li1,
+.ms-nav .ms-menu-toggle:checked~.ms-li1 a span,
+.ms-nav .ms-menu-toggle:checked~.ms-main:after,
+.ms-nav .ms-menu-toggle:checked~.ms-li1:before,
+.ms-nav .ms-menu-toggle:checked~.ms-li1:after,
+.ms-nav .ms-menu-toggle:checked~.ms-li2,
+.ms-nav .ms-menu-toggle:checked~.ms-li2 a span,
+.ms-nav .ms-menu-toggle:checked~.ms-li2:before,
+.ms-nav .ms-menu-toggle:checked~.ms-li2:after,
+.ms-nav .ms-menu-toggle:checked~.ms-li3,
+.ms-nav .ms-menu-toggle:checked~.ms-li3 a span,
+.ms-nav .ms-menu-toggle:checked~.ms-li3:before,
+.ms-nav .ms-menu-toggle:checked~.ms-li3:after,
+.ms-nav .ms-menu-toggle:checked~.ms-li4,
+.ms-nav .ms-menu-toggle:checked~.ms-li4 a span,
+.ms-nav .ms-menu-toggle~.ms-li:before,
+.ms-nav .ms-menu-toggle:checked~.ms-li:before,
+.ms-nav .ms-menu-toggle:checked~.ms-li:after,
+.ms-nav .ms-menu-toggle:checked~.ms-main:after,
+.ms-nav .ms-menu-toggle:checked~.ms-li-last:after,
+.ms-nav .ms-menu-toggle:checked~.ms-main span,
+.ms-nav .ms-menu-toggle~.ms-main span,
+.ms-nav>.ms-main>a,
+.ms-nav>li a,
+.ms-nav>.ms-main a,
+.ms-nav>.ms-main>a>label,
+.ms-nav>li>a span,
+@keyframes border-top-animation,
+@keyframes border-bottom-animation,
+@keyframes big-border-bottom-animation,
+.nav-container,
+.nav-bar,
+.nav-links,
+.nav-item,
+.nav-links a,
+.nav-links img,
+.nav-main,
+.menu-toggle:checked~.nav-links .nav-item:nth-child(2),
+.menu-toggle:checked~.nav-links .nav-item:nth-child(3),
+.menu-toggle:checked~.nav-links .nav-main img,
+.nav-links a:hover img,
+.menu-toggle:checked~.nav-links a:hover img {
+    display: none;
+}
