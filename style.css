@@ -125,6 +125,8 @@ p {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100vh;
+  /* Fit icons to page height */
 }
 
 .nav-links li {
@@ -135,7 +137,8 @@ p {
 .nav-links a {
   width: 30px;
   /* Icon width */
-  height: 60px;
+  height: calc(100% / 12);
+  /* Adjust height to fit all icons */
   border-radius: 0;
   /* Remove circles */
   background: var(--nav-bg);
