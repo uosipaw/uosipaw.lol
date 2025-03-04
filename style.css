@@ -1,3 +1,4 @@
+/* Font Declarations */
 @font-face {
   font-family: "waiting-for-the-sunrise";
   src: url("./fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
@@ -40,125 +41,50 @@
   font-style: normal;
 }
 
+/* Base Styles */
+:root {
+  --nav-bg: #fce4ec;
+  --nav-hover: #ffde4a;
+  --nav-text: rgb(124, 23, 107);
+  --nav-width: 60px;
+  --nav-width-expanded: 300px;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
 }
 
-h1 {
-  color: #333;
+h1,
+p {
   text-align: center;
   padding: 20px;
-  font-size: 2em;
 }
 
-p {
-  color: #666;
-  text-align: center;
-  padding: 10px;
-  font-size: 1em;
-}
-
-.nav-bar {
-  font-family: "fredrickathegreat", serif;
-  font-size: 38px;
-  font-weight: bold;
-  position: fixed;
-  left: -250px;
-  top: 0;
-  height: 100%;
-  width: 270px;
-  background-image: url();
-  background-color: #fce4ec;
-  background-size: cover;
-  background-position: center;
-  transition: left 0.5s ease;
-  overflow: hidden;
-  /* Remove scrollbar */
-  opacity: 0.17;
-  z-index: 1000;
-
-  /* Optional: Customize scrollbar appearance */
-  scrollbar-width: 20px;
-  /* For Firefox */
-  /* For Firefox */
-}
-
-.nav-bar:hover {
-  left: 0;
-  opacity: 1;
-  background-image: url();
-  background-color: #fbfbfb9b;
-  /* Adjust the RGBA value as needed */
-  background-size: cover;
-  background-position: center;
-  transition: left 0.5s ease;
-  background-blend-mode: lighten;
-}
-
-.nav-bar:hover,
-.nav-bar:focus,
-.nav-bar:active {
-  left: 0;
-  opacity: 1;
-}
-
-.nav-toggle {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  color: rgb(253, 248, 248);
-  padding: 5px;
-  width: 5px;
-  text-align: center;
-  cursor: pointer;
-  opacity: 1;
-}
-
-.nav-links {
-  list-style: none;
-  padding: 0;
-  margin: 60px 0 0 0;
-  text-align: center;
-  height: 100%;
-  /* Fit links to height */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.nav-links li {
-  padding: 5;
-}
-
-.nav-links a {
-  display: block;
-  font-weight: bold;
-  font-stretch: expanded 1.5em;
-  color: rgb(124, 23, 107);
-  text-shadow: bisque 9px 9px 9px;
-  text-decoration: none;
-  padding: 10px 10px;
-  padding-bottom: 15px;
-  transition: background-color 0.2s;
-}
-
-.nav-links a:hover {
-  background-color: #ffde4a;
+/* Remove all navigation bar styling */
+.nav-bar,
+.nav-links,
+.nav-links li,
+.nav-links a,
+.nav-links img,
+.nav-links span,
+.menu-toggle,
+.bg-change,
+.nav-main,
+.nav-links i {
+  display: none;
 }
 
 .home-page {
   background-color: #27667e;
   background-image: url("./images/popin.svg"), url("./images/home.png");
-  /* or .jpeg, .webp */
   background-size: 100px, cover;
-  background-position: center, center;
+  background-position: right 20px bottom 20px, center;
   background-repeat: no-repeat;
   min-height: 100vh;
   opacity: 1;
   z-index: 1;
-  /* Add this to ensure image isn't being covered */
 }
 
 .zoo-page {
@@ -208,11 +134,8 @@ p {
   background-color: #ede7f6;
   background-image: url("./images/cloudsbg.png");
   animation: floatingClouds 60s ease infinite;
-  /* Adjust time to control speed */
   background-attachment: fixed;
-  /* Keeps animation smooth */
   background-size: 120% 120%;
-  /* Slightly larger than container to prevent edges showing */
 }
 
 .food-page {
@@ -227,7 +150,6 @@ p {
   background-color: #efebe9;
 }
 
-/* Add this with your other page styles */
 .dinosaurs-page {
   background-color: #3E2723;
   color: #FFFFFF;
@@ -235,16 +157,6 @@ p {
 }
 
 /* Mobile-first media queries */
-
-/* Base styles for mobile (under 768px) */
-/* Remove or comment out this conflicting base style */
-/* Delete or comment out this duplicate declaration
-.nav-bar {
-  width: 100%;
-  left: -100%;
-  font-size: 24px;
-}
-*/
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
@@ -259,12 +171,10 @@ p {
 @media (hover: none) {
   .nav-bar:hover {
     left: -100%;
-    /* Don't auto-show on touch devices */
   }
 
   .nav-links a:active {
     background-color: #ffde4a;
-    /* Use active instead of hover for touch */
   }
 }
 
@@ -288,7 +198,6 @@ a {
   .home-page {
     background-size: contain;
     min-height: 100dvh;
-    /* Use dynamic viewport height */
   }
 }
 
@@ -304,10 +213,8 @@ a {
 
 /* Mobile-first media queries */
 @media screen and (max-width: 768px) {
-
   .home-page {
     background-size: 60px, cover;
-    /* Smaller SVG size for mobile */
     background-position: right 10px bottom 10px, center;
   }
 
@@ -324,50 +231,52 @@ a {
   .trivia-page,
   .fun-page {
     background-size: cover !important;
-    /* Override any other background-size */
     min-height: 100dvh;
-    /* Dynamic viewport height */
     width: 100%;
     background-attachment: scroll;
-    /* Better performance on mobile */
     background-position: center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
   }
 
-  /* Optimize background images loading */
   [class*="-page"] {
     content-visibility: auto;
-    /* Improve paint performance */
     contain: paint style layout;
-    /* Optimize rendering */
   }
 
-  /* Fix iOS height issues */
   @supports (-webkit-touch-callout: none) {
     [class*="-page"] {
       min-height: -webkit-fill-available;
     }
+  }
+
+  .nav-links {
+    margin: 10px 0;
+    height: calc(100vh - 20px);
+  }
+
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 0.85em;
   }
 }
 
 /* Update your media queries */
 @media screen and (max-width: 768px) {
   .nav-bar {
-    width: 100%;
-    left: -100%;
-    /* Will slide in from left */
-    font-size: 24px;
-    opacity: 0.9;
-    /* Make it more visible on mobile */
+    width: 50px;
   }
 
   .nav-bar:hover,
   .nav-bar:focus,
   .nav-bar:active {
-    left: 0;
-    opacity: 1;
+    width: 260px;
+  }
+
+  .nav-links a {
+    padding: 8px;
+    font-size: 0.9em;
   }
 }
 
@@ -376,5 +285,40 @@ a {
     width: 270px;
     left: -250px;
     font-size: 38px;
+  }
+}
+
+@media (hover: none) {
+  .nav-bar:active {
+    width: 300px;
+  }
+
+  .nav-bar:active .nav-links span {
+    opacity: 1;
+  }
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.nav-container {
+  position: fixed;
+  bottom: 75px;
+  right: 75px;
+  z-index: 1000;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .nav-bar {
+    width: 50px;
   }
 }
