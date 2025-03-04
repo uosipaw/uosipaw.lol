@@ -77,12 +77,14 @@ p {
   left: -250px;
   top: 0;
   height: 100vh;
-  width: 270px;
+  width: 60px;
+  /* Initial width */
   background-image: url();
   background-color: #fce4ec;
   background-size: cover;
   background-position: center;
-  transition: left 0.5s ease;
+  transition: left 0.5s ease, width 0.5s ease;
+  /* Smooth transition */
   overflow: hidden;
   /* Remove scrollbar */
   opacity: 0.17;
@@ -92,21 +94,17 @@ p {
 .nav-bar:hover {
   left: 0;
   opacity: 1;
+  max-width: fit-content;
   background-image: url();
   background-color: #fbfbfb9b;
   /* Adjust the RGBA value as needed */
   background-size: cover;
   background-position: center;
   transition: left 0.5s ease;
-  background-blend-mode: lighten;
+  width: 300px;
+  /* Expand width on hover */
 }
 
-.nav-bar:hover,
-.nav-bar:focus,
-.nav-bar:active {
-  left: 0;
-  opacity: 1;
-}
 
 .nav-toggle {
   position: absolute;
@@ -130,18 +128,24 @@ p {
 }
 
 .nav-links li {
-  position: relative;
+  position: fixed;
   width: 100%;
 }
 
 .nav-links a {
-  width: var(--nav-width);
+  width: 30px;
+  /* Icon width */
   height: 60px;
-  border-radius: 100%;
+  border-radius: 0;
+  /* Remove circles */
   background: var(--nav-bg);
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
+  margin: 5px 5px 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  ;
   text-decoration: none;
   color: var(--nav-text);
   transition: all 0.3s ease;
@@ -149,7 +153,8 @@ p {
 
 /* Navigation Icons and Images */
 .nav-links img {
-  width: 24px;
+  width: 30px;
+  /* Icon width */
   height: 24px;
   margin-right: 10px;
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(295deg) brightness(84%) contrast(97%);
@@ -175,46 +180,7 @@ p {
 }
 
 .nav-links img:hover {
-  transform: rotate(10deg);
-}
-
-.menu-toggle {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.menu-toggle:checked~.nav-links .nav-main img {
-  transform: rotate(-45deg);
-}
-
-.bg-change {
-  position: absolute;
-  bottom: -75px;
-  right: -90px;
-  width: 1px;
-  height: 1px;
-  border-radius: 100% 0 0 0;
-  background: #fbfbfb;
-  transition: all .25s ease;
-}
-
-.menu-toggle:checked~.bg-change {
-  width: 3000px;
-  height: 3000px;
-  transition: all .5s ease;
-}
-
-.menu-toggle:checked~.nav-links .nav-links:nth-child(1) {
-  bottom: 150%;
-  transition: bottom .5s ease;
-}
-
-.menu-toggle:checked~.nav-links .nav-links:nth-child(2) {
-  bottom: 265%;
-  transition: bottom .6s ease;
+  transform: rotate(20deg);
 }
 
 @keyframes border-top-animation {
@@ -260,9 +226,6 @@ p {
   opacity: 1;
 }
 
-.menu-toggle:checked~.nav-links .nav-main img {
-  transform: rotate(-45deg);
-}
 
 .home-page {
   background-color: #27667e;
