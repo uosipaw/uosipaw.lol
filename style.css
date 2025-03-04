@@ -41,7 +41,7 @@ p {
   top: 0;
   height: 100%;
   width: 270px;
-  background-image: url("./images/scrollback.png");
+  background-image: url();
   background-color: #fce4ec;
   background-size: cover;
   background-position: center;
@@ -89,8 +89,8 @@ p {
 .nav-bar:hover {
   left: 0;
   opacity: 1;
-  background-image: url("./images/scrollback.png");
-  background-color: #b3fff09b;
+  background-image: url();
+  background-color: #fbfbfb9b;
   /* Adjust the RGBA value as needed */
   background-size: cover;
   background-position: center;
@@ -140,7 +140,7 @@ p {
 
 .home-page {
   background-color: #27667e;
-  background-image: url("./images/homea.jpg");
+  background-image: url("./images/home.png");
   /* or .jpeg, .webp */
   background-size: cover;
   background-position: center;
