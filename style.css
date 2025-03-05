@@ -50,7 +50,7 @@ body {
   opacity: 0.3;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: normal;
   align-items: center;
   transition: width .3s ease, opacity 0.8s;
 }
@@ -74,6 +74,7 @@ body {
   text-decoration: none;
   color: #333;
   transition: color 0.3s;
+  margin: 5px 5px 5px 5px;
 }
 
 /* Change text color on hover */
@@ -98,13 +99,13 @@ body {
 .navbar a::after {
   content: "";
   position: absolute;
-  left: 85%;
+  left: 80%;
   /* Starts just outside the navbar */
   top: 50%;
   /* Aligns with the center of the link */
   width: 0;
   /* Initially hidden */
-  height: 120%;
+  height: 110%;
   /* 10% larger than the icon */
   background-size: cover;
   background-position: center;
@@ -113,17 +114,20 @@ body {
   opacity: 0;
   transform: translateY(-50%);
   /* Ensures vertical centering */
-  transition: width 1s ease, opacity 0.7s;
+
+  transition: width 1s ease-out, opacity 0.2s;
 }
 
 /* Expand background on hover */
 .navbar a:hover::after {
-  width: 350px;
+  width: 290px;
   /* Adjust as needed */
-  opacity: 1.5;
+  opacity: 1;
   image-resolution: from-image;
-  filter: contrast(.9) drop-shadow(20px 20px 20px #000000);
-  border-radius: 100px;
+  filter: drop-shadow(20px 20px 20px #000000);
+  border-radius: 60%;
+  transition: width 1s ease-out, opacity 0.2s;
+  background-size: contain;
 }
 
 /* Set different images dynamically */

@@ -92,6 +92,27 @@
       </a>
     </ul>
   </div>
+
+  <div class="homebutton">
+    <!-- Play Button -->
+    <button class="play-button" onclick="startAnimation()">???</button>
+
+    <!-- Video (Hidden Initially) -->
+    <video id="animationVideo" class="hidden-video" autoplay loop muted playsinline>
+      <source src="images/uosipawpop.svg" type="video/svg">
+      Your browser does not support the video tag.
+    </video>
+
+    <script>
+      function startAnimation() {
+        // Hide the button instantly
+        document.querySelector('.play-button').style.display = 'none';
+
+        // Show the video instantly
+        document.getElementById('animationVideo').style.display = 'block';
+      }
+    </script>
+  </div>
 </body>
 
 </html>
