@@ -15,6 +15,11 @@
     }
   </style>
   <script src="script.js" defer></script>
+  <script>
+    window.addEventListener('error', function (e) {
+      console.log('Resource loading error:', e.target.src || e.target.href);
+    });
+  </script>
 </head>
 
 <body class="home-page">

@@ -1,7 +1,7 @@
 /* Font Declarations */
 @font-face {
   font-family: "waiting-for-the-sunrise";
-  src: url("./fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
+  src: url('/fonts/WaitingfortheSunrise-Regular.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -77,8 +77,8 @@ p {
   top: 0;
   width: 70px;
   height: 100%;
-  background-color: #828282;
-  opacity: 0.3;
+  background-color: #ddd0c6;
+  opacity: 0.4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,7 +117,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
-  transform: scale(1.5);
+  transform: scale(1.1);
   opacity: 0.9;
   transition: all 0.3s ease;
   z-index: -1;
@@ -125,7 +125,7 @@ p {
 
 /* Individual hover backgrounds for each link */
 .navbar a[href="animals.html"]:hover::before {
-  background-image: url('./images/ZOO.png');
+  background-image: url('/images/ZOO.png');
 }
 
 .navbar a[href="dinosaurs.html"]:hover::before {
@@ -158,7 +158,13 @@ p {
 
 .navbar a[href="trivia.html"]:hover::before {
   background-image: url('./images/trivia.png');
+
 }
+
+.navbar a[href="about.html"]:hover::before {
+  background-image: url('./images/about.png');
+}
+
 
 .navbar a[href="help.html"]:hover::before {
   background-image: url('./images/help.png');
@@ -173,7 +179,7 @@ p {
   transform: scale(1.1);
   transition: transform 0.3s ease;
   position: relative;
-  z-index: 1;
+  z-index: 1000;
 }
 
 .home-page {
