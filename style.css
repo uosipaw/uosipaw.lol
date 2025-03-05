@@ -113,12 +113,11 @@ p {
   top: 0;
   height: 100%;
   width: 300px;
-  background-color: #feffe1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
-  transform: scale(1.2);
+  transform: scale(1.5);
   opacity: 0.9;
   transition: all 0.3s ease;
   z-index: -1;
