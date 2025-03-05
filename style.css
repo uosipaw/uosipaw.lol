@@ -112,13 +112,13 @@ p {
   left: 65px;
   top: 0;
   height: 100%;
-  width: 300px;
+  width: 500px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
   transform: scale(1.1);
-  opacity: 0.9;
+  opacity: 1;
   transition: all 0.3s ease;
   z-index: -1;
 }
