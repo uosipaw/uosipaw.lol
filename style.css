@@ -93,11 +93,11 @@ p {
 
 .navbar a {
   display: block;
-  height: calc(100vh / 11);
+  height: calc(100vh / 12);
   /* Make sure all icons fit within the height of the page without scrolling */
   margin-bottom: 10px;
   position: relative;
-  opacity: 1
+  opacity: 1;
 }
 
 .navbar img {
@@ -120,7 +120,6 @@ p {
   transform: scale(1.1);
   opacity: 1;
   transition: all 0.3s ease;
-  z-index: -1;
 }
 
 /* Individual hover backgrounds for each link */
