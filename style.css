@@ -109,17 +109,20 @@ p {
 .navbar a:hover::before {
   content: "";
   position: absolute;
-  left: 65px;
+  left: 60px;
+  /* Changed from 65px */
   top: 0;
   height: 100%;
   width: 500px;
-  background-size: cover;
+  /* Changed from 500px */
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 20px;
+  border-radius: 30px;
   transform: scale(1.1);
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all 0.7s ease;
+  z-index: -1;
 }
 
 /* Individual hover backgrounds for each link */
@@ -180,6 +183,7 @@ p {
   position: relative;
   z-index: 1000;
 }
+
 
 .home-page {
   background-color: #27667e;
