@@ -30,20 +30,21 @@
   src: url('./fonts/FrederickatheGreat-Regular.ttf') format("truetype");
 }
 
+html,
 body {
-  font-family: "waiting-for-the-sunrise";
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Prevent white flashes */
 }
 
 /* Base styles for the navbar */
 .navbar {
   font-family: "Fredricka the Great", cursive;
   position: fixed;
-  left: 0;
-  top: 0;
   width: fit-content;
   height: 100vh;
   background-color: #ffdbc0;
@@ -51,13 +52,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: normal;
-  align-items: center;
+  align-items: left;
   transition: width .3s ease, opacity 0.8s;
+  left: -5px;
 }
 
 .navbar:hover {
   opacity: 1;
-  width: auto;
   transition: opacity 1.5s, width 1.5s;
   color: #27667e;
 
@@ -83,7 +84,7 @@ body {
   background-color: rgba(100, 216, 237, 0.398);
   border-radius: 50%;
   background-size: 60%;
-  background-position: left;
+  background-position: center;
 
 }
 
@@ -92,7 +93,6 @@ body {
   max-height: calc(100vh / 14);
   object-fit: contain;
   border-radius: 10%;
-  ;
 }
 
 /* Expanding Background */
@@ -105,7 +105,7 @@ body {
   /* Aligns with the center of the link */
   width: 0;
   /* Initially hidden */
-  height: 110%;
+  height: 140%;
   /* 10% larger than the icon */
   background-size: cover;
   background-position: center;
@@ -120,7 +120,8 @@ body {
 
 /* Expand background on hover */
 .navbar a:hover::after {
-  width: 290px;
+  width: 300px;
+  height: 150%;
   /* Adjust as needed */
   opacity: 1;
   image-resolution: from-image;
@@ -137,13 +138,34 @@ body {
 
 .home-page {
   background-color: #27667e;
-  background-image: url("./images/popin.svg"), url("./images/home.png");
-  background-size: 100px, cover;
-  background-position: right 20px bottom 20px, center;
+  background-image: url("./images/home.png");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
   opacity: 1;
-  z-index: 1;
+  z-index: 998;
+}
+
+.playbutton {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  /* Keep it above everything */
+}
+
+.homevideo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 80%;
+  z-index: 999;
 }
 
 .zoo-page {
@@ -216,140 +238,3 @@ body {
 }
 
 /* Mobile-first media queries */
-
-/* Tablet (768px and up) */
-@media screen and (min-width: 768px) {
-  .nav-bar {
-    width: 270px;
-    left: 0;
-    font-size: 38px;
-  }
-}
-
-/* Prevent text size adjustment */
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-/* Improve touch targets */
-button,
-input,
-select,
-a {
-  min-height: 44px;
-  min-width: 44px;
-}
-
-/* Optimize images for different screen sizes */
-@media screen and (max-width: 768px) {
-  .home-page {
-    background-size: contain;
-    min-height: 100dvh;
-  }
-}
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Mobile-first media queries */
-@media screen and (max-width: 768px) {
-  .home-page {
-    background-size: 60px, cover;
-    background-position: right 10px bottom 10px, center;
-  }
-
-  .home-page,
-  .folklore-page,
-  .zoo-page,
-  .help-page,
-  .tarot-page,
-  .want-to-help-page,
-  .words-page,
-  .art-page,
-  .tips-page,
-  .food-page,
-  .trivia-page,
-  .fun-page {
-    background-size: cover !important;
-    min-height: 100dvh;
-    width: auto;
-    background-attachment: fixed;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-  }
-
-  [class*="-page"] {
-    content-visibility: auto;
-    contain: paint style layout;
-  }
-
-  @supports (-webkit-touch-callout: none) {
-    [class*="-page"] {
-      min-height: -webkit-fill-available;
-    }
-  }
-
-  .nav-links a {
-    padding: 6px 8px;
-    font-size: 0.85em;
-  }
-}
-
-/* Update your media queries */
-@media screen and (max-width: 768px) {
-  .nav-bar {
-    width: 60px;
-  }
-
-  .nav-bar:hover,
-  .nav-bar:focus,
-  .nav-bar:active {
-    width: 260px;
-  }
-
-  .nav-links a {
-    padding: 8px;
-    font-size: 0.9em;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .nav-bar {
-    width: 270px;
-    left: 0;
-    font-size: 38px;
-  }
-}
-
-@media (hover: none) {
-  .nav-bar:active {
-    width: 300px;
-  }
-
-  .nav-bar:active .nav-links span {
-    opacity: 1;
-  }
-}
-
-.container-fluid {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-  .nav-container {
-    bottom: 20px;
-    right: 20px;
-  }
