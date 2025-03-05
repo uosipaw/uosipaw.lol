@@ -78,7 +78,7 @@ p {
   width: 70px;
   height: 100%;
   background-color: #828282;
-  opacity: 0.2;
+  opacity: 0.3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +88,7 @@ p {
 }
 
 .navbar:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .navbar a {
@@ -105,16 +105,76 @@ p {
   height: 100%;
 }
 
+/* Base hover effect */
 .navbar a:hover::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: 65px;
   top: 0;
   height: 100%;
   width: 300px;
   background-color: #feffe1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
   transform: scale(1.2);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+/* Individual hover backgrounds for each link */
+.navbar a[href="animals.html"]:hover::before {
+  background-image: url('./images/ZOO.png');
+}
+
+.navbar a[href="dinosaurs.html"]:hover::before {
+  background-image: url('./images/dinosaur.png');
+}
+
+.navbar a[href="tarot.html"]:hover::before {
+  background-image: url('./images/tarot.png');
+}
+
+.navbar a[href="words.html"]:hover::before {
+  background-image: url('./images/words.png');
+}
+
+.navbar a[href="art.html"]:hover::before {
+  background-image: url('./images/art.png');
+}
+
+.navbar a[href="tips.html"]:hover::before {
+  background-image: url('./images/howto.png');
+}
+
+.navbar a[href="folklore.html"]:hover::before {
+  background-image: url('./images/myth.png');
+}
+
+.navbar a[href="food.html"]:hover::before {
+  background-image: url('./images/food.png');
+}
+
+.navbar a[href="trivia.html"]:hover::before {
+  background-image: url('./images/trivia.png');
+}
+
+.navbar a[href="help.html"]:hover::before {
+  background-image: url('./images/help.png');
+}
+
+.navbar a[href="about.html"]:hover::before {
+  background-image: url('./images/about.png');
+}
+
+/* Add hover effect for the image */
+.navbar a:hover img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .home-page {
