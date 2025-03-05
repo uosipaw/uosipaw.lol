@@ -44,7 +44,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 60px;
+  width: fit-content;
   height: 100vh;
   background-color: #ffdbc0;
   opacity: 0.3;
@@ -90,7 +90,7 @@ body {
 .navbar img {
   max-height: calc(100vh / 14);
   object-fit: contain;
-  border-radius: 100%;
+  border-radius: 10%;
   ;
 }
 
