@@ -59,7 +59,7 @@ body {
 
 .navbar:hover {
   opacity: 1;
-  transition: opacity 1.5s, width 1.5s;
+  transition: opacity 1.5s, width 1s;
   color: #27667e;
 
 }
@@ -115,7 +115,7 @@ body {
   transform: translateY(-50%);
   /* Ensures vertical centering */
 
-  transition: width 1s ease-out, opacity 0.2s;
+  transition: width .3s ease-out, opacity 0.4s;
 }
 
 /* Expand background on hover */
@@ -127,7 +127,7 @@ body {
   image-resolution: from-image;
   filter: drop-shadow(20px 20px 20px #000000);
   border-radius: 60%;
-  transition: width 1s ease-out, opacity 0.2s;
+  transition: width .5s ease-out, opacity 0.4s;
   background-size: contain;
 }
 
@@ -149,12 +149,14 @@ body {
 
 .playbutton {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1001;
-  /* Keep it above everything */
+  margin: 50%;
+  background-color: #ffdbc0;
+  border-radius: 70%;
+  padding: 20px;
+  width: 200px;
+  z-index: 1003;
 }
+
 
 /* Container for images (keeps them in a row) */
 .image-container {
@@ -162,26 +164,54 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 50%;
-  width: 90%;
-  max-width: 700px;
+  bottom: 40%;
+  width: 80%;
+  max-width: 500px;
 }
 
 .animated-image {
   opacity: 0;
   position: relative;
-  transform: scale(0.8) rotate(10deg);
-  transition: opacity .5s pop-in transform 2s;
-  padding: -10%;
+  transform: rotate(10deg);
+  transition: springy-effect opacity .1s, transform 3s;
+  margin: -8px;
+  padding: 0%;
   max-width: 100px;
   display: block;
-  margin: 0;
+}
+
+@keyframes springy-effect {
+  0% {
+    transform: scale(0.5);
+  }
+
+  40% {
+    transform: scale(1.2);
+  }
+
+  60% {
+    transform: scale(0.9);
+  }
+
+  80% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* When Show Class is Added */
 .show {
   opacity: 1;
   transform: scale(1) rotate(var(--rotate)) translate(var(--x-offset), var(--y-offset));
+}
+
+.animate.pop {
+  animation-duration: 1s;
+  animation-name: animate-pop, springy-effect;
+  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
 }
 
 .zoo-page {

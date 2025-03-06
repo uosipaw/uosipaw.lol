@@ -20,8 +20,8 @@ function startAnimation() {
 
   // Animate images one by one with a fixed delay of 750ms
   images.forEach((img, index) => {
-    let delay = index * 550; // 750ms delay between each image
-    let rotate = Math.random() * 20 - 10 + "deg"; // Random rotation between -10deg to 10deg
+    let delay = index * 400; // 750ms delay between each image
+    let rotate = Math.random() * 20 - 12 + "deg"; // Random rotation between -10deg to 10deg
     let xOffset = Math.random() * 10 - 5 + "px"; // Random x-axis shift
     let yOffset = Math.random() * 15 - 7.5 + "px"; // Random y-axis shift
 
@@ -41,5 +41,5 @@ function startAnimation() {
     img2.style.setProperty("--x-offset", Math.random() * 10 - 5 + "px");
     img2.style.setProperty("--y-offset", Math.random() * 15 - 7.5 + "px");
     img2.classList.add("show");
-  }, 4000); // Ensures 2.png appears last
+  }, 3000); // Ensures 2.png appears last
 }
