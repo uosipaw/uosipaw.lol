@@ -93,27 +93,20 @@
       </a>
     </ul>
   </div>
+  <!-- Play Button -->
+  <button class="playbutton" onclick="startAnimation()">Click Me</button>
 
-  <div class="homebutton">
-    <!-- Play Button -->
-    <button class="playbutton" onclick="startAnimation()">???</button>
-
-    <!-- Video (Hidden Initially) -->
-    <video id="animationVideo" class="homevideo" autoplay loop muted>
-      <source src="home.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <!-- Image Row -->
+  <div class="image-container">
+    <img id="img1" class="animated-image" src="images/1.png" alt="Image 1">
+    <img id="img2" class="animated-image" src="images/2.png" alt="Image 2">
+    <img id="img3" class="animated-image" src="images/3.png" alt="Image 3">
+    <img id="img4" class="animated-image" src="images/4.png" alt="Image 4">
+    <img id="img5" class="animated-image" src="images/5.png" alt="Image 5">
+    <img id="img6" class="animated-image" src="images/6.png" alt="Image 6">
+    <img id="img7" class="animated-image" src="images/7.png" alt="Image 7">
+    <!-- Always Last -->
   </div>
-
-  <script>
-    function startAnimation() {
-      // Hide only the button, NOT the whole div
-      document.querySelector('.playbutton').style.display = 'none';
-
-      // Show the video instantly
-      document.getElementById('animationVideo').style.display = 'block';
-    }
-  </script>
   </div>
 </body>
 
