@@ -180,7 +180,8 @@ body {
 }
 
 .playbutton:hover {
-  transform: scale(1.5) background-color: #4a98ff;
+  transform: scale(1.5);
+  background-color: #4a98ff;
   transition: transform 0.3s;
 }
 
