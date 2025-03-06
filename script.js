@@ -7,33 +7,21 @@ function startAnimation() {
     (img) => img.id !== "img2"
   );
 
-  // Shuffle the order for a random pop-in effect
-  images.sort(() => Math.random() - 0.5);
+  // Shuffle the images
+  images.sort(() => Math.random() - 2);
 
-  // Animate images one by one with a fixed delay of 400ms
+  // Animate images one by one with a random delay
   images.forEach((img, index) => {
-    let delay = index * 400;
-    let rotate = Math.random() * 20 - 6 + "deg"; // Random rotation between -12deg to 8deg
-    let xOffset = Math.random() * 10 - 7 + "px"; // Random x-axis shift
-    let yOffset = Math.random() * 15 - 5 + "px"; // Random y-axis shift
-
-    img.style.setProperty("--rotate", rotate);
-    img.style.setProperty("--x-offset", xOffset);
-    img.style.setProperty("--y-offset", yOffset);
-
+    let delay = Math.random() * 1300 + 500; // Random delay between 300ms - 1300ms
     setTimeout(() => {
       img.classList.add("show");
     }, delay);
   });
 
-  // Show 2.png last after all others
+  // Show 2.png last
   setTimeout(() => {
-    let img2 = document.getElementById("img2");
-    img2.style.setProperty("--rotate", Math.random() * 20 - 10 + "deg");
-    img2.style.setProperty("--x-offset", Math.random() * 10 - 5 + "px");
-    img2.style.setProperty("--y-offset", Math.random() * 15 - 7.5 + "px");
-    img2.classList.add("show");
-  }, 2800); // Ensures 2.png appears last
+    document.getElementById("img2").classList.add("show");
+  }, 2100);
 }
 
 // Initialize navbar functionality when DOM is loaded
