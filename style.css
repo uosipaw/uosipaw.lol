@@ -30,109 +30,103 @@
   src: url('./fonts/FrederickatheGreat-Regular.ttf') format("truetype");
 }
 
-html,
 body {
-  height: 100%;
+  font-family: "waiting-for-the-sunrise";
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Prevent white flashes */
+  box-sizing: border-box;
+  background-color: #f5f5f5;
 }
 
 /* Base styles for the navbar */
 .navbar {
-  font-family: "Fredricka the Great", cursive;
+  font-family: "fredrickathegreat", cursive;
   position: fixed;
-  width: fit-content;
+  left: 0;
+  top: 0;
+  width: 60px;
   height: 100vh;
-  background-color: #ffdbc0;
+  background-color: #ddd0c6;
   opacity: 0.3;
   display: flex;
   flex-direction: column;
-  justify-content: normal;
-  align-items: left;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
   transition: width .3s ease, opacity 0.8s;
-  left: -5px;
-  z-index: 1003;
-  filter: drop-shadow(20px 20px 20px #000000);
+  z-index: 1000;
 }
 
 .navbar:hover {
   opacity: 1;
-  transition: opacity 1.5s, width 1s;
+  width: auto;
+  transition: opacity 1.5s, width 1.5s;
   color: #27667e;
+}
 
+/* Navbar Links Container */
+.navlinks {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
 }
 
 /* Navbar Links */
 .navbar a {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: calc(100vh / 14);
+  margin-bottom: 5px;
   padding: 5px;
   box-sizing: border-box;
   position: relative;
   text-decoration: none;
   color: #333;
   transition: color 0.3s;
-  margin: 5px 5px 5px 5px;
-  z-index: 1003;
 }
 
 /* Change text color on hover */
 .navbar a:hover {
   color: #4a98ff;
-  background-color: rgba(100, 216, 237, 0.398);
+  background-color: rgba(100, 148, 237, 0.398);
   border-radius: 50%;
   background-size: 60%;
-  background-position: center;
-
+  background-position: left;
 }
 
 /* Link Icons */
 .navbar img {
-  max-height: calc(100vh / 14);
+  max-width: 30px;
+  max-height: 30px;
   object-fit: contain;
-  border-radius: 10%;
 }
 
 /* Expanding Background */
 .navbar a::after {
   content: "";
   position: absolute;
-  left: 0;
-  /* Starts just outside the navbar */
+  left: 85%;
   top: 50%;
-  /* Aligns with the center of the link */
   width: 0;
-  /* Initially hidden */
-  height: 100%;
-  /* 10% larger than the icon */
+  height: 120%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 20%;
   opacity: 0;
   transform: translateY(-50%);
-  /* Ensures vertical centering */
-
-  transition: width .3s ease-out, opacity 0.4s;
+  transition: width 1s ease, opacity 0.7s;
 }
 
 /* Expand background on hover */
 .navbar a:hover::after {
-  width: 700%;
-  height: 180%;
-  /* Adjust as needed */
+  width: 350px;
   opacity: 1;
   image-resolution: from-image;
-  filter: drop-shadow(20px 20px 20px #000000);
-  border-radius: 69%;
-  transition: width cubic-bezier(0.445, 0.05, 0.55, 0.95)s ease-out, opacity 0.4s;
-  background-size: contain;
-  z-index: 1003;
+  filter: contrast(.8) drop-shadow(20px 20px 20px #000000) saturate(1.2) brightness(1.2) grayscale(0.6);
+  border-radius: 100px;
 }
 
 /* Set different images dynamically */
@@ -140,84 +134,65 @@ body {
   background-image: var(--bg-image);
 }
 
-.home-page {
-  background-color: #27667e;
-  background-image: url("./images/home.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  opacity: 1;
-  z-index: 999;
-}
-
-.playbutton {
-  position: fixed;
-  margin: 50%;
-  background-color: #ffdbc0;
-  border-radius: 70%;
-  padding: 20px;
-  width: 200px;
-  z-index: 1002;
-}
-
-
-/* Container for images (keeps them in a row) */
+/* Animation for images */
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 50%;
-  width: 80%;
+  top: 50%;
+  left: 80%;
   max-width: 500px;
 }
 
 .animated-image {
   opacity: 0;
   position: relative;
-  transform: rotate(10deg);
+  transform: rotate(10deg 8deg 5deg);
   transition: springy-effect opacity .1s, transform 3s;
-  margin: -8px;
+  margin: -7px;
   padding: 0%;
-  max-width: 100px;
-  display: block;
-  overflow: clip;
-  overflow-clip-margin: 10px;
+  max-width: 500px;
+  display: linear;
+  overflow: hidden;
 }
 
-@keyframes springy-effect {
-  0% {
-    transform: scale(0.5);
-  }
-
-  40% {
-    transform: scale(1.2);
-  }
-
-  60% {
-    transform: scale(0.9);
-  }
-
-  80% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* When Show Class is Added */
-.show {
+.animated-image.show {
   opacity: 1;
-  transform: scale(1) rotate(var(--rotate)) translate(var(--x-offset), var(--y-offset));
+
 }
 
-.animate.pop {
-  animation-duration: 1s;
-  animation-name: animate-pop, springy-effect;
-  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+/* Play button styles */
+.playbutton {
+  font-family: laquer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #27667e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.playbutton:hover {
+  transform: scale(1.5) background-color: #4a98ff;
+  transition: transform 0.3s;
+}
+
+/* Page Backgrounds */
+.home-page {
+  background-image: url("./images/home.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  opacity: 1;
+  z-index: 1;
 }
 
 .zoo-page {
@@ -290,3 +265,162 @@ body {
 }
 
 /* Mobile-first media queries */
+
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+  .nav-bar {
+    width: 270px;
+    left: 0;
+    font-size: 38px;
+  }
+}
+
+/* Prevent text size adjustment */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Improve touch targets */
+button,
+input,
+select,
+a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Optimize images for different screen sizes */
+@media screen and (max-width: 768px) {
+  .home-page {
+    background-size: contain;
+    min-height: 100dvh;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile-first media queries */
+@media screen and (max-width: 768px) {
+  .home-page {
+    background-size: 60px, cover;
+    background-position: right 10px bottom 10px, center;
+  }
+
+  .home-page,
+  .folklore-page,
+  .zoo-page,
+  .help-page,
+  .tarot-page,
+  .want-to-help-page,
+  .words-page,
+  .art-page,
+  .tips-page,
+  .food-page,
+  .trivia-page,
+  .fun-page {
+    background-size: cover !important;
+    min-height: 100dvh;
+    width: auto;
+    background-attachment: fixed;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+
+  [class*="-page"] {
+    content-visibility: auto;
+    contain: paint style layout;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    [class*="-page"] {
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 0.85em;
+  }
+}
+
+/* Update your media queries */
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    width: 60px;
+  }
+
+  .nav-bar:hover,
+  .nav-bar:focus,
+  .nav-bar:active {
+    width: 260px;
+  }
+
+  .nav-links a {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .nav-bar {
+    width: 270px;
+    left: 0;
+    font-size: 38px;
+  }
+}
+
+@media (hover: none) {
+  .nav-bar:active {
+    width: 300px;
+  }
+
+  .nav-bar:active .nav-links span {
+    opacity: 1;
+  }
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .navbar {
+    width: 45px;
+    padding: 10px 5px;
+  }
+
+  .navbar img {
+    max-width: 25px;
+    max-height: 25px;
+  }
+
+  .navbar a {
+    height: calc(100vh / 15);
+    margin-bottom: 3px;
+  }
+
+  .navbar a:hover::after {
+    width: 200px;
+  }
+}
+
+@media (hover: none) {
+  .navbar:active {
+    width: auto;
+    opacity: 1;
+  }
+}
