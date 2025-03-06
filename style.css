@@ -127,7 +127,20 @@ body {
 /* Dynamic Background Images */
 .navbar a[data-bg]::after {
   background-image: var(--bg-image);
+}
 
+:root {
+  --bg-image-zoo: url("./images/ZOO.png");
+  --bg-image-dinosaur: url("./images/dinosaur.png");
+  --bg-image-food: url("./images/food.png");
+  --bg-image-fun: url("./images/fun.png");
+  --bg-image-help: url("./images/help.png");
+  --bg-image-home: url("./images/myth.png");
+  --bg-image-tarot: url("./images/tarot.png");
+  --bg-image-howto: url("./images/howto.png");
+  --bg-image-trivia: url("./images/trivia.png");
+  --bg-image-words: url("./images/words.png");
+  --bg-image-art: url("./images/art.png");
 }
 
 /* Image Container */
