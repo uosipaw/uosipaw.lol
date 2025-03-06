@@ -44,7 +44,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 60px;
+  width: 100%;
   height: 100vh;
   background-color: #ddd0c6;
   opacity: 0.3;
@@ -64,20 +64,12 @@ body {
   color: #27667e;
 }
 
-/* Navbar Links Container */
-.navlinks {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: space-between;
-}
-
 /* Navbar Links */
 .navbar a {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   height: calc(100vh / 14);
   margin-bottom: 5px;
   padding: 5px;
@@ -99,9 +91,8 @@ body {
 
 /* Link Icons */
 .navbar img {
-  max-width: 30px;
-  max-height: 30px;
-  object-fit: contain;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 /* Expanding Background */
