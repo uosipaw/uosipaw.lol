@@ -55,6 +55,8 @@ body {
   align-items: left;
   transition: width .3s ease, opacity 0.8s;
   left: -5px;
+  z-index: 1003;
+  filter: drop-shadow(20px 20px 20px #000000);
 }
 
 .navbar:hover {
@@ -76,6 +78,7 @@ body {
   color: #333;
   transition: color 0.3s;
   margin: 5px 5px 5px 5px;
+  z-index: 1003;
 }
 
 /* Change text color on hover */
@@ -99,18 +102,18 @@ body {
 .navbar a::after {
   content: "";
   position: absolute;
-  left: 80%;
+  left: 0;
   /* Starts just outside the navbar */
   top: 50%;
   /* Aligns with the center of the link */
   width: 0;
   /* Initially hidden */
-  height: 140%;
+  height: 100%;
   /* 10% larger than the icon */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 60%;
+  border-radius: 20%;
   opacity: 0;
   transform: translateY(-50%);
   /* Ensures vertical centering */
@@ -120,15 +123,16 @@ body {
 
 /* Expand background on hover */
 .navbar a:hover::after {
-  width: 300px;
-  height: 150%;
+  width: 700%;
+  height: 180%;
   /* Adjust as needed */
   opacity: 1;
   image-resolution: from-image;
   filter: drop-shadow(20px 20px 20px #000000);
-  border-radius: 60%;
-  transition: width .5s ease-out, opacity 0.4s;
+  border-radius: 69%;
+  transition: width cubic-bezier(0.445, 0.05, 0.55, 0.95)s ease-out, opacity 0.4s;
   background-size: contain;
+  z-index: 1003;
 }
 
 /* Set different images dynamically */
@@ -154,7 +158,7 @@ body {
   border-radius: 70%;
   padding: 20px;
   width: 200px;
-  z-index: 1003;
+  z-index: 1002;
 }
 
 
@@ -164,7 +168,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 40%;
+  bottom: 50%;
   width: 80%;
   max-width: 500px;
 }
@@ -178,6 +182,8 @@ body {
   padding: 0%;
   max-width: 100px;
   display: block;
+  overflow: clip;
+  overflow-clip-margin: 10px;
 }
 
 @keyframes springy-effect {
