@@ -35,17 +35,23 @@
 /* 🌿 General Styling */
 body {
   background-color: #f4f4f4;
-  /* Soft neutral tone */
   color: #333;
   font-size: 16px;
   transition: background 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+}
+
+.home-page {
+  background-image: url("./images/home.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  opacity: 1;
+  z-index: 1;
 }
 
 /* 📌 Navbar */
-.navbar {
+.home-page>.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -60,34 +66,38 @@ body {
   transition: width 0.3s ease-in-out;
 }
 
-.navbar:hover {
+.home-page>.navbar:hover {
   width: 120px;
   background: rgba(214, 222, 156, 0.527);
 }
 
 /* 🔹 Navbar Links */
-.navbar a {
+.home-page>.navbar a {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100px;
   padding: 10px;
+  transform: scale(1.2);
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
+.home-page>.navbar a:hover {
+  background-color: rgba(255, 102, 240, 0.546);
+  transform: scale(1.5);
+  border-radius: 90% 13% 40% 30%;
+  left: 30%;
+  position: relative;
 }
 
 /* Navbar Icons */
-.navbar img {
+.home-page>.navbar img {
   max-height: 40px;
   filter: brightness(80%);
   transition: filter 0.3s ease;
 }
 
-.navbar a:hover img {
+.home-page>.navbar a:hover img {
   filter: brightness(100%);
 }
 
@@ -118,25 +128,16 @@ body {
   background-color: #ff7f7dba;
 }
 
-/* Page Backgrounds */
-.home-page {
-  background-image: url("./images/home.png");
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  opacity: 1;
-  z-index: 1;
-}
-
 /* 🎭 Image Animations */
 .animated-image {
   opacity: 0;
-  transition: pop 0.3s;
+  animation: popin 0.3s forwards;
 }
 
 .animated-image.show {
   opacity: 1;
   transform: scale(1);
+  margin: 0 15%;
   animation: floating 3s infinite ease-in-out;
 }
 
@@ -154,8 +155,19 @@ body {
   }
 }
 
-/* 🎴 Tarot Deck Styling */
 /* 🎴 Tarot Page Layout */
+.tarot-page {
+  background: linear-gradient(to bottom, #2c3e50, #34495e);
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌟 General Tarot Page Styling */
 .tarot-page {
   background: linear-gradient(to bottom, #2c3e50, #34495e);
   color: white;
@@ -169,12 +181,12 @@ body {
 
 /* 🃏 Deck Positioned on the Left */
 .deck {
-  width: 250px;
-  height: 380px;
+  width: 200px;
+  height: 300px;
   background: url("images/back.png") no-repeat center/cover;
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 50px;
+  left: 50px;
   cursor: pointer;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
@@ -184,7 +196,7 @@ body {
   transform: scale(1.05);
 }
 
-/* 🌟 Perspective for Flip Effect */
+/* 🔄 Drawn Cards Container */
 .drawn-cards {
   position: absolute;
   left: 50%;
@@ -197,55 +209,59 @@ body {
   justify-content: center;
   align-items: center;
   perspective: 1000px;
-  /* Important for 3D effect */
 }
 
-/* 🃏 Tarot Card Styling */
+/* 🎴 Tarot Card Styles */
 .card {
-  width: 150px;
-  height: 230px;
+  width: 250px;
+  /* 25% larger than deck */
+  height: 375px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, left 0.5s ease, top 0.5s ease;
   cursor: pointer;
   border-radius: 8px;
   transform-style: preserve-3d;
-  /* Ensures 3D transformations */
   backface-visibility: hidden;
 }
 
-/* 🔄 Flip Animation on Draw */
-.card.flipped {
-  animation: flip 0.6s ease-in-out;
-}
-
-@keyframes flip {
+/* 🔄 Flip & Movement Animation */
+@keyframes moveAndFlip {
   0% {
-    transform: rotateY(0deg) scale(0.8);
+    transform: translateX(0px) translateY(0px) rotateY(0deg);
   }
 
   50% {
-    transform: rotateY(90deg) scale(1);
+    transform: translateX(200px) translateY(-100px) rotateY(90deg);
   }
 
   100% {
-    transform: rotateY(180deg) scale(1);
+    transform: translateX(400px) translateY(-200px) rotateY(180deg);
   }
 }
 
-/* 🎴 Expanded Card */
+.card.flipping {
+  animation: moveAndFlip 0.8s ease-in-out forwards;
+}
+
+/* 📍 Hover: Slight Movement */
+.card:hover {
+  transform: scale(1.1) translateY(-10px);
+}
+
+/* 🏆 Clicked (Expanded) Card */
 .card.expanded {
-  width: 250px;
-  height: 380px;
-  left: 15%;
+  width: 275px;
+  height: 412px;
+  left: 40%;
   top: 50%;
-  transform: translateY(-50%) scale(1.1);
+  transform: translate(-50%, -50%) rotate(-25deg) scale(1.25);
   z-index: 100;
 }
 
-/* 🔄 Dim Background when Card Expands */
+/* 🟡 Dim Background when Expanded */
 .tarot-page.dimmed::before {
   content: "";
   position: absolute;
@@ -264,7 +280,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
   width: 300px;
-  height: auto;
   background: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 20px;
@@ -278,37 +293,14 @@ body {
   opacity: 1;
 }
 
-/* 🔄 Dim Background when Card Expands */
-.tarot-page.dimmed::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 50;
-}
-
-/* 📜 Card Description Box */
-.card-description {
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 300px;
-  height: auto;
-  background: rgba(0, 0, 0, 0.8);
+/* ❌ Close Button */
+.close-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: red;
   color: white;
-  padding: 20px;
-  border-radius: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 101;
-}
-
-.card.expanded+.card-description {
-  opacity: 1;
+  border: none;
+  cursor: pointer;
 }
 
 /* 🌀 Floating Clouds Animation */
