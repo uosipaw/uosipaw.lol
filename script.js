@@ -54,62 +54,81 @@ function startAnimation() {
   setTimeout(() => document.getElementById("img2").classList.add("show"), 2100);
 }
 
-// Tarot Deck Logic
 const deck = document.querySelector(".deck");
 const drawnCardsContainer = document.querySelector(".drawn-cards");
 const descriptionBox = document.querySelector(".card-description");
+const tarotPage = document.querySelector(".tarot-page");
 
+// Tarot deck with 78 cards (stored as local images)
 const tarotDeck = Array.from({ length: 78 }, (_, i) => `images/t${i + 1}.png`);
 let drawnCards = [];
 
+// 🃏 Draw a Card
 function drawCard() {
   if (!tarotDeck.length) return;
 
   const randomIndex = Math.floor(Math.random() * tarotDeck.length);
   const cardImage = tarotDeck.splice(randomIndex, 1)[0];
 
+  const isReversed = Math.random() > 0.5; // 50% chance of being reversed
+
   const card = document.createElement("div");
   card.classList.add("card");
   card.style.backgroundImage = `url(${cardImage})`;
-  card.style.transform =
-    Math.random() > 0.5 ? "rotate(180deg)" : "rotate(0deg)";
-  card.style.left = `${Math.random() * 20 - 10}px`;
-  card.style.top = `${Math.random() * 20 - 10}px`;
-  card.style.animation = "flip 0.5s ease";
+  card.style.transform = isReversed ? "rotate(180deg)" : "rotate(0deg)";
 
-  card.addEventListener("click", () => shuffleBack(card, cardImage));
+  // Random stacking offset
+  let offsetX = Math.random() * 30 - 15; // Slightly messy look
+  let offsetY = Math.random() * 30 - 15;
+  card.style.left = `${offsetX}px`;
+  card.style.top = `${offsetY}px`;
+
+  // Click: Expand and show description
+  card.addEventListener("click", () => expandCard(card, cardImage));
+
+  // Double-Click: Shuffle back into deck
+  card.addEventListener("dblclick", () => shuffleBack(card, cardImage));
 
   drawnCards.push(card);
   drawnCardsContainer.appendChild(card);
-
-  updateHoverEffect();
 }
 
+// 🔍 Expand Card on Click
+function expandCard(card, cardImage) {
+  // Collapse other expanded cards
+  document
+    .querySelectorAll(".card.expanded")
+    .forEach((c) => c.classList.remove("expanded"));
+
+  // Expand the clicked card
+  card.classList.add("expanded");
+
+  // Dim background
+  tarotPage.classList.add("dimmed");
+
+  // Show Description
+  descriptionBox.textContent = getCardDescription(cardImage);
+  descriptionBox.style.opacity = "1";
+}
+
+// 🔄 Shuffle Card Back into Deck on Double Click
 function shuffleBack(card, cardImage) {
   tarotDeck.push(cardImage);
   card.remove();
   drawnCards = drawnCards.filter((c) => c !== card);
-  updateHoverEffect();
-}
 
-function updateHoverEffect() {
-  drawnCards.forEach((card) => card.classList.remove("top-card"));
-  if (drawnCards.length) {
-    const topCard = drawnCards[drawnCards.length - 1];
-    topCard.classList.add("top-card");
-    topCard.addEventListener("mouseenter", () => showDescription(topCard));
-    topCard.addEventListener("mouseleave", hideDescription);
+  // If no cards left expanded, remove dim effect
+  if (!document.querySelector(".card.expanded")) {
+    tarotPage.classList.remove("dimmed");
+    descriptionBox.style.opacity = "0";
   }
 }
 
-function showDescription(card) {
-  descriptionBox.style.visibility = "visible";
-  descriptionBox.style.opacity = "1";
-  const cardNumber = card.style.backgroundImage.match(/t(\d+)/)[1];
-  descriptionBox.textContent = `Card ${cardNumber} Description...`;
+// 📜 Get Card Description
+function getCardDescription(cardImage) {
+  const cardNumber = cardImage.match(/t(\d+)/)[1];
+  return `Card ${cardNumber} Description...`; // Replace with real descriptions
 }
 
-function hideDescription() {
-  descriptionBox.style.visibility = "hidden";
-  descriptionBox.style.opacity = "0";
-}
+// 🎴 Click Deck to Draw a Card
+deck.addEventListener("click", drawCard);
