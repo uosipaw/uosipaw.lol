@@ -218,7 +218,6 @@ body {
   z-index: 1000;
 }
 
-/* 🔄 Flip & Movement Animation */
 @keyframes moveAndFlip {
   0% {
     transform: translateX(0px) translateY(0px) rotateY(0deg);
@@ -231,6 +230,20 @@ body {
   100% {
     transform: translateX(800px) translateY(-400px) rotateY(180deg);
   }
+}
+
+.card.flipping {
+  animation: moveAndFlip 1.2s ease-in-out forwards;
+}
+
+/* 🏆 Expanded Card (Handles Upside Down Rotation) */
+.card.expanded {
+  width: 275px;
+  height: 412px;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg) scale(1.25);
+  z-index: 100;
 }
 
 .card.flipping {

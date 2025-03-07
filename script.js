@@ -73,43 +73,42 @@ const cardDescriptions = {
 
 // 🃏 Draw a Card
 function drawCard() {
-  if (!tarotDeck.length) return;
+  if (!tarotDeck.length) return; // Stop if deck is empty
 
   const randomIndex = Math.floor(Math.random() * tarotDeck.length);
-  const cardImage = tarotDeck.splice(randomIndex, 1)[0];
+  const cardImage = tarotDeck.splice(randomIndex, 1)[0]; // Remove the drawn card from the deck
 
-  const isReversed = Math.random() > 0.5;
+  const isReversed = Math.random() > 0.5; // 50% chance to be upside down
 
   const card = document.createElement("div");
-  card.classList.add("card", "flipping"); // Flip animation
+  card.classList.add("card", "flipping"); // Add the flipping animation
   card.style.backgroundImage = `url(${cardImage})`;
-  card.style.transform = isReversed
-    ? "rotateY(180deg) rotate(180deg)"
-    : "rotateY(180deg)";
 
-  // Remove flip animation after complete
-  setTimeout(() => {
-    card.classList.remove("flipping");
-  }, 1200);
+  // Apply upside-down flip (rotateX instead of rotateY)
+  card.style.transform = isReversed ? "rotateX(180deg)" : "rotateX(0deg)";
 
-  // Click: Expand and show description
-  card.addEventListener("click", () => expandCard(card, cardImage));
+  setTimeout(() => card.classList.remove("flipping"), 1200); // Remove flipping animation after it completes
 
-  // Double-Click: Shuffle back into deck
-  card.addEventListener("dblclick", () => shuffleBack(card, cardImage));
+  card.addEventListener("click", () => expandCard(card, cardImage, isReversed)); // Expand on click
+  card.addEventListener("dblclick", () => shuffleBack(card, cardImage)); // Shuffle back on double-click
 
   drawnCards.push(card);
   drawnCardsContainer.appendChild(card);
 }
 
-// 🔍 Expand Card on Click
-function expandCard(card, cardImage) {
+// 🔍 Expand Card on Click (Maintain Reversed State)
+function expandCard(card, cardImage, isReversed) {
   document
     .querySelectorAll(".card.expanded")
     .forEach((c) => c.classList.remove("expanded"));
 
   card.classList.add("expanded");
   tarotPage.classList.add("dimmed");
+
+  // If the card is reversed, keep it upside down when expanded
+  card.style.transform = isReversed
+    ? "rotateX(180deg) scale(1.25) rotate(-25deg)"
+    : "scale(1.25) rotate(-25deg)";
 
   descriptionBox.innerHTML = `
     <p>${
@@ -119,11 +118,15 @@ function expandCard(card, cardImage) {
   `;
   descriptionBox.style.opacity = "1";
 
-  // Close button event
   document
     .querySelector(".close-button")
     .addEventListener("click", closeDescription);
 }
+
+// Close button event
+document
+  .querySelector(".close-button")
+  .addEventListener("click", closeDescription);
 
 // 🔄 Shuffle Card Back into Deck on Double Click
 function shuffleBack(card, cardImage) {
