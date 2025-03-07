@@ -73,15 +73,22 @@ function drawCard() {
   const isReversed = Math.random() > 0.5; // 50% chance of being reversed
 
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "flipped"); // Ensure flip animation happens
   card.style.backgroundImage = `url(${cardImage})`;
-  card.style.transform = isReversed ? "rotate(180deg)" : "rotate(0deg)";
+  card.style.transform = isReversed
+    ? "rotateY(180deg) rotate(180deg)"
+    : "rotateY(180deg)";
 
   // Random stacking offset
   let offsetX = Math.random() * 30 - 15; // Slightly messy look
   let offsetY = Math.random() * 30 - 15;
   card.style.left = `${offsetX}px`;
   card.style.top = `${offsetY}px`;
+
+  // Remove flip animation class after animation completes
+  setTimeout(() => {
+    card.classList.remove("flipped");
+  }, 600);
 
   // Click: Expand and show description
   card.addEventListener("click", () => expandCard(card, cardImage));
