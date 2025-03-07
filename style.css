@@ -129,12 +129,12 @@ body {
 }
 
 /* 🎭 Image Animations */
-.animated-image {
+.home-page>.animated-image {
   opacity: 0;
   animation: popin 0.3s forwards;
 }
 
-.animated-image.show {
+.home-page>.animated-image.show {
   opacity: 1;
   transform: scale(1);
   margin: 0 15%;
@@ -167,17 +167,6 @@ body {
   overflow: hidden;
 }
 
-/* 🌟 General Tarot Page Styling */
-.tarot-page {
-  background: linear-gradient(to bottom, #2c3e50, #34495e);
-  color: white;
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
 
 /* 🃏 Deck Positioned on the Left */
 .deck {
@@ -185,11 +174,11 @@ body {
   height: 300px;
   background: url("images/back.png") no-repeat center/cover;
   position: absolute;
-  bottom: 50px;
-  left: 50px;
+  bottom: 250px;
+  left: 250px;
   cursor: pointer;
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform .7s ease-in-out;
 }
 
 .deck:hover {
@@ -204,11 +193,12 @@ body {
   transform: translate(-50%, -50%);
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
-  height: 500px;
+  width: 1000px;
+  height: 800px;
   justify-content: center;
   align-items: center;
   perspective: 1000px;
+  z-index: 1000;
 }
 
 /* 🎴 Tarot Card Styles */
@@ -220,7 +210,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  transition: transform 0.6s ease-in-out, left 0.5s ease, top 0.5s ease;
+  transition: transform 2s ease, left 2s ease, top 2s;
   cursor: pointer;
   border-radius: 8px;
   transform-style: preserve-3d;
@@ -228,22 +218,23 @@ body {
 }
 
 /* 🔄 Flip & Movement Animation */
-@keyframes moveAndFlip {
+
+@keyframes flip {
   0% {
-    transform: translateX(0px) translateY(0px) rotateY(0deg);
+    transform: rotateY(0);
   }
 
   50% {
-    transform: translateX(200px) translateY(-100px) rotateY(90deg);
+    transform: rotateY(90deg);
   }
 
   100% {
-    transform: translateX(400px) translateY(-200px) rotateY(180deg);
+    transform: rotateY(180deg);
   }
 }
 
 .card.flipping {
-  animation: moveAndFlip 0.8s ease-in-out forwards;
+  animation: slide 1s flip 1s forwards;
 }
 
 /* 📍 Hover: Slight Movement */
