@@ -156,6 +156,7 @@ body {
 }
 
 /* 🎴 Tarot Page Layout */
+/* 🌟 Tarot Page Styling */
 .tarot-page {
   background: linear-gradient(to bottom, #2c3e50, #34495e);
   color: white;
@@ -167,7 +168,6 @@ body {
   overflow: hidden;
 }
 
-
 /* 🃏 Deck Positioned on the Left */
 .deck {
   width: 200px;
@@ -178,7 +178,7 @@ body {
   left: 250px;
   cursor: pointer;
   border-radius: 10px;
-  transition: transform .7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
 }
 
 .deck:hover {
@@ -198,43 +198,43 @@ body {
   justify-content: center;
   align-items: center;
   perspective: 1000px;
+  /* Enables 3D flip */
   z-index: 1000;
 }
 
 /* 🎴 Tarot Card Styles */
 .card {
   width: 250px;
-  /* 25% larger than deck */
   height: 375px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  transition: transform 2s ease, left 2s ease, top 2s;
+  transition: transform 1.5s ease-in-out, left 1.5s ease-in-out, top 1.5s ease-in-out;
   cursor: pointer;
   border-radius: 8px;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  z-index: 1000;
 }
 
 /* 🔄 Flip & Movement Animation */
-
-@keyframes flip {
+@keyframes moveAndFlip {
   0% {
-    transform: rotateY(0);
+    transform: translateX(0px) translateY(0px) rotateY(0deg);
   }
 
   50% {
-    transform: rotateY(90deg);
+    transform: translateX(400px) translateY(-200px) rotateY(90deg);
   }
 
   100% {
-    transform: rotateY(180deg);
+    transform: translateX(800px) translateY(-400px) rotateY(180deg);
   }
 }
 
 .card.flipping {
-  animation: slide 1s flip 1s forwards;
+  animation: moveAndFlip 1.2s ease-in-out forwards;
 }
 
 /* 📍 Hover: Slight Movement */
@@ -246,7 +246,7 @@ body {
 .card.expanded {
   width: 275px;
   height: 412px;
-  left: 40%;
+  left: 45%;
   top: 50%;
   transform: translate(-50%, -50%) rotate(-25deg) scale(1.25);
   z-index: 100;

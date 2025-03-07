@@ -87,16 +87,10 @@ function drawCard() {
     ? "rotateY(180deg) rotate(180deg)"
     : "rotateY(180deg)";
 
-  //Stacking offset
-  let offsetX = Math.random() * 30 - 15; // Slightly messy look
-  let offsetY = Math.random() * 30 - 15;
-  card.style.left = `${offsetX}px`;
-  card.style.top = `${offsetY}px`;
-
   // Remove flip animation after complete
   setTimeout(() => {
     card.classList.remove("flipping");
-  }, 800);
+  }, 1200);
 
   // Click: Expand and show description
   card.addEventListener("click", () => expandCard(card, cardImage));
@@ -135,7 +129,7 @@ function expandCard(card, cardImage) {
 function shuffleBack(card, cardImage) {
   tarotDeck.push(cardImage);
   card.style.transition = "transform 0.5s ease-in-out";
-  card.style.transform = "translate(-400px, 200px) rotateY(0deg)"; // Moves back to deck
+  card.style.transform = "translate(-800px, 400px) rotateY(0deg)"; // Moves back to deck
 
   setTimeout(() => {
     card.remove();
