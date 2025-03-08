@@ -73,8 +73,45 @@ const cardDescriptions = {
 
 // 🃏 Draw a Card
 function drawCard() {
-  if (!tarotDeck.length) return; // Stop if deck is empty
+  function drawCard() {
+    if (!tarotDeck.length) return; // Stop if deck is empty
 
+    const randomIndex = Math.floor(Math.random() * tarotDeck.length);
+    const cardImage = tarotDeck.splice(randomIndex, 1)[0]; // Remove the drawn card from the deck
+
+    const isReversed = Math.random() > 0.5; // 50% chance to be upside down
+
+    const card = document.createElement("div");
+    card.classList.add("card"); // Add basic card class
+    card.style.backgroundImage = `url(${cardImage})`;
+
+    // Set initial position to match the deck location
+    card.style.left = "250px";
+    card.style.bottom = "250px";
+    card.style.transform = "scale(1) rotateY(0deg)";
+
+    drawnCardsContainer.appendChild(card);
+
+    // Delay the movement slightly so the card starts from the deck
+    setTimeout(() => {
+      card.style.transition =
+        "transform 1.2s ease-in-out, left 1.2s ease-in-out, top 1.2s ease-in-out";
+
+      // Move to the center and flip at the halfway point
+      card.style.left = "50%";
+      card.style.top = "50%";
+      card.style.transform = isReversed
+        ? "rotateY(180deg) rotateX(180deg) translate(-50%, -50%)"
+        : "rotateY(180deg) translate(-50%, -50%)";
+    }, 50);
+
+    card.addEventListener("click", () =>
+      expandCard(card, cardImage, isReversed)
+    ); // Expand on click
+    card.addEventListener("dblclick", () => shuffleBack(card, cardImage)); // Shuffle back on double-click
+
+    drawnCards.push(card);
+  }
   const randomIndex = Math.floor(Math.random() * tarotDeck.length);
   const cardImage = tarotDeck.splice(randomIndex, 1)[0]; // Remove the drawn card from the deck
 
