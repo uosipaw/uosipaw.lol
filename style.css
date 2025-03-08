@@ -241,6 +241,51 @@ body {
 
 @keyframes moveAndFlip {
   0% {
+    transform: translate(0, 0) rotateY(0deg);
+  }
+
+  50% {
+    transform: translate(400px, -200px) rotateY(90deg);
+  }
+
+  100% {
+    transform: translate(800px, -400px) rotateY(180deg);
+  }
+}
+
+/* 🃏 Card Styling */
+.card {
+  width: 250px;
+  height: 375px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  transition: transform 1.2s ease-in-out, left 1.2s ease-in-out, top 1.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 8px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  z-index: 1000;
+}
+
+/* 📍 Hover Effect (Subtle Move) */
+.card:hover {
+  transform: scale(1.1) translateY(-10px);
+}
+
+/* 🏆 Expanded Card */
+.card.expanded {
+  width: 275px;
+  height: 412px;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg) scale(1.25);
+  z-index: 100;
+}
+
+@keyframes moveAndFlip {
+  0% {
     transform: translateX(0px) translateY(0px) rotateY(0deg);
   }
 
