@@ -1,0 +1,165 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden;
+    /* Hide scrollbars */
+    background-image: url("img/fortune-teller-table.jpg");
+    /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /* Make sure the background covers the whole viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#deck {
+    width: 150px;
+    height: 250px;
+    background-image: url("img/back.png");
+    /* Card back image */
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    /* A subtle shadow */
+    transition: transform 0.3s ease;
+    /* Smooth transition for click effect */
+}
+
+#deck:hover {
+    transform: scale(1.05);
+    /* Slightly enlarge on hover */
+}
+
+#deck:active {
+    transform: scale(0.95);
+    /* Slightly shrink on click */
+}
+
+#drawn-cards {
+    width: 60%;
+    height: 80%;
+    position: relative;
+    /* Needed for stacking cards */
+}
+
+.card {
+    width: 150px;
+    height: 250px;
+    background-size: cover;
+    border-radius: 10px;
+    position: absolute;
+    /* Allows overlapping */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    backface-visibility: hidden;
+    /* Important for the flip effect */
+    transform-style: preserve-3d;
+    /* Important for the flip effect */
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card .front {
+    background-size: cover;
+    transform: rotateY(0deg);
+}
+
+.card .back {
+    background-image: url("img/back.png");
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+.card:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    /* Bring to front */
+    transform: translate(-5px, -5px) scale(1.1);
+}
+
+#card-focus {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    width: 60%;
+    max-width: 800px;
+}
+
+.card-focus-inner {
+    display: flex;
+    gap: 20px;
+}
+
+#card-focus .card-image {
+    width: 40%;
+    height: auto;
+    /* Maintain aspect ratio */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+#card-focus .card-description {
+    width: 60%;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    /* Place above everything except the modal */
+}
+
+.hidden {
+    display: none;
+}
+
+#close-button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}

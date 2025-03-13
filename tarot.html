@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>draw a card</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta name="description" content="tarot cards">
+    <script src="script.js" defer></script>
+</head>
+
+<body class="tarot-page">
+    <!-- String Lights -->
+    <div class="string-lights">
+        <span class="light">🌙</span>
+        <span class="light">☁️</span>
+        <span class="light">⭐</span>
+        <span class="light">🌙</span>
+    </div>
+
+    <!-- Clickable Deck -->
+    <div class="deck" onclick="drawCard()">Click to Draw (78 Remaining)</div>
+
+    <!-- Drawn Cards Container -->
+    <div class="drawn-container"></div>
+
+    <!-- Modal for Expanded Card -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="card-title">Card Name</h2>
+            <p id="card-description">This is a mysterious card...</p>
+            <img id="card-image" src="" alt="Tarot Card" style="width:200px; height:300px; border-radius:8px;">
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="uosipaw.lol - A collection of fun and interesting content">
+    <title>Centered Text Example</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Custom Fonts -->
+    <style>
+        .custom-font {
+            font-family: "waiting-for-the-sunrise", "laquer", "bagelfatone", "chelaone", "chewy", "combo", "dynapuff", "gamjaflower", "kranky", "fredrickathegreat", cursive, sans-serif;
+        }
+
+        /* Ensure the parent container takes up the full viewport height */
+        .centered-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+        }
+
+        /* Style the centered text */
+        .centered-text {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+    <!-- Include dat.GUI library needed for paint controls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body class="paint">
+    <nav class="navbar">
+        <a href="index.html">
+            <img src="/icons/091-snail-1.png" alt="Home icon">
+        </a>
+    </nav>
+    <div id="message" class="fade-message">paint me a picture</div>
+    <canvas id='c'></canvas>
+
+    <div class="paintbutton">
+        <button onclick="takeScreenshot()">it's a masterpiece!</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("uosipaw@outlook.com"); // Replace with your EmailJS user ID
+            })();
+
+            function takeScreenshot() {
+                html2canvas(document.body).then(function (canvas) {
+                    var screenshot = canvas.toDataURL('image/png');
+
+                    var emailParams = {
+                        to_email: 'uosipaw@outlook.com', // Change this to the designated email address
+                        subject: 'Screenshot',
+                        message: 'Attached is the screenshot of the webpage.',
+                        screenshot: screenshot
+                    };
+
+                    emailjs.send('service_xiiiv5b', 'template_k6jsn1k', emailParams)
+                        .then(function (response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                        }, function (error) {
+                            console.log('FAILED...', error);
+                        });
+                });
+            }
+        </script>
+    </div>
+</body>
+
+</html>
