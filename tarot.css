@@ -1,5 +1,36 @@
+@font-face {
+    font-family: "waiting-for-the-sunrise";
+    src: url("/fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "dynapuff";
+    src: url("./fonts/DynaPuff-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "gamjaflower";
+    src: url("./fonts/GamjaFlower-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "kranky";
+    src: url("./fonts/Kranky-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "fredrickathegreat";
+    src: url('./fonts/FrederickatheGreat-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "satisfy";
+    src: url('./fonts/Satisfy-Regular.ttf') format("truetype");
+}
+
+
 body {
-    font-family: sans-serif;
+    font-family: "satisfy", sans-serif;
     margin: 0;
     overflow: hidden;
     /* Hide scrollbars */

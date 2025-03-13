@@ -11,151 +11,6 @@ window.requestAnimationFrame = (function () {
   );
 })();
 
-/* ---------------- Create an Array of Card Faces ---------------- */
-/* We assume you have files named "0.png", "1.png", …, "77.png" */
-let cardFaces = [];
-for (let i = 0; i < 78; i++) {
-  cardFaces.push(i + ".png");
-}
-
-/* ---------------- Function to Draw a Card ---------------- */
-/* This is executed when you click on the deck */
-function drawCard() {
-  if (cardFaces.length === 0) {
-    alert("No more cards in the deck!");
-    return;
-  }
-  
-  // Pick a random card from the remaining deck:
-  let index = Math.floor(Math.random() * cardFaces.length);
-  let cardFace = cardFaces.splice(index, 1)[0];
-  
-  // Decide randomly if the card is reversed (50% chance)
-  let isReversed = Math.random() < 0.5;
-  
-  // Create a container to hold this drawn card (for positioning in a messy pile)
-  let cardContainer = document.createElement("div");
-  cardContainer.className = "card-container";
-  
-  // Compute random offsets/rotation to give a messy, scattered look:
-  let randomX = Math.floor(Math.random() * 100) - 50;    // offset between -50 and 50px
-  let randomY = Math.floor(Math.random() * 100) - 50;    // offset between -50 and 50px
-  let randomAngle = Math.floor(Math.random() * 30) - 15;   // rotation between -15° and 15°
-  cardContainer.style.setProperty('--offset', `translate(${randomX}px, ${randomY}px) rotate(${randomAngle}deg)`);
-  
-  // Build the card element (with flipping animation)
-  let card = document.createElement("div");
-  card.className = "card";
-  
-  let inner = document.createElement("div");
-  inner.className = "inner";
-  
-  // Create the front side (which shows the card face)
-  let front = document.createElement("div");
-  front.className = "front";
-  let frontImg = document.createElement("img");
-  frontImg.src = cardFace;
-  // If the card is reversed, rotate its image 180°.
-  if (isReversed) {
-    frontImg.style.transform = "rotate(180deg)";
-  }
-  front.appendChild(frontImg);
-  
-  // Create the back side (which shows the back image)
-  let back = document.createElement("div");
-  back.className = "back";
-  let backImg = document.createElement("img");
-  backImg.src = "back.png";
-  back.appendChild(backImg);
-  
-  // Place both sides into the flipping (inner) container
-  inner.appendChild(front);
-  inner.appendChild(back);
-  card.appendChild(inner);
-  cardContainer.appendChild(card);
-  
-  // Add the new card element to the drawn cards container on the page
-  document.getElementById("drawn-cards").appendChild(cardContainer);
-  
-  // After a brief wait, trigger the CSS flip animation to reveal the card face.
-  setTimeout(() => {
-    inner.classList.add("flipped");
-  }, 300);
-  
-  // When you click a drawn card, open it up in the modal for a closer look.
-  cardContainer.addEventListener("click", function(e) {
-    e.stopPropagation(); // Prevent the deck click event from firing again
-    openModal(cardFace, isReversed);
-  });
-}
-
-/* ---------------- Function to Get Card Data ---------------- */
-/* Returns a dummy card name, orientation, and description based on the card image */
-function getCardData(cardFace, isReversed) {
-  // We assume the filename starts with the card number.
-  let cardNumber = cardFace.split(".")[0];
-  let cardName = "Card " + cardNumber;
-  let orientation = isReversed ? "Reversed" : "Upright";
-  let description = "This card, " + cardName + ", when " + orientation.toLowerCase() + ", carries a mysterious meaning.";
-  return { cardName, orientation, description };
-}
-
-/* ---------------- Function to Open the Modal ---------------- */
-/* Expands the clicked card to the center of the screen */
-function openModal(cardFace, isReversed) {
-  const modal = document.getElementById("modal");
-  modal.style.display = "flex"; // Show the modal overlay
-  
-  // Clear any old modal content
-  const modalCard = document.getElementById("modal-card");
-  modalCard.innerHTML = "";
-  
-  // Create a container with flipping capabilities (for card image ↔ description)
-  const modalInner = document.createElement("div");
-  modalInner.className = "modal-inner";
-  
-  // Front side of modal: the card image
-  const modalFront = document.createElement("div");
-  modalFront.className = "modal-front";
-  const modalImg = document.createElement("img");
-  modalImg.src = cardFace;
-  if (isReversed) {
-    modalImg.style.transform = "rotate(180deg)";
-  }
-  modalFront.appendChild(modalImg);
-  
-  // Back side of modal: the card description text
-  const modalBack = document.createElement("div");
-  modalBack.className = "modal-back";
-  const cardData = getCardData(cardFace, isReversed);
-  modalBack.innerHTML = `
-    <h2>${cardData.cardName}</h2>
-    <p>Orientation: ${cardData.orientation}</p>
-    <p>${cardData.description}</p>
-  `;
-  
-  // Put both modal sides together
-  modalInner.appendChild(modalFront);
-  modalInner.appendChild(modalBack);
-  modalCard.appendChild(modalInner);
-  
-  // When you click on the modal card, toggle its flip state to swap between image and description.
-  modalInner.addEventListener("click", function(e) {
-    e.stopPropagation();
-    modalInner.classList.toggle("flipped");
-  });
-}
-
-/* ---------------- Function to Close the Modal ---------------- */
-function closeModal() {
-  const modal = document.getElementById("modal");
-  modal.style.display = "none";
-}
-
-/* ---------------- Optional: Clicking Outside the Modal Card Closes the Modal ---------------- */
-document.getElementById("modal").addEventListener("click", closeModal);
-
-
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize play button
   const playButton = document.querySelector(".playbutton");
@@ -435,14 +290,14 @@ function initPaint() {
   gui.add(control, "isRandomSize").name("Random Size");
   gui.add(control, "clear").name("Clear");
   gui.close();
-
-  // Start Update
-  var loop = function () {
-    brush.render(context, mouseX, mouseY);
-    requestAnimationFrame(loop);
-  };
-  loop();
 }
+
+// Start Update
+var loop = function () {
+  brush.render(context, mouseX, mouseY);
+  requestAnimationFrame(loop);
+};
+loop();
 
 /**
  * requestAnimationFrame
@@ -901,4 +756,4 @@ var Brush = (function () {
   gui.add(control, "isRandomSize").name("Random Size");
   gui.add(control, "clear").name("Clear");
   gui.close();
-
+})();

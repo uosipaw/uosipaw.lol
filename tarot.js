@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Detect touch device
+  const isTouchDevice =
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+  if (isTouchDevice) {
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        if (!this.classList.contains("tapped")) {
+          e.preventDefault();
+          navLinks.forEach((l) => l.classList.remove("tapped"));
+          this.classList.add("tapped");
+        }
+      });
+    });
+  }
+});
+
 const deck = document.getElementById("deck");
 const drawnCards = document.getElementById("drawn-cards");
 const cardFocus = document.getElementById("card-focus");

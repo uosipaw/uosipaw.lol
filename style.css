@@ -252,17 +252,6 @@ canvas {
   animation: fadeInOut 8s infinite;
 }
 
-/* ---------------- General Body Styles ---------------- */
-.tarot-page>body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  /* Background image that looks like a fortune teller’s table.
-     Replace 'fortune_table.jpg' with your desired background image file. */
-  background: url('fortune_table.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
-
 /* ---------------- Decorative String Lights ---------------- */
 .lights {
   display: flex;
