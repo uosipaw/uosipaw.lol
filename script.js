@@ -12,12 +12,6 @@ window.requestAnimationFrame = (function () {
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize play button
-  const playButton = document.querySelector(".playbutton");
-  if (playButton) {
-    playButton.addEventListener("click", startAnimation);
-  }
-
   // Detect touch device
   const isTouchDevice =
     "ontouchstart" in window || navigator.maxTouchPoints > 0;
@@ -47,73 +41,6 @@ if (document.querySelector(".paint")) {
     initPaint();
   }
 }
-
-function startAnimation() {
-  // Hide the button
-  const playButton = document.querySelector(".playbutton");
-  if (playButton) {
-    playButton.style.display = "none";
-  }
-}
-// Show the container - check for both letters and image-container
-// for backward compatibility
-const lettersContainer =
-  document.querySelector(".letters") ||
-  document.querySelector(".image-container");
-
-if (lettersContainer) {
-  lettersContainer.classList.add("show");
-} else {
-  console.error("Letters container not found");
-  return; // Exit if container not found
-}
-
-// Get all letter images
-const letters = Array.from(document.querySelectorAll(".animated-image"));
-if (!letters.length) {
-  console.error("No letter images found");
-  return;
-}
-
-// Map the letters to their correct order
-const letterMap = {};
-letters.forEach((img) => {
-  const src = img.getAttribute("src");
-  const letter = src.split("/").pop().split(".")[0]; // Extract letter from filename
-  letterMap[letter] = img;
-
-  // Add click event for interactive animation restart
-  img.addEventListener("click", function () {
-    // Remove and re-add show class to restart animation
-    this.classList.remove("show");
-    // Use setTimeout to ensure the class removal takes effect
-    setTimeout(() => {
-      this.classList.add("show");
-    }, 10);
-  });
-});
-
-// Sequence in which letters appear (uosipaw)
-const letterSequence = ["u", "o", "s", "i", "p", "a", "w"];
-
-// Create a random animation order
-const animationOrder = [...letterSequence];
-for (let i = animationOrder.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [animationOrder[i], animationOrder[j]] = [
-    animationOrder[j],
-    animationOrder[i],
-  ];
-}
-
-// Animate each letter with a delay
-animationOrder.forEach((letter, index) => {
-  if (letterMap[letter]) {
-    setTimeout(() => {
-      letterMap[letter].classList.add("show");
-    }, index * 200); // Reduced from 300ms to 200ms for smoother sequence
-  }
-});
 
 // Paint functionality
 function initPaint() {

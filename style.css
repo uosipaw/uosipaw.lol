@@ -24,7 +24,10 @@
 }
 
 .home-page {
-  background-image: url("./images/home.png");
+  background-image: url("./images/home.gif");
+  animation-iteration-count: 1;
+  animation-name: fadeIn;
+  animation-duration: 3s;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -119,77 +122,9 @@
   filter: brightness(100%);
 }
 
-/* ✨ Play Button */
-.home-page>.playbutton {
-  font-family: "kranky";
-  font-weight: bold;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: rotate(-8deg) translate(-5%, -20%);
-  padding: 15px 30px;
-  font-size: 45px;
-  background-color: #fcc591;
-  color: rgb(41, 71, 71);
-  border: rgb(114, 162, 161) 8px ridge;
-  border-radius: 43%;
-  filter: drop-shadow(20px 20px 20px #000000);
-  cursor: pointer;
-  z-index: 10;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
+/* Remove ✨ Play Button styles */
 
-.playbutton:hover {
-  transform: scale(1.3) rotate(8deg);
-  color: #fff4d9;
-  border: rgba(255, 200, 104, 0.5) 5px ridge;
-  background-color: #ff7f7dba;
-}
-
-/* 🎭 Image Animations - Support both class names for compatibility */
-.letters,
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 200px;
-  z-index: 50;
-  display: none;
-  /* Hidden initially, only shown when .show class is added */
-}
-
-.letters.show,
-.image-container.show {
-  display: flex;
-}
-
-.animated-image {
-  opacity: 0;
-  max-height: 150px;
-  width: auto;
-  margin: 0 -3px;
-  transform: scale(0);
-  position: relative;
-  transition: transform 0.2s;
-}
-
-.animated-image.show {
-  opacity: 1;
-  animation: springPop 0.4s ease-in-out forwards, floating 3s ease infinite;
-  transform-origin: center;
-  -webkit-filter: drop-shadow(5px 5px 5px #222222);
-  filter: drop-shadow(5px 5px 5px #222222);
-}
-
-.animated-image:hover {
-  animation: shake 1s ease infinite;
-  cursor: pointer;
-}
+/* Remove 🎭 Image Animations - Support both class names for compatibility */
 
 .paint {
   font-family: 'chewy', sans-serif;
@@ -252,168 +187,6 @@ canvas {
   animation: fadeInOut 8s infinite;
 }
 
-/* ---------------- Decorative String Lights ---------------- */
-.lights {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.lights .light {
-  width: 15px;
-  height: 15px;
-  background: yellow;
-  border-radius: 50%;
-  margin: 0 5px;
-  box-shadow: 0 0 5px rgba(255, 255, 0, 0.8);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.lights .light:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 15px rgba(255, 255, 0, 1);
-}
-
-/* ---------------- Layout for Tarot Area ---------------- */
-.tarot-area {
-  display: flex;
-  padding: 20px;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-/* ---------------- Deck (Clickable Card Back) Styles ---------------- */
-.deck {
-  width: 150px;
-  height: 250px;
-  cursor: pointer;
-  user-select: none;
-  margin-right: 20px;
-}
-
-.deck img {
-  width: 100%;
-  height: 100%;
-}
-
-/* ---------------- Drawn Cards Pile ---------------- */
-.drawn-cards {
-  flex: 1;
-  position: relative;
-  min-height: 300px;
-}
-
-/* ---------------- Messy Pile Card Container ---------------- */
-/* Each card added here uses a CSS variable (--offset) for its position */
-.card-container {
-  position: absolute;
-  transform: var(--offset) scale(1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-}
-
-.card-container:hover {
-  transform: var(--offset) scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-  z-index: 2;
-}
-
-/* ---------------- Flip Card Styles ---------------- */
-/* "card" holds the flip animation (using perspective) */
-.card {
-  width: 150px;
-  height: 250px;
-  perspective: 1000px;
-}
-
-/* "inner" is the flipper that rotates */
-.inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.inner.flipped {
-  transform: rotateY(180deg);
-}
-
-/* Both sides (front and back) of the card */
-.front,
-.back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-/* Default view for the back side */
-.back {
-  transform: rotateY(0deg);
-}
-
-/* The front side is rotated so it only appears when the inner flips */
-.front {
-  transform: rotateY(180deg);
-}
-
-/* ---------------- Modal (Expanded Card) Styles ---------------- */
-.card-modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  /* Dims the background */
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.modal-card {
-  width: 300px;
-  height: 500px;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.modal-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.modal-inner.flipped {
-  transform: rotateY(180deg);
-}
-
-.modal-front,
-.modal-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-/* The back of the modal shows the description text */
-.modal-back {
-  background: white;
-  transform: rotateY(180deg);
-  padding: 20px;
-  overflow: auto;
-}
-
-#modal-close {
-  margin-top: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
 
 .folklore-page {
   background-color: #ede7f6;
@@ -438,33 +211,6 @@ canvas {
   }
 }
 
-@keyframes springPop {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  40% {
-    transform: scale(1.4);
-    opacity: 1;
-  }
-
-  60% {
-    transform: scale(0.85);
-    opacity: 1;
-  }
-
-  80% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 @keyframes fadeInOut {
 
   0%,
@@ -474,40 +220,6 @@ canvas {
 
   50% {
     opacity: 1;
-  }
-}
-
-@keyframes floating {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes shake {
-
-  0%,
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-
-  25% {
-    transform: rotate(-10deg) scale(1.1);
-  }
-
-  50% {
-    transform: rotate(0deg) scale(1.1);
-  }
-
-  75% {
-    transform: rotate(10deg) scale(1.1);
   }
 }
 
@@ -548,28 +260,12 @@ canvas {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .playbutton {
-    font-size: 30px;
-    padding: 10px 20px;
+  /* 🌿 Reduce Motion for Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
-
-  .letters,
-  .image-container {
-    width: 60%;
-  }
-
-  .animated-image {
-    max-height: 80px;
-    margin: 0 5px;
-  }
-}
-
-/* 🌿 Reduce Motion for Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
