@@ -45,11 +45,22 @@ function initTarot() {
   deck.addEventListener("click", drawCard);
   closeButton.addEventListener("click", closeCardFocus);
 
-  // Modify the click handler to only show description, not flip
+  // Modify the click handler to maintain orientation when sliding
   if (cardImage) {
     cardImage.addEventListener("click", () => {
       if (!cardDescriptionVisible) {
+        const isReversed = cardImage.dataset.reversed === "true";
+
+        // Apply the slide class
         cardImage.classList.add("slide");
+
+        // Update transform to maintain orientation while sliding
+        if (isReversed) {
+          cardImage.style.transform = "translate(-75%, -50%) rotateZ(180deg)";
+        } else {
+          cardImage.style.transform = "translate(-75%, -50%)";
+        }
+
         cardFocus.classList.add("description-visible");
         cardFocus.classList.add("show-bg");
         cardDescriptionVisible = true;
@@ -101,6 +112,7 @@ function initTarot() {
     // Store card data
     cardDiv.dataset.cardNumber = randomNumber;
     cardDiv.dataset.reversed = isReversed;
+    cardDiv.dataset.rotation = randomRotation; // Store rotation angle for reference
     cardDiv.addEventListener("click", focusCard);
 
     // Apply the flipped class immediately to show the front of the card
@@ -108,7 +120,9 @@ function initTarot() {
 
     // If the card is reversed, apply additional rotation
     if (isReversed) {
-      backFace.style.transform = "rotateY(180deg) rotateX(180deg)";
+      backFace.style.transform = "rotateY(180deg) rotateZ(180deg)";
+    } else {
+      backFace.style.transform = "rotateY(180deg)";
     }
   }
 
@@ -125,11 +139,13 @@ function initTarot() {
     // Set the card image
     cardImage.style.backgroundImage = `url('./images/${cardNumber}.png')`;
 
-    // Apply rotation for reversed cards without using flipped class
+    // Apply rotation for reversed cards using rotateZ for cleaner rotation
     if (isReversed) {
-      cardImage.style.transform = "translate(-50%, -50%) rotateX(180deg)";
+      cardImage.style.transform = "translate(-50%, -50%) rotateZ(180deg)";
+      cardImage.dataset.reversed = "true";
     } else {
       cardImage.style.transform = "translate(-50%, -50%)";
+      cardImage.dataset.reversed = "false";
     }
 
     // Update text content
@@ -141,7 +157,12 @@ function initTarot() {
     cardFocus.classList.remove("hidden");
     overlay.classList.remove("hidden");
 
-    // Add animation to make the card pulse
+    // Add animation to make the card pulse while maintaining orientation
+    if (isReversed) {
+      cardImage.style.setProperty("--rotation", "rotateZ(180deg)");
+    } else {
+      cardImage.style.setProperty("--rotation", "");
+    }
     cardImage.style.animation =
       "cardGlow 2s infinite, pulseScale 2s ease infinite";
 
@@ -155,12 +176,22 @@ function initTarot() {
     // Add a fade-out effect
     cardFocus.classList.remove("description-visible", "show-bg");
 
+    // Reset transform based on orientation
+    const isReversed = cardImage.dataset.reversed === "true";
+
+    if (isReversed) {
+      cardImage.style.transform = "translate(-50%, -50%) rotateZ(180deg)";
+    } else {
+      cardImage.style.transform = "translate(-50%, -50%)";
+    }
+
+    cardImage.classList.remove("slide");
+
     // Wait for the animation to complete before hiding
     setTimeout(() => {
       cardFocus.classList.add("hidden");
       overlay.classList.add("hidden");
       cardImage.style.animation = "";
-      cardImage.classList.remove("slide");
       cardDescriptionVisible = false;
     }, 500);
   }
