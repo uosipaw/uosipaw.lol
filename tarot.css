@@ -56,7 +56,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("images/tarottable.png");
+    background-image: url("./images/tarottable.png");
     background-size: cover;
     background-position: center;
     filter: blur(3px);
@@ -81,12 +81,12 @@ body {
 
 .drawncontainer {
     position: absolute;
-    top: 10%;
+    top: 30%;
     /* Position starts after deck area */
     right: 5%;
     height: 60%;
     width: 50%;
-    margin: 5%;
+    margin: 15% 15% 15% 15%;
     padding: 3%;
     display: flex;
     content: random;
@@ -116,9 +116,8 @@ body {
     transform: scale(0.95);
 }
 
-#drawn-cards {
+#drawn-card {
     width: 100%;
-    height: 80%;
     position: relative;
 }
 
@@ -141,48 +140,36 @@ body {
     /* Lower than deck */
 }
 
-/* Fix card front and back faces to match the JavaScript implementation */
-.card.flipped {
-    transform: rotateY(180deg);
-    z-index: 6;
-    /* Slightly higher when flipped */
-}
-
+/* Fix card front and back faces */
 .card .front,
 .card .back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+    backface-visibility: visible;
     border-radius: 12%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-/* Back face (the actual tarot card image) */
-.card .face {
-    transform: rotateY(180deg);
-    /* Hidden initially, shown when flipped */
 }
 
 /* Front face (the card back design) */
 .card .back {
     background-image: url("./images/back.png");
     transform: rotateY(0deg);
-    /* Shown initially, hidden when flipped */
 }
 
-/* Fix card hover effects to work with flipped cards */
-.card:hover {
-    box-shadow: 0 0 35px rgb(32 28 4);
-    scale: 1.1;
-    transition: .7s ease-in-out;
-    transform: translateX(-3%) translateY(-3%);
-    /* Golden glow */
-    z-index: 10;
+/* Back face (the actual tarot card image) */
+.card .front {
+    transform: rotateY(180deg);
 }
 
+.card.flipped {
+    transform: rotateY(180deg);
+    z-index: 6;
+}
+
+/* Fix hover effects */
 .card:not(.flipped):hover {
     transform: translate(-5px, -5px) scale(1.1);
 }
@@ -209,7 +196,7 @@ body {
     display: block;
     overflow: hidden;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .45);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'agudisplay', sans-serif;
     /* Add fallback font */
     color: #444;
     font-size: 14px;
@@ -279,6 +266,7 @@ body {
     max-height: 700px;
 }
 
+/* Update slide transforms for reversed cards */
 #card-focus .card-image {
     width: 300px;
     height: 450px;
@@ -296,9 +284,11 @@ body {
     z-index: 2;
 }
 
+/* No need to define separate styles for .slide.flipped anymore */
 #card-focus .card-image.slide {
     left: 25%;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    /* Remove transform properties - will be set via JavaScript */
 }
 
 /* Remove flipped transforms since we're removing that functionality */
@@ -391,15 +381,15 @@ body {
 
 @keyframes pulseScale {
     0% {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1) var(--rotation);
     }
 
     50% {
-        transform: translate(-50%, -50%) scale(1.05);
+        transform: translate(-50%, -50%) scale(1.05) var(--rotation);
     }
 
     100% {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1) var(--rotation);
     }
 }
 
