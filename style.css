@@ -237,29 +237,6 @@ canvas {
     width: 70px;
   }
 
-  .card,
-  .drawn-card {
-    width: 150px;
-    height: 225px;
-  }
-
-  .card-description {
-    width: 95%;
-    padding: 20px;
-  }
-
-  .tarot-content {
-    flex-direction: column;
-  }
-
-  .deck-container {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
   /* 🌿 Reduce Motion for Accessibility */
   @media (prefers-reduced-motion: reduce) {
     * {
@@ -269,3 +246,4 @@ canvas {
       scroll-behavior: auto !important;
     }
   }
+}
