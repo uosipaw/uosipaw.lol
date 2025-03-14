@@ -33,8 +33,6 @@ body {
     z-index: -1;
 }
 
-
-
 /* Improved layout positioning for deck and drawn containers */
 .deckcontainer {
     position: fixed;
@@ -78,7 +76,7 @@ body {
 .card {
     width: 200px;
     /* Slightly smaller to fit better */
-    height: 288px;
+    height: 300px;
     /* Keep aspect ratio */
     background-size: cover;
     background-position: center;
