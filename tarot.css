@@ -1,137 +1,421 @@
+@font-face {
+    font-family: "waiting-for-the-sunrise";
+    src: url("./fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "dynapuff";
+    src: url("./fonts/DynaPuff-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "gamjaflower";
+    src: url("./fonts/GamjaFlower-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "kranky";
+    src: url("./fonts/Kranky-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "fredrickathegreat";
+    src: url('./fonts/FrederickatheGreat-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "satisfy";
+    src: url('./fonts/Satisfy-Regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: "agudisplay";
+    src: url(".fonts/AguDisplay-Regular-VariableFont_MORF.ttf") format("truetype");
+}
+
 body {
-    font-family: sans-serif;
     margin: 0;
-    overflow: hidden;
-    /* Hide scrollbars */
-    background-image: url("img/fortune-teller-table.jpg");
-    /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    /* Make sure the background covers the whole viewport */
+    font-family: "agudisplay";
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+    overflow: hidden;
 }
 
-.container {
-    display: flex;
-    width: 80%;
-    height: 80vh;
-    justify-content: space-around;
-    align-items: center;
+.tarot-page {
+    width: 100%;
+    height: 100vh;
+    position: relative;
 }
 
-#deck {
-    width: 150px;
-    height: 250px;
-    background-image: url("img/back.png");
-    /* Card back image */
+.bgimage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/tarottable.png");
     background-size: cover;
+    background-position: center;
+    filter: blur(3px) brightness(0.7);
+    z-index: -1;
+}
+
+/* Improved layout positioning for deck and drawn containers */
+.deckcontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 33.333%;
+    /* One third of the screen */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Fix the drawn cards container to ensure all cards are visible */
+.drawncontainer {
+    position: fixed;
+    top: 0;
+    left: 33.333%;
+    width: 66.666%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 15px;
+    overflow: hidden;
+    /* Contains cards */
+}
+
+#drawn-cards {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    overflow: visible;
+}
+
+/* Ensure drawn cards are properly sized and contained */
+.card {
+    width: 180px;
+    /* Slightly smaller to fit better */
+    height: 288px;
+    /* Keep aspect ratio */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5%;
+    position: absolute;
     cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    /* A subtle shadow */
+    transition: transform 0.6s ease, box-shadow 0.3s ease, filter 0.5s ease, z-index 0s;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    z-index: 7;
+    transform-origin: center left;
+    /* Better rotation point */
+}
+
+/* Fix flipped state with translate-Y for vertical centering */
+.card.flipped {
+    transform: translate(0, -50%) rotateY(180deg);
+    z-index: 6;
+}
+
+.card.card.flipped:hover {
+    transform: translate(0, -10%) scale(1.3);
+}
+
+#drawn-card {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border: #faecd9d2 2px solid;
+}
+
+#drawn-card :hover {
+    transform: scale(1.3);
+}
+
+/* Increase card size */
+#deck {
+    width: min(300px, 80%);
+    /* Use the smaller of 300px or 80% of container width */
+    height: min(425px, 60vh);
+    /* Use the smaller of 425px or 60% of viewport height */
+    background-image: url("./images/back.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 5%;
+    /* Slightly larger border radius */
     transition: transform 0.3s ease;
-    /* Smooth transition for click effect */
 }
 
 #deck:hover {
     transform: scale(1.05);
-    /* Slightly enlarge on hover */
 }
 
 #deck:active {
     transform: scale(0.95);
-    /* Slightly shrink on click */
 }
 
-#drawn-cards {
-    width: 60%;
-    height: 80%;
-    position: relative;
-    /* Needed for stacking cards */
-}
-
+/* Ensure drawn cards don't overlap with the deck */
+/* Ensure drawn cards are fully visible */
 .card {
-    width: 150px;
-    height: 250px;
+    width: 300px;
+    /* Fixed width instead of percentage */
+    height: 430px;
+    /* Fixed height with good aspect ratio */
     background-size: cover;
-    border-radius: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5%;
     position: absolute;
-    /* Allows overlapping */
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    transition: all .7s ease;
     backface-visibility: hidden;
-    /* Important for the flip effect */
     transform-style: preserve-3d;
-    /* Important for the flip effect */
+    z-index: 7;
+    transition: transform 0.6s ease, box-shadow 0.6s ease, filter 0.5s ease, z-index 0s;
+    transform-origin: center bottom;
 }
 
-.card.flipped {
-    transform: rotateY(180deg);
+.card:hover {
+    transform: scale(1.3) translateY(-10%);
+    z-index: 50;
+    box-shadow:
+        0 0 20px 5px rgb(255, 222, 72),
+        0 0 35px 10px rgb(83, 224, 236),
+        0 0 50px 15px rgb(255, 187, 108);
+    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 3s ease;
+    animation: hoverGlow 3s infinite;
+    filter: brightness(110%) contrast(110%) !important;
+    /* Override the dynamic filter */
 }
 
+/* Fix card front and back faces */
 .card .front,
 .card .back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
+    backface-visibility: visible;
+    border-radius: 5%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.6s ease;
 }
 
-.card .front {
-    background-size: cover;
+/* Front face (the card back design) */
+.card .back {
+    background-image: url("./images/back.png");
     transform: rotateY(0deg);
 }
 
-.card .back {
-    background-image: url("img/back.png");
-    background-size: cover;
+.card .back :hover {
+    transform: rotateY(180deg);
+    transform: scale(1.3);
+    box-shadow:
+        25px 90px 40px 1px #d0dd43,
+        5px 70px 15px 2px #1fd6cd,
+        35px 100px 30px 0px #f56b16;
+    transition: 3s ease;
+}
+
+/* Back face (the actual tarot card image) */
+.card .front {
     transform: rotateY(180deg);
 }
 
-.card:hover {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    z-index: 10;
-    /* Bring to front */
+.card .front :hover {
+    transform: rotateY(0deg);
+    scale: (1.3);
+    transition: 1s ease;
+}
+
+.card.flipped {
+    transform: rotateY(180deg) translate(-5px, -5px) scale(1.05);
+    z-index: 6;
+}
+
+/* Fix hover effects */
+.card:not(.flipped):hover {
     transform: translate(-5px, -5px) scale(1.1);
 }
 
+/* Adjust card positioning to ensure they stay visible */
+.card.flipped:hover {
+    transform: rotateY(180deg) translate(-5px, -5px);
+    scale: (1.3);
+    transition: 3s ease;
+    z-index: 50;
+    box-shadow:
+        0 0 20px 5px rgb(255, 222, 72),
+        0 0 35px 10px rgb(83, 224, 236),
+        0 0 50px 15px rgb(255, 187, 108);
+    filter: brightness(110%) contrast(110%) !important;
+}
+
+@keyframes click {
+    from {
+        opacity: .7;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ensure card-focus styles work properly */
+.card-focus {
+    max-width: 400px;
+    border-radius: 5%;
+    margin: 60px auto 40px auto;
+    display: block;
+    overflow: hidden;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .45);
+    font-family: 'agudisplay', sans-serif;
+    /* Add fallback font */
+    color: #444;
+    font-size: 14px;
+    background-color: white;
+    text-decoration: none;
+    max-height: auto;
+    transition: all .15s ease;
+}
+
+.header {
+    height: 230px;
+    background-color: lightblue;
+    color: white;
+    position: relative;
+}
+
+.header h2 {
+    bottom: 0;
+    margin: 16px;
+    position: absolute;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.2;
+}
+
+.content {
+    margin: 0 16px;
+}
+
+.content p {
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: all .5s ease;
+}
+
+.content p:first-child {
+    max-height: 600px;
+    margin: 12px 0;
+}
+
+/* Modal card size adjustments - updated for better visual appeal */
 #card-focus {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 100;
-    width: 60%;
-    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.5s ease;
+}
+
+#card-focus.show-bg {
+    background-color: rgba(22, 9, 38, 0.621);
 }
 
 .card-focus-inner {
     display: flex;
-    gap: 20px;
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    height: 80%;
+    max-height: 700px;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Update slide transforms for reversed cards */
 #card-focus .card-image {
-    width: 40%;
-    height: auto;
-    /* Maintain aspect ratio */
-    background-size: contain;
+    width: 300px;
+    height: 450px;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 10px;
-    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    border-radius: 5%;
+    box-shadow: 0px 33px 25px 0 #e21493,
+        0 66px 15px 0px #d6931f,
+        0 99px 5px 0px #5d16f5;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
+/* No need to define separate styles for .slide.flipped anymore */
+#card-focus .card-image.slide {
+    left: 25%;
+    transform: translate(0%, -50%);
+    box-shadow: 0 0 20px rgba(237, 154, 255, 0.8);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    /* Remove transform properties - will be set via JavaScript */
+}
+
+/* Apply proper rotation when card is reversed */
+#card-focus .card-image[data-reversed="true"] {
+    transform: translate(-50%, -50%) rotateZ(180deg);
+}
+
+#card-focus .card-image.slide[data-reversed="true"] {
+    transform: translate(0%, -50%) rotateZ(180deg);
+}
+
+/* Remove flipped transforms since we're removing that functionality */
 #card-focus .card-description {
-    width: 60%;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 5%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    right: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 0.6s ease;
+    opacity: 0;
+    z-index: 101;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+#card-focus.description-visible .card-description {
+    right: 0;
+    opacity: 1;
 }
 
 #overlay {
@@ -140,26 +424,291 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(48, 10, 39, 0.3);
     z-index: 99;
-    /* Place above everything except the modal */
+    backdrop-filter: blur(3px);
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #close-button {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: 2px solid white;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+#close-button:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 15px rgb(255, 210, 86);
+    transform: rotate(90deg);
+    border-radius: 0%;
+    transition: .7s;
+}
+
+.tip {
+    font-style: italic;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* Add a pulse animation for focused card */
+@keyframes cardGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            10px 0 30px 15px rgba(255, 117, 12, 0.851),
+            0 0 35px 15px rgb(218, 236, 83),
+            0 10px 50px 15px rgba(54, 255, 228, 0.894);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px 8px rgba(252, 72, 255, 0.521),
+            0 0 45px 15px rgba(46, 202, 233, 0.825),
+            0 0 60px 20px rgba(255, 60, 252, 0.409);
+    }
+}
+
+@keyframes pulseScale {
+    0% {
+        transform: translate(-50%, -50%) scale(1) var(--rotation);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.05) var(--rotation);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1) var(--rotation);
+    }
+}
+
+/* Adjust animation for slid card */
+#card-focus .card-image.slide {
+    animation: none !important;
+}
+
+/* Ensure the random positioning doesn't make cards overlap the deck */
+@media (min-width: 769px) {
+    #drawn-cards {
+        margin-left: 10%;
+        /* Add some space from the deck */
+    }
+}
+
+/* Mobile responsiveness - improved for better layout */
+@media (max-width: 768px) {
+
+    /* For mobile, stack containers vertically */
+    .deckcontainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40vh;
+    }
+
+    .drawncontainer {
+        position: fixed;
+        top: 40vh;
+        left: 0;
+        width: 100%;
+        height: 60vh;
+    }
+
+    #deck {
+        width: min(180px, 70%);
+        height: min(270px, 70%);
+    }
+
+    .card {
+        width: min(120px, 30%);
+        height: min(180px, 40%);
+    }
+
+    .deckcontainer {
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 280px;
+    }
+
+    .drawncontainer {
+        top: 60%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 40vh;
+        transform: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #card-focus .card-image {
+        width: 200px;
+        height: 333px;
+    }
+
+    #card-focus .card-image.slide {
+        left: 25%;
+        top: 40%;
+    }
+
+    #card-focus .card-description {
+        width: 85%;
+        right: 7.5%;
+        top: auto;
+        bottom: -100%;
+        transform: none;
+        transition: bottom 0.6s ease;
+        padding: 15px;
+        font-size: 16px;
+        max-height: 50%;
+    }
+
+    #card-focus.description-visible .card-description {
+        bottom: 5%;
+        right: 7.5%;
+    }
+
+    .deckcontainer {
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 280px;
+    }
+
+    #deck {
+        width: 180px;
+        height: 270px;
+    }
+
+    .drawncontainer {
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 50%;
+        width: 100%;
+        margin: 5%;
+        padding: 0;
+    }
+
+    #drawn-cards {
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 150px;
+        height: 225px;
+    }
+
+    /* Make text more readable on mobile */
+    #card-name {
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    #card-orientation {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    #card-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .tip {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    /* Improve close button accessibility on mobile */
+    #close-button {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+    #card-focus .card-image {
+        width: 160px;
+        height: 266px;
+    }
+
+    .card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .deckcontainer {
+        width: 150px;
+        height: 225px;
+    }
+
+    #deck {
+        width: 150px;
+        height: 225px;
+    }
+
+    /* Improve card focus modal layout */
+    #card-focus.description-visible .card-description {
+        bottom: 2%;
+    }
+
+    #card-text {
+        font-size: 13px;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+}
+
+/* Add highlight glow for hovered cards */
+@keyframes hoverGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            10px 0 30px 15px rgba(255, 117, 12, 0.851),
+            0 0 35px 15px rgb(218, 236, 83),
+            0 10px 50px 15px rgba(54, 255, 228, 0.894);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px 8px rgba(252, 72, 255, 0.521),
+            0 0 45px 15px rgba(46, 202, 233, 0.825),
+            0 0 60px 20px rgba(255, 60, 252, 0.409);
+    }
 }
