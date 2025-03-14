@@ -68,6 +68,28 @@ function initTarot() {
     });
   }
 
+  // Optimize for mobile: Adjust card positioning for smaller screens
+  function getRandomCardPosition() {
+    // Check if we're on mobile
+    const isMobile = window.innerWidth <= 768;
+
+    let randomX, randomY, randomRotation;
+
+    if (isMobile) {
+      // More constrained positions for mobile
+      randomX = Math.random() * 40 + 15; // 15% to 55%
+      randomY = Math.random() * 60 - 30; // -30% to 30%
+      randomRotation = Math.random() * 40 - 20; // -20 to 20 degrees (less rotation)
+    } else {
+      // Desktop positions
+      randomX = Math.random() * 70; // 0 to 70%
+      randomY = Math.random() * 80 - 40; // -40% to 40%
+      randomRotation = Math.random() * 60 - 30; // -30 to 30 degrees
+    }
+
+    return { x: randomX, y: randomY, rotation: randomRotation };
+  }
+
   function drawCard() {
     if (drawnCardNumbers.length === numberOfCards) {
       alert("The deck is empty!");
@@ -87,12 +109,12 @@ function initTarot() {
     cardDiv.classList.add("card");
 
     // Create front and back faces with correct positions
+    const frontFace = document.createElement("div");
+    frontFace.classList.add("front");
+
     const backFace = document.createElement("div");
     backFace.classList.add("back");
     backFace.style.backgroundImage = `url('./images/${randomNumber}.png')`;
-
-    const frontFace = document.createElement("div");
-    frontFace.classList.add("front");
 
     cardDiv.appendChild(frontFace);
     cardDiv.appendChild(backFace);
@@ -100,19 +122,17 @@ function initTarot() {
     // Add to DOM first before applying animations
     drawnCards.appendChild(cardDiv);
 
-    // Position the card - modified to keep cards on the right side
-    const randomX = Math.random() * 70; // 0 to 70% of container width
-    const randomY = Math.random() * 80 - 40; // -40 to 40% of container height
-    const randomRotation = Math.random() * 60 - 30; // -30 to 30 degrees
+    // Position the card - modified for better mobile experience
+    const position = getRandomCardPosition();
 
-    cardDiv.style.left = `${randomX}%`;
-    cardDiv.style.top = `${50 + randomY}%`; // Center vertically + random offset
-    cardDiv.style.transform = `rotate(${randomRotation}deg)`;
+    cardDiv.style.left = `${position.x}%`;
+    cardDiv.style.top = `${50 + position.y}%`; // Center vertically + random offset
+    cardDiv.style.transform = `rotate(${position.rotation}deg)`;
 
     // Store card data
     cardDiv.dataset.cardNumber = randomNumber;
     cardDiv.dataset.reversed = isReversed;
-    cardDiv.dataset.rotation = randomRotation; // Store rotation angle for reference
+    cardDiv.dataset.rotation = position.rotation; // Store rotation angle for reference
     cardDiv.addEventListener("click", focusCard);
 
     // Apply the flipped class immediately to show the front of the card
@@ -199,6 +219,39 @@ function initTarot() {
   // Make sure the overlay also closes the modal when clicked
   if (overlay) {
     overlay.addEventListener("click", closeCardFocus);
+  }
+
+  // Optimize modal interaction for touch devices
+  if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+    // Improve touch target size for mobile
+    if (cardImage) {
+      cardImage.style.minWidth = "44px";
+      cardImage.style.minHeight = "44px";
+    }
+
+    // Add swipe down to close functionality
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    cardFocus.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartY = e.changedTouches[0].screenY;
+      },
+      false
+    );
+
+    cardFocus.addEventListener(
+      "touchend",
+      function (e) {
+        touchEndY = e.changedTouches[0].screenY;
+        if (touchEndY - touchStartY > 100) {
+          // Swipe down of at least 100px
+          closeCardFocus();
+        }
+      },
+      false
+    );
   }
 
   // Log initialization success

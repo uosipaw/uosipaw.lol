@@ -406,47 +406,135 @@ body {
     }
 }
 
-/* Mobile responsiveness */
+/* Mobile responsiveness - improved for better readability */
 @media (max-width: 768px) {
     #card-focus .card-image {
-        width: 240px;
-        height: 400px;
+        width: 200px;
+        height: 333px;
     }
 
     #card-focus .card-image.slide {
-        left: 50%;
-        top: 30%;
+        left: 25%;
+        top: 40%;
     }
 
     #card-focus .card-description {
-        width: 80%;
-        right: 10%;
+        width: 85%;
+        right: 7.5%;
         top: auto;
         bottom: -100%;
         transform: none;
         transition: bottom 0.6s ease;
+        padding: 15px;
+        font-size: 16px;
+        max-height: 50%;
     }
 
     #card-focus.description-visible .card-description {
-        bottom: 10%;
-        right: 10%;
+        bottom: 5%;
+        right: 7.5%;
     }
 
     .deckcontainer {
-        top: 20%;
+        top: 25%;
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 280px;
+    }
+
+    #deck {
+        width: 180px;
+        height: 270px;
     }
 
     .drawncontainer {
-        top: 35%;
+        top: 50%;
         left: 0;
         right: 0;
-        height: 65%;
-        width: 50%;
+        height: 50%;
+        width: 100%;
+        margin: 5%;
+        padding: 0;
     }
 
     #drawn-cards {
         height: 100%;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 150px;
+        height: 225px;
+    }
+
+    /* Make text more readable on mobile */
+    #card-name {
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    #card-orientation {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    #card-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .tip {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    /* Improve close button accessibility on mobile */
+    #close-button {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+    #card-focus .card-image {
+        width: 160px;
+        height: 266px;
+    }
+
+    .card {
+        width: 120px;
+        height: 180px;
+    }
+
+    .deckcontainer {
+        width: 150px;
+        height: 225px;
+    }
+
+    #deck {
+        width: 150px;
+        height: 225px;
+    }
+
+    /* Improve card focus modal layout */
+    #card-focus.description-visible .card-description {
+        bottom: 2%;
+    }
+
+    #card-text {
+        font-size: 13px;
+        max-height: 150px;
+        overflow-y: auto;
     }
 }
