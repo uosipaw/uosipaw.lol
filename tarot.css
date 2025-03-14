@@ -59,52 +59,104 @@ body {
     background-image: url("./images/tarottable.png");
     background-size: cover;
     background-position: center;
-    filter: blur(3px);
+    filter: blur(3px) brightness(0.7);
     z-index: -1;
 }
 
-/* Adjust layout positioning for better placement */
+/* Improved layout positioning for deck and drawn containers */
 .deckcontainer {
-    position: absolute;
-    top: 30%;
-    left: 5%;
-    transform: translateY(-50%);
-    width: 300px;
-    /* Slightly wider than the card */
-    height: 350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 33.333%;
+    /* One third of the screen */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    /* Ensure deck stays on top */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Fix the drawn cards container to ensure all cards are visible */
 .drawncontainer {
-    position: absolute;
-    top: 30%;
-    /* Position starts after deck area */
-    right: 5%;
-    height: 60%;
-    width: 50%;
-    margin: 15% 15% 15% 15%;
-    padding: 3%;
+    position: fixed;
+    top: 0;
+    left: 33.333%;
+    width: 66.666%;
+    height: 100vh;
     display: flex;
-    content: random;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 15px;
+    overflow: hidden;
+    /* Contains cards */
+}
+
+#drawn-cards {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    overflow: visible;
+}
+
+/* Ensure drawn cards are properly sized and contained */
+.card {
+    width: 180px;
+    /* Slightly smaller to fit better */
+    height: 288px;
+    /* Keep aspect ratio */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5%;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.6s ease, box-shadow 0.3s ease, filter 0.5s ease, z-index 0s;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    z-index: 7;
+    transform-origin: center left;
+    /* Better rotation point */
+}
+
+/* Fix flipped state with translate-Y for vertical centering */
+.card.flipped {
+    transform: translate(0, -50%) rotateY(180deg);
+    z-index: 6;
+}
+
+.card.card.flipped:hover {
+    transform: translate(0, -10%) scale(1.3);
+}
+
+#drawn-card {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border: #faecd9d2 2px solid;
+}
+
+#drawn-card :hover {
+    transform: scale(1.3);
 }
 
 /* Increase card size */
 #deck {
-    width: 300px;
-    /* Increased from 150px */
-    height: 425px;
-    /* Increased from 250px to maintain aspect ratio */
+    width: min(300px, 80%);
+    /* Use the smaller of 300px or 80% of container width */
+    height: min(425px, 60vh);
+    /* Use the smaller of 425px or 60% of viewport height */
     background-image: url("./images/back.png");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
-    border-radius: 12%;
+    border-radius: 5%;
     /* Slightly larger border radius */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
 
@@ -116,28 +168,39 @@ body {
     transform: scale(0.95);
 }
 
-#drawn-card {
-    width: 100%;
-    position: relative;
-}
-
 /* Ensure drawn cards don't overlap with the deck */
+/* Ensure drawn cards are fully visible */
 .card {
     width: 300px;
-    /* Increased from 150px */
-    height: 450px;
-    /* Increased from 250px */
+    /* Fixed width instead of percentage */
+    height: 430px;
+    /* Fixed height with good aspect ratio */
     background-size: cover;
-    border-radius: 12%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5%;
     position: absolute;
     cursor: pointer;
-    transition: transform 1s ease;
-    /* Increased duration for smoother flip */
-    box-shadow: 3px 3px 7px rgb(23 11 11 / 54%);
-    backface-visibility: visible;
+    transition: all .7s ease;
+    backface-visibility: hidden;
     transform-style: preserve-3d;
     z-index: 7;
-    /* Lower than deck */
+    transition: transform 0.6s ease, box-shadow 0.6s ease, filter 0.5s ease, z-index 0s;
+    transform-origin: center bottom;
+}
+
+.card:hover {
+    transform: scale(1.3) translateY(-10%);
+    z-index: 50;
+    box-shadow:
+        0 0 20px 5px rgb(255, 222, 72),
+        0 0 35px 10px rgb(83, 224, 236),
+        0 0 50px 15px rgb(255, 187, 108);
+    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 3s ease;
+    animation: hoverGlow 3s infinite;
+    filter: brightness(110%) contrast(110%) !important;
+    /* Override the dynamic filter */
 }
 
 /* Fix card front and back faces */
@@ -147,10 +210,11 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: visible;
-    border-radius: 12%;
-    background-size: contain;
+    border-radius: 5%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: transform 0.6s ease;
 }
 
 /* Front face (the card back design) */
@@ -159,13 +223,29 @@ body {
     transform: rotateY(0deg);
 }
 
+.card .back :hover {
+    transform: rotateY(180deg);
+    transform: scale(1.3);
+    box-shadow:
+        25px 90px 40px 1px #d0dd43,
+        5px 70px 15px 2px #1fd6cd,
+        35px 100px 30px 0px #f56b16;
+    transition: 3s ease;
+}
+
 /* Back face (the actual tarot card image) */
 .card .front {
     transform: rotateY(180deg);
 }
 
+.card .front :hover {
+    transform: rotateY(0deg);
+    scale: (1.3);
+    transition: 1s ease;
+}
+
 .card.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translate(-5px, -5px) scale(1.05);
     z-index: 6;
 }
 
@@ -174,8 +254,17 @@ body {
     transform: translate(-5px, -5px) scale(1.1);
 }
 
+/* Adjust card positioning to ensure they stay visible */
 .card.flipped:hover {
-    transform: rotateY(180deg) translate(-5px, -5px) scale(1.1);
+    transform: rotateY(180deg) translate(-5px, -5px);
+    scale: (1.3);
+    transition: 3s ease;
+    z-index: 50;
+    box-shadow:
+        0 0 20px 5px rgb(255, 222, 72),
+        0 0 35px 10px rgb(83, 224, 236),
+        0 0 50px 15px rgb(255, 187, 108);
+    filter: brightness(110%) contrast(110%) !important;
 }
 
 @keyframes click {
@@ -190,8 +279,8 @@ body {
 
 /* Ensure card-focus styles work properly */
 .card-focus {
-    max-width: 350px;
-    border-radius: 4px;
+    max-width: 400px;
+    border-radius: 5%;
     margin: 60px auto 40px auto;
     display: block;
     overflow: hidden;
@@ -254,7 +343,7 @@ body {
 }
 
 #card-focus.show-bg {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(22, 9, 38, 0.621);
 }
 
 .card-focus-inner {
@@ -264,6 +353,8 @@ body {
     max-width: 1000px;
     height: 80%;
     max-height: 700px;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Update slide transforms for reversed cards */
@@ -273,8 +364,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 10%;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    border-radius: 5%;
+    box-shadow: 0px 33px 25px 0 #e21493,
+        0 66px 15px 0px #d6931f,
+        0 99px 5px 0px #5d16f5;
     transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     cursor: pointer;
     position: absolute;
@@ -287,8 +380,19 @@ body {
 /* No need to define separate styles for .slide.flipped anymore */
 #card-focus .card-image.slide {
     left: 25%;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transform: translate(0%, -50%);
+    box-shadow: 0 0 20px rgba(237, 154, 255, 0.8);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     /* Remove transform properties - will be set via JavaScript */
+}
+
+/* Apply proper rotation when card is reversed */
+#card-focus .card-image[data-reversed="true"] {
+    transform: translate(-50%, -50%) rotateZ(180deg);
+}
+
+#card-focus .card-image.slide[data-reversed="true"] {
+    transform: translate(0%, -50%) rotateZ(180deg);
 }
 
 /* Remove flipped transforms since we're removing that functionality */
@@ -296,7 +400,7 @@ body {
     width: 50%;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 5%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     position: absolute;
     right: -100%;
@@ -320,7 +424,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(39, 10, 48, 0.3);
+    background-color: rgba(48, 10, 39, 0.3);
     z-index: 99;
     backdrop-filter: blur(3px);
 }
@@ -366,16 +470,20 @@ body {
 
 /* Add a pulse animation for focused card */
 @keyframes cardGlow {
-    0% {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+
+    0%,
+    100% {
+        box-shadow:
+            10px 0 30px 15px rgba(255, 117, 12, 0.851),
+            0 0 35px 15px rgb(218, 236, 83),
+            0 10px 50px 15px rgba(54, 255, 228, 0.894);
     }
 
     50% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    }
-
-    100% {
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        box-shadow:
+            0 0 25px 8px rgba(252, 72, 255, 0.521),
+            0 0 45px 15px rgba(46, 202, 233, 0.825),
+            0 0 60px 20px rgba(255, 60, 252, 0.409);
     }
 }
 
@@ -406,8 +514,55 @@ body {
     }
 }
 
-/* Mobile responsiveness - improved for better readability */
+/* Mobile responsiveness - improved for better layout */
 @media (max-width: 768px) {
+
+    /* For mobile, stack containers vertically */
+    .deckcontainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40vh;
+    }
+
+    .drawncontainer {
+        position: fixed;
+        top: 40vh;
+        left: 0;
+        width: 100%;
+        height: 60vh;
+    }
+
+    #deck {
+        width: min(180px, 70%);
+        height: min(270px, 70%);
+    }
+
+    .card {
+        width: min(120px, 30%);
+        height: min(180px, 40%);
+    }
+
+    .deckcontainer {
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        height: 280px;
+    }
+
+    .drawncontainer {
+        top: 60%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: 40vh;
+        transform: none;
+        margin: 0;
+        padding: 0;
+    }
+
     #card-focus .card-image {
         width: 200px;
         height: 333px;
@@ -536,5 +691,24 @@ body {
         font-size: 13px;
         max-height: 150px;
         overflow-y: auto;
+    }
+}
+
+/* Add highlight glow for hovered cards */
+@keyframes hoverGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            10px 0 30px 15px rgba(255, 117, 12, 0.851),
+            0 0 35px 15px rgb(218, 236, 83),
+            0 10px 50px 15px rgba(54, 255, 228, 0.894);
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px 8px rgba(252, 72, 255, 0.521),
+            0 0 45px 15px rgba(46, 202, 233, 0.825),
+            0 0 60px 20px rgba(255, 60, 252, 0.409);
     }
 }

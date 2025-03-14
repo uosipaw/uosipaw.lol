@@ -54,12 +54,7 @@ function initTarot() {
         // Apply the slide class
         cardImage.classList.add("slide");
 
-        // Update transform to maintain orientation while sliding
-        if (isReversed) {
-          cardImage.style.transform = "translate(-75%, -50%) rotateZ(180deg)";
-        } else {
-          cardImage.style.transform = "translate(-75%, -50%)";
-        }
+        // No need to manually set transform here - handled by CSS now
 
         cardFocus.classList.add("description-visible");
         cardFocus.classList.add("show-bg");
@@ -70,22 +65,44 @@ function initTarot() {
 
   // Optimize for mobile: Adjust card positioning for smaller screens
   function getRandomCardPosition() {
-    // Check if we're on mobile
+    const container = document.querySelector(".drawncontainer");
+    const containerRect = container.getBoundingClientRect();
     const isMobile = window.innerWidth <= 768;
 
-    let randomX, randomY, randomRotation;
+    // Calculate safe positioning area
+    const cardWidth = 200; // Width of card in pixels
+    const cardHeight = 320; // Height of card in pixels
+    const containerWidth = containerRect.width;
+    const containerHeight = containerRect.height;
+
+    // Calculate safe margins to keep cards fully visible
+    const safeMarginX = (cardWidth / containerWidth) * 100; // Convert to percentage
+    const safeMarginY = (cardHeight / containerHeight) * 100; // Convert to percentage
+
+    // Define positioning limits that ensure full visibility
+    let xMin, xMax, yMin, yMax, rotationRange;
 
     if (isMobile) {
-      // More constrained positions for mobile
-      randomX = Math.random() * 40 + 15; // 15% to 55%
-      randomY = Math.random() * 60 - 30; // -30% to 30%
-      randomRotation = Math.random() * 40 - 20; // -20 to 20 degrees (less rotation)
+      xMin = 5;
+      xMax = 70 - safeMarginX; // Ensure right side of card is visible
+      yMin = -25; // From center
+      yMax = 25; // From center
+      rotationRange = 15; // Less rotation on mobile
     } else {
-      // Desktop positions
-      randomX = Math.random() * 70; // 0 to 70%
-      randomY = Math.random() * 80 - 40; // -40% to 40%
-      randomRotation = Math.random() * 60 - 30; // -30 to 30 degrees
+      xMin = 5;
+      xMax = 75 - safeMarginX; // Ensure right side of card is visible
+      yMin = -35; // From center
+      yMax = 35; // From center
+      rotationRange = 20;
     }
+
+    // Calculate random position with safety limits
+    const randomX = Math.min(Math.max(xMin, Math.random() * xMax), xMax);
+    const randomY = Math.min(
+      Math.max(yMin, Math.random() * (yMax - yMin) + yMin),
+      yMax
+    );
+    const randomRotation = Math.random() * rotationRange * 2 - rotationRange;
 
     return { x: randomX, y: randomY, rotation: randomRotation };
   }
@@ -105,8 +122,12 @@ function initTarot() {
 
     const isReversed = Math.random() < 0.5; // 50% chance of being reversed
 
+    // Darken existing cards before adding new ones
+    updateCardStackDepth();
+
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
+    cardDiv.dataset.stackIndex = drawnCardNumbers.length - 1; // Add stack index for darkening effect
 
     // Create front and back faces with correct positions
     const frontFace = document.createElement("div");
@@ -122,12 +143,16 @@ function initTarot() {
     // Add to DOM first before applying animations
     drawnCards.appendChild(cardDiv);
 
-    // Position the card - modified for better mobile experience
+    // Position the card with improved positioning for full visibility
     const position = getRandomCardPosition();
 
+    // Center the card vertically with offset and use absolute positioning
     cardDiv.style.left = `${position.x}%`;
-    cardDiv.style.top = `${50 + position.y}%`; // Center vertically + random offset
-    cardDiv.style.transform = `rotate(${position.rotation}deg)`;
+    cardDiv.style.top = `${50 + position.y * 0.7}%`; // Scale down Y offset for better visibility
+
+    // Remove the margin-based positioning and use transform for rotation only
+    cardDiv.style.marginTop = "0"; // Don't use margin for positioning
+    cardDiv.style.transform = `translate(0, -50%) rotate(${position.rotation}deg)`;
 
     // Store card data
     cardDiv.dataset.cardNumber = randomNumber;
@@ -144,6 +169,28 @@ function initTarot() {
     } else {
       backFace.style.transform = "rotateY(180deg)";
     }
+
+    // Set z-index based on card order - HIGHER index for NEWER cards
+    cardDiv.style.zIndex = 50 + drawnCardNumbers.length; // Start at 50 to ensure newer cards are on top
+  }
+
+  // Function to update darkness of cards based on their position in the stack
+  function updateCardStackDepth() {
+    const allCards = document.querySelectorAll("#drawn-cards .card");
+    const totalCards = allCards.length;
+
+    if (totalCards > 0) {
+      allCards.forEach((card) => {
+        // Get the stack index and calculate darkness (newer cards are brighter)
+        const stackIndex = parseInt(card.dataset.stackIndex) || 0;
+        // Calculate a brightness percentage (100% for newest, down to 60% for oldest)
+        const brightness = Math.max(60, 100 - stackIndex * 5);
+        // Apply a filter with varying brightness and slight blur for depth
+        card.style.filter = `brightness(${brightness}%) contrast(${brightness}%)`;
+        // Also adjust the z-index to ensure stacking order (newer cards on top)
+        card.style.zIndex = 50 + stackIndex; // Higher z-index for newer cards
+      });
+    }
   }
 
   function focusCard(event) {
@@ -159,14 +206,11 @@ function initTarot() {
     // Set the card image
     cardImage.style.backgroundImage = `url('./images/${cardNumber}.png')`;
 
-    // Apply rotation for reversed cards using rotateZ for cleaner rotation
-    if (isReversed) {
-      cardImage.style.transform = "translate(-50%, -50%) rotateZ(180deg)";
-      cardImage.dataset.reversed = "true";
-    } else {
-      cardImage.style.transform = "translate(-50%, -50%)";
-      cardImage.dataset.reversed = "false";
-    }
+    // Set data attribute for CSS to handle rotation
+    cardImage.dataset.reversed = isReversed ? "true" : "false";
+
+    // Clear any inline transforms that might interfere with CSS rules
+    cardImage.style.transform = "";
 
     // Update text content
     cardName.textContent = `Card #${cardNumber}`;
@@ -178,13 +222,7 @@ function initTarot() {
     overlay.classList.remove("hidden");
 
     // Add animation to make the card pulse while maintaining orientation
-    if (isReversed) {
-      cardImage.style.setProperty("--rotation", "rotateZ(180deg)");
-    } else {
-      cardImage.style.setProperty("--rotation", "");
-    }
-    cardImage.style.animation =
-      "cardGlow 2s infinite, pulseScale 2s ease infinite";
+    cardImage.style.animation = "cardGlow 5s infinite";
 
     // Add background color with slight delay for a nice fade-in effect
     setTimeout(() => {
@@ -196,6 +234,9 @@ function initTarot() {
     // Add a fade-out effect
     cardFocus.classList.remove("description-visible", "show-bg");
 
+    // Remove the slide class but keep the reversed data attribute
+    cardImage.classList.remove("slide");
+
     // Reset transform based on orientation
     const isReversed = cardImage.dataset.reversed === "true";
 
@@ -204,8 +245,6 @@ function initTarot() {
     } else {
       cardImage.style.transform = "translate(-50%, -50%)";
     }
-
-    cardImage.classList.remove("slide");
 
     // Wait for the animation to complete before hiding
     setTimeout(() => {
