@@ -7,30 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <meta name="description" content="tarot cards">
-    <script src="tarot.js" defer></script>
 </head>
 
 <body class="tarot-page">
     <div class="bgimage"></div>
-    <!-- String Lights -->
-
-    <!-- Clickable Deck -->
-    <!-- Deck of Cards -->
-    <div class="deck" onclick="drawCard()"></div>
-
-    <!-- Drawn Cards Container -->
-    <div class="drawn-cards"></div>
-
-    <!-- Description Box -->
-    <div class="card-description"></div>
+    <div class="deckcontainer">
+        <!-- Deck of Cards -->
+        <div id="deck"></div>
     </div>
 
+    <div class="drawncontainer">
+        <div id="drawn-cards"></div>
+    </div>
+
+    <!-- Card Focus Modal - updated structure -->
+    <div id="card-focus" class="hidden">
+        <div class="card-focus-inner">
+            <div class="card-image"></div>
+            <div class="card-description">
+                <h2 id="card-name"></h2>
+                <h3 id="card-orientation"></h3>
+                <p id="card-text"></p>
+                <p class="tip">Click the card to see its description</p>
+            </div>
+        </div>
+        <button id="close-button">X</button>
+    </div>
+    <div id="overlay" class="hidden"></div>
+
     <script src="tarot.js" defer></script>
-
-</body>
-
-</html>
-
 </body>
 
 </html>
