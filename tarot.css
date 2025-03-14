@@ -1,6 +1,6 @@
 @font-face {
     font-family: "waiting-for-the-sunrise";
-    src: url("/fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
+    src: url("./fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,21 +28,34 @@
     src: url('./fonts/Satisfy-Regular.ttf') format("truetype");
 }
 
+@font-face {
+    font-family: "agudisplay";
+    src: url(".fonts/AguDisplay-Regular-VariableFont_MORF.ttf") format("truetype");
+}
 
 body {
-    font-family: "satisfy", sans-serif;
     margin: 0;
-    overflow: hidden;
-    /* Hide scrollbars */
-    background-image: url("img/fortune-teller-table.jpg");
-    /* Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    /* Make sure the background covers the whole viewport */
+    font-family: "agudisplay";
+    /* Use the font-family you prefer */
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+    /* Light grey background */
+    font-family: "agudisplay";
+    margin: 0;
+    overflow: hidden;
+}
+
+.bgimage {
+    /* Hide scrollbars */
+    position: fixed;
+    background-image: url("./images/tarottable.png");
+    /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    z-index: 200;
 }
 
 .container {
@@ -56,7 +69,7 @@ body {
 #deck {
     width: 150px;
     height: 250px;
-    background-image: url("img/back.png");
+    background-image: url("images/back.png");
     /* Card back image */
     background-size: cover;
     cursor: pointer;
@@ -119,7 +132,7 @@ body {
 }
 
 .card .back {
-    background-image: url("img/back.png");
+    background-image: url("./images/back.png");
     background-size: cover;
     transform: rotateY(180deg);
 }

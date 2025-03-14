@@ -1,6 +1,6 @@
 @font-face {
   font-family: "waiting-for-the-sunrise";
-  src: url("/fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
+  src: url("./fonts/WaitingfortheSunrise-Regular.ttf") format("truetype");
 }
 
 @font-face {

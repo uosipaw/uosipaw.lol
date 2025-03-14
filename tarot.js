@@ -58,7 +58,7 @@ function drawCard() {
   // Create front and back faces
   const frontFace = document.createElement("div");
   frontFace.classList.add("front");
-  frontFace.style.backgroundImage = `url('img/${randomNumber}.png')`; // Card face image
+  frontFace.style.backgroundImage = `url('./images/${randomNumber}.png')`; // Card face image
   const backFace = document.createElement("div");
   backFace.classList.add("back");
 
@@ -91,7 +91,7 @@ function focusCard(event) {
   const cardNumber = card.dataset.cardNumber;
   const isReversed = card.dataset.reversed === "true";
 
-  cardImage.style.backgroundImage = `url('img/${cardNumber}.png')`;
+  cardImage.style.backgroundImage = `url('./images/${cardNumber}.png')`;
   cardName.textContent = `Card #${cardNumber}`; // Placeholder
   cardOrientation.textContent = isReversed ? "Reversed" : "Upright"; // Placeholder
   cardText.textContent = `Description for card #${cardNumber} goes here.`; // Placeholder
