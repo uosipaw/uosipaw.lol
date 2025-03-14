@@ -1,0 +1,47 @@
+html, body {
+	height: 100%;
+	font: 400 100%/1.25 "Roboto", sans-serif;
+}
+
+.playground {
+	font: 400 100%/1 'Inter', sans-serif;
+	background-color: #778beb;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
+}
+
+#helper {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.menu {
+	&__item {
+		background-color: #f7d794;
+		border: 3px solid #f5cd79;
+		border-radius: 1.5em;
+		box-shadow: inset 0 0 0 .1em currentColor;
+		font-size: 1.15rem;
+		position: absolute;
+		
+		&:hover {
+			background-color: #f5cd79;
+		}
+	}
+	
+	&__link {
+		color: #303952;
+		text-decoration: none;
+		display: block;
+		padding: .75em 3em;
+		text-align: center;
+		line-height: 1;
+	}
+}
