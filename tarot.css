@@ -134,7 +134,7 @@ body {
     transition: transform 1s ease;
     /* Increased duration for smoother flip */
     box-shadow: 3px 3px 7px rgb(23 11 11 / 54%);
-    backface-visibility: hidden;
+    backface-visibility: visible;
     transform-style: preserve-3d;
     z-index: 7;
     /* Lower than deck */
