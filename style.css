@@ -24,18 +24,39 @@
 }
 
 .home-page {
+  background-color: #e6ead8;
   background-image: url("./images/home.gif");
-  animation-iteration-count: 1;
-  animation-name: fadeIn;
-  animation-duration: 3s;
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-position: bottom;
   min-height: 100vh;
   opacity: 1;
   z-index: 1;
+  animation: pauseAnimation 15s forwards;
+  /* Changed to use a custom animation */
 }
 
-/* 📌 Navbar */
+/* Add new animation to control GIF playback */
+@keyframes pauseAnimation {
+  0% {
+    background-image: url("./images/home.gif");
+    animation-play-state: running;
+  }
+
+  99% {
+    background-image: url("./images/home.gif");
+    animation-play-state: running;
+  }
+
+  100% {
+    /* At the end, switch to a static version of the final frame */
+    background-image: url("./images/home.gif");
+    animation-play-state: paused;
+  }
+}
+
+/* Fix the syntax error in the original CSS */
+
 .home-page>.navbar,
 .paint .navbar {
   position: fixed;
